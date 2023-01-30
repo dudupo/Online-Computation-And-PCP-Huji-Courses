@@ -82,9 +82,18 @@
   It left to show the seconed direaction, By the monotonic preporty of random variables we have that for any distribution $\tilde{\sigma}$: 
   \begin{equation*}
     \begin{split}
-      \dsig{ \dalg{ \calg\left( \sigma \right) } } \ge c \cdot \dsig{  \cbase\left( \sigma \right) } 
+    &  \dalg{ \dsig{ \calg\left( \sigma \right) } } \ge c \cdot \dalg{ \dsig{  \cbase\left( \sigma \right) } } \\
+& \dsig{ \dalg{ \calg\left( \sigma \right) } } \ge c \cdot \dsig{ \dalg{  \cbase\left( \sigma \right) } } \\
+& \dsig{ \dalg{ \calg\left( \sigma \right) } } \ge c \cdot \dsig{  \cbase\left( \sigma \right) }  
     \end{split}
   \end{equation*}
+  And by the fact that inequlity of excpection between random varibles follows an existness of atomic event on which the inequality holds, we obtain that there is must exists at least a sinlge $\sigma$ such that:
+  \begin{equation*}
+    \begin{split}
+       \dsig{ \dalg{ \calg\left( \sigma \right) } } \ge c \cdot \dsig{  \cbase\left( \sigma \right) }  
+    \end{split}
+  \end{equation*}
+  And that ends the proof.
 \end{multicols*}
 \printbibliography 
 \end{document}

@@ -65,18 +65,14 @@
 \begin{multicols*}{2}
   \paragraph{ex1.} Find a simple description of the work-function algorithm in the case of uniform metric space. 
   \paragraph{Solution.} Recall that in the work-function algorithm we weight the configutations by the price one has pay for serving all the requests and ending at those configuration combing the distance between them and the current configuration. In the paging problem the configurations are the content of the cache stack.  
+  Denote by $m$ and $k$ the hardisk siz and the number of the servers. Enumarate each of the valid stack states by $Q = q_{0},q_{1},q_{2},\dots q_{M}$  where $M = \binom(m,k)$. In addition define a weight function $w : Q \rightarrow \mathbb{R}$ to be hamming distance betweem pair of configurations. Finaly define a $M \times m$ table $W_{i,j}$ to store the optimal work that has do be done while serving $\sigma_{0},\sigma_{1},\sigma_{2},\dots \sigma_{j}$ requests and ending in configuration $q_{i}$.     
 
-\begin{algorithm}[H]
-  \caption{Work-function-Algo for paging.}
+  \begin{algorithm}[H]
+    \caption{Work-function-Algo for paging.}
     \label{alg:three}
-    %\KwData{ $x \in \mathbb{F}_{2}^{n}$ }
-    %\KwResult{ $\arg\min {\left\{  y \in C : |y + x|  \right\} }$ if $d(y,C) < \tau $ and False otherwise. }
-    %$ L \leftarrow \text{Array} \{ \} $\\
-    \For { each new day $j$  } {
-      \If{ $x < 1$  } { 
-	$ \xi_{j} \Leftarrow 1 - x$ \\
-	$ x \Leftarrow \left( 1 + \frac{1}{M} \right) x + \frac{1}{\left( c - 1  \right) M } $ \\
-	$ z_{j} \Leftarrow 1$
+    \For { each new request $\sigma_{j}$  } {
+      \For { $ i \in [m] $} {
+	$W_{i,j} \leftarrow W_{i,j}$ 
       }
     }
   \end{algorithm}
@@ -168,7 +164,7 @@
   So in total.
 
   %\fbox {
-\begin{algorithm}[H]
+  \begin{algorithm}[H]
     \caption{Ski-Rental}
     \label{alg:three}
     %\KwData{ $x \in \mathbb{F}_{2}^{n}$ }

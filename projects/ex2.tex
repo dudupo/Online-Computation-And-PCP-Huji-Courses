@@ -50,6 +50,13 @@
 \begin{document}
 
 
+
+\newcommand{\dalg}[1]{\expp{#1 : \text{alg} \sim \tilde{\text{alg}}}}
+  \newcommand{\dsig}[1]{\expp{#1 : \sigma \sim \tilde{\sigma}}}
+  \newcommand{\calg}{c_{\text{alg}}}
+  \newcommand{\cbase}{c_{\text{base}}}
+
+
 \title{Simple LTC Good LDPC Codes} 
 \author{David Ponarovsky}
 \maketitle
@@ -66,7 +73,9 @@
       \end{cases}
     \end{split}
   \end{equation*}
-  Using Yao's principle, it's enough to show that any determisntic alogrithm is $H_{2}$ competitive in expectetion aginst the that spasific distribution. First notice that konwing what is the exactly drawn $\sigma$ fix an optimal startegy ehich is one of the following: moving alternaty the server which initialized at $a$ between $a,b$ points, or choosing first the sever that located in $c$ into $a$ in the second senario. 
+  Using Yao's principle, it's enough to show that any determisntic alogrithm is $H_{2}$ competitive in expectetion aginst the that spasific distribution. First notice that konwing what is the exactly drawn $\sigma$ fix an optimal startegy ehich is one of the following: moving alternaty the server which initialized at $a$ between $a,b$ points, or choosing first the sever that located in $c$ into $a$ in the second senario.
+  Puting down we obtain that $ \dsig{ \cbase \left( \sigma \right)  } = \frac{1}{2} \left(  \frac{M}{3} + M  \right) = \frac{5}{6}M $. 
+ 
   \paragraph{ex3.} Show that randomized marking algortihm cannot be $c$-competitive against the adaptive online adversary, for $c=o\left( k \right)$. 
   \paragraph{Solution.} Assume by contrdiction that there is a constant $c> 1$, and a randomizded algorithm which is an $c$-competitive in the adadptive online setting. According to theroem that shown at class, If there is exists an $\alpha$ competitive alg for an online problem in the non-adaptive setting and inadttion there exists a $\beta$ competitive algorithm for the same problem aginst adaptive online adversary, then it holds that there exists an algorithm which is $\alpha\beta$ competitive against an offline adaptive adversary. 
   Combine the fact that randomized con't help agaisnt such adversary we obtain that the deterministic comppetitive ratio is lower than $\alpha\beta$. As we know that a $k$-lowerbound for the determinstic regime and also a $\log k$ soultion using randomizion agaisnt a non-adaptive adversary, we obtains that      
@@ -80,11 +89,7 @@
   \paragraph{ex4 - Ski Rental.} At each step, the adversary decides etiher continue or stop. Stop terminate the game. If it continues, the online algorithm decides, etiher rent or buy. Rent costs $1$ Buy costs $M > 1$. Deisgn a primal-dual randomized online ski-rental algorithm with better than $2$ competitive ratio.  
   \paragraph{ex5.} Prove Yao's minimax principle. 
   
-  \newcommand{\dalg}[1]{\expp{#1 : \text{alg} \sim \tilde{\text{alg}}}}
-  \newcommand{\dsig}[1]{\expp{#1 : \sigma \sim \tilde{\sigma}}}
-  \newcommand{\calg}{c_{\text{alg}}}
-  \newcommand{\cbase}{c_{\text{base}}}
-  \begin{equation*}
+    \begin{equation*}
     \begin{split}
       & \forall \text{rand. } \tilde{\text{alg}} \  \exists  \ \sigma  \\
       & \ \ \dalg{ \calg\left( \sigma \right) } \ge c \cdot   \cbase\left( \sigma \right) \\  

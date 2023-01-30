@@ -58,6 +58,15 @@
   \paragraph{ex1.} Find a simple description of the work-function algorithm in the case of uniform metric space. 
   \paragraph{ex2.} Consider the following $3$-point metric space, $w\left( a,b \right) = 1 $ and $w\left( \cdot, c  \right) = M $. The initial configuration is $ \left\{ b,c \right\}$ ($2$ servers). Show that randomized competitive ratio, for some value of $M$ is $ > H_{2} = 1 + \frac{1}{2}$. 
   \paragraph{ex3.} Show that randomized marking algortihm cannot be $c$-competitive against the adaptive online adversary, for $c=o\left( k \right)$. 
+  \paragraph{Solution.} Assume by contrdiction that there is a constant $c> 1$, and a randomizded algorithm which is an $c$-competitive in the adadptive online setting. According to theroem that shown at class, If there is exists an $\alpha$ competitive alg for an online problem in the non-adaptive setting and inadttion there exists a $\beta$ competitive algorithm for the same problem aginst adaptive online adversary, then it holds that there exists an algorithm which is $\alpha\beta$ competitive against an offline adaptive adversary. 
+  Combine the fact that randomized con't help agaisnt such adversary we obtain that the deterministic comppetitive ratio is lower than $\alpha\beta$. As we know that a $k$-lowerbound for the determinstic regime and also a $\log k$ soultion using randomizion agaisnt a non-adaptive adversary, we obtains that      
+  \begin{equation*}
+    \begin{split}
+      & \alpha\beta \ge k \\ 
+      \Rightarrow  & \frac{k}{c}\log k \ge k 
+    \end{split}
+  \end{equation*} But for any $ k \le \log 2^{c} $ we obtain the oppsite direction. Which mean that there is a range of valids $k$ that obtains a better ratio than the lower bound. And that is a contridiction.   
+
   \paragraph{ex4 - Ski Rental.} At each step, the adversary decides etiher continue or stop. Stop terminate the game. If it continues, the online algorithm decides, etiher rent or buy. Rent costs $1$ Buy costs $M > 1$. Deisgn a primal-dual randomized online ski-rental algorithm with better than $2$ competitive ratio.  
   \paragraph{ex5.} Prove Yao's minimax principle. 
   

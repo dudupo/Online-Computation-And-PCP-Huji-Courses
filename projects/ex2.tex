@@ -96,7 +96,21 @@
   \begin{equation*}
     \begin{split}
       & \min{ Mx + \sum_{j}{z_{j}}} \\
-	\text{s.b } & x + z_{j} \ge 1 
+	\text{s.b } & x + z_{j} \ge 1 \Leftrightarrow \\ 
+	& \begin{bmatrix}
+   		1 & 1 & 0 & 0 & 0\\
+   		1 & 0 & 1 & 0 & 1\\
+   		1 & 0 & 0 & 1 & 0\\
+   		1 & 0 & 0 & 0 & 1\\
+		\dots & \dots & \dots & \dots & \dots
+	\end{bmatrix} 
+	\begin{bmatrix}
+	x \\
+	\xi_{1} \\ 
+	\xi_{2} \\
+	\xi_{3} \\
+	\dots 
+	\end{bmatrix}
     \end{split}
   \end{equation*}
   \paragraph{ex5.} Prove Yao's minimax principle. 

@@ -98,28 +98,57 @@
       & \min{ Mx + \sum_{j}{\xi_{j}}} \\
       \text{s.b } & x + \xi_{j} \ge 1 \Leftrightarrow \\ 
       & \begin{bmatrix}
-	1 & 1 & 0 & 0 & 0\\
-	1 & 0 & 1 & 0 & 1\\
-	1 & 0 & 0 & 1 & 0\\
-	1 & 0 & 0 & 0 & 1\\
-	\dots & \dots & \dots & \dots & \dots
+	1 & 1 & 0 & 0 & \cdot\\
+	1 & 0 & 1 & 0 & \cdot\\
+	1 & 0 & 0 & 1 & \cdot\\
+	1 & 0 & 0 & 0 & \cdot\\
+	\cdot & \cdot & \cdot & \cdot & \cdot
       \end{bmatrix} 
       \begin{bmatrix}
 	x \\
 	\xi_{1} \\ 
 	\xi_{2} \\
 	\xi_{3} \\
-	\dots 
+	\cdot 
       \end{bmatrix} \ge
       \begin{bmatrix}
 	1 \\
 	1 \\ 
 	1 \\
 	1 \\
-	\dots 
+	\cdot 
       \end{bmatrix}
     \end{split}
   \end{equation*}
+  So the dual program is 
+  \begin{equation*}
+    \begin{split}
+      & \max{ \sum_{j}{\z_{j}}} \\
+      \text{s.b } &  \  \\ 
+      & \begin{bmatrix}
+	1 & 1 & 1 & 1 & \cdot \\
+	1 & 0 & 0 & 0 & \cdot \\
+	0 & 1 & 0 & 0 & \cdot \\
+	0 & 0 & 1 & 0 & \cdot \\
+	\cdot & \cdot & \cdot & \cdot & \cdot
+      \end{bmatrix} 
+      \begin{bmatrix}
+	x \\
+	\z_{1} \\ 
+	\z_{2} \\
+	\z_{3} \\
+	\cdot 
+      \end{bmatrix} \le
+      \begin{bmatrix}
+	M \\
+	1 \\ 
+	1 \\
+	1 \\
+	\cdot 
+      \end{bmatrix}
+    \end{split}
+  \end{equation*}
+
   \paragraph{ex5.} Prove Yao's minimax principle. 
 
   \begin{equation*}

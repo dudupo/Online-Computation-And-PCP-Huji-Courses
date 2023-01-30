@@ -89,26 +89,26 @@
       \end{cases}
     \end{split}
   \end{equation*}
-  Using Yao's principle, it's enough to show that any determisntic alogrithm is $H_{2}$ competitive in expectetion aginst the that spasific distribution. First notice that konwing what is the exactly drawn $\sigma$ fix an optimal startegy ehich is one of the following: moving alternaty the server which initialized at $a$ between $a,b$ points, or choosing first the sever that located in $c$ into $a$ in the second senario.
-  Puting down we obtain that: 
+  Using Yao's principle, it's enough to show that any deterministic algorithm is $H_{2}$ competitive in expectation against that specific distribution. First, notice that knowing what is the exactly drawn $\sigma$, fixes an optimal strategy which is one of the following: moving the server initialized at $a$ between $a,b$ points alternately or choosing first the server that is located in $c$ into $a$ in the second scenario.
+  Putting down, we obtain that: 
   \begin{equation*}
     \begin{split}
       \dsig{ \cbase \left( \sigma \right)  } = \frac{1}{2} \left(  \frac{M}{3} + M  \right) = \frac{5}{6}M 
     \end{split}
   \end{equation*}
-  Meanwhile, by the fact that reading any preffix of requests serires at length less than $\frac{M}{3}$ doesn't expose any information about the drawed input which wasn't known at the initilized momment, it follows by undistingushable arguments that the best an radomized algorithm can do is to guess.     
+  Meanwhile, by the fact that reading any prefix of requests series at length less than $\frac{M}{3}$ doesn't expose any information about the drawn input which wasn't known at the initialized moment, it follows by indistinguishable arguments that the best a randomized algorithm can do is to guess.     
   \paragraph{ex3.} Show that randomized marking algortihm cannot be $c$-competitive against the adaptive online adversary, for $c=o\left( k \right)$. 
-  \paragraph{Solution.} Assume by contrdiction that there is a constant $c> 1$, and a randomizded algorithm which is an $c$-competitive in the adadptive online setting. According to theroem that shown at class, If there is exists an $\alpha$ competitive alg for an online problem in the non-adaptive setting and inadttion there exists a $\beta$ competitive algorithm for the same problem aginst adaptive online adversary, then it holds that there exists an algorithm which is $\alpha\beta$ competitive against an offline adaptive adversary. 
-  Combine the fact that randomized con't help agaisnt such adversary we obtain that the deterministic comppetitive ratio is lower than $\alpha\beta$. As we know that a $k$-lowerbound for the determinstic regime and also a $\log k$ soultion using randomizion agaisnt a non-adaptive adversary, we obtains that      
+  \paragraph{Solution.} Assume by contrdiction that there is a constant $c> 1$, and a randomizded algorithm which is an $c$-competitive in the adadptive online setting. According to the theroem shown at class, If there exists an $\alpha$ competitive alg for an online problem in the non-adaptive setting and inadttion there exists a $\beta$ competitive algorithm for the same problem aginst adaptive online adversary, then it holds that there exists an algorithm which is $\alpha\beta$ competitive against an offline adaptive adversary. 
+  Combining the fact that randomized can't help against such an adversary, we obtain that the deterministic competitive ratio is lower than $\alpha\beta$. As we know that a $k$-lowerbound for the deterministic regime and also a $\log k$ solution using randomization against a non-adaptive adversary, we obtain that      
   \begin{equation*}
     \begin{split}
       & \alpha\beta \ge k \\ 
       \Rightarrow  & \frac{k}{c}\log k \ge k 
     \end{split}
-  \end{equation*} But for any $ k \le \log 2^{c} $ we obtain the oppsite direction. Which mean that there is a range of valids $k$ that obtains a better ratio than the lower bound. And that is a contridiction.   
+  \end{equation*} But for any $ k \le \log 2^{c} $ we obtain the oppsite direction. This means that there is a range of valid $k$ that obtains a better ratio than the lower bound. And that is a contradiction.   
 
-  \paragraph{ex4 - Ski Rental.} At each step, the adversary decides etiher continue or stop. Stop terminate the game. If it continues, the online algorithm decides, etiher rent or buy. Rent costs $1$ Buy costs $M > 1$. Deisgn a primal-dual randomized online ski-rental algorithm with better than $2$ competitive ratio.  
-  \paragraph{Solution.}. Let's start by formulate an integer LP for the Ski-Rental problem. Denote by $m$ the days number, assoicate a varible $x$ indecating wether or not the algorithm dicide to buy. Also let's associate with each day a varible $\xi_{j}$ which indicate if the algorithm pays for rent. In each turn the soultion must satisfy the restrictions $ \xi_{j} + x  \ge 1$. The cost which we would like to minimize is $ M\cdot x + \sum_{j}{\xi_{j}}$. So, in overall we get that out LP is:    
+  \paragraph{ex4 - Ski Rental.} At each step, the adversary decides either to continue or stop. Stop terminating the game. If it continues, the online algorithm decides either to rent or buy. Rent costs $1$. Buy costs $M > 1$. Design a primal-dual randomized online ski-rental algorithm with a better than $2$ competitive ratio.  
+  \paragraph{Solution.}. Let's start by formulating an integer LP for the Ski-Rental problem. Denote by $m$ the days' number, and associate a variable $x$, indicating whether the algorithm decides to buy. Also, let's associate a variable $\xi_{j}$ for each day which indicates if the algorithm pays for rent. In each turn, the solution must satisfy the restrictions $ \xi_{j} + x  \ge 1$. The cost which we would like to minimize is $ M\cdot x + \sum_{j}{\xi_{j}}$. So, in overall, we get that LP is:    
   \begin{equation*}
     \begin{split}
       & \min{ Mx + \sum_{j}{\xi_{j}}} \\
@@ -192,13 +192,13 @@
       & \ \ \dsig{  \calg\left( \sigma \right)  } \ge c \dsig{ \cbase \left( \sigma \right)  } 
     \end{split}
   \end{equation*}
-  \paragraph{Solution.} First direction, assume through contriduction that there exists an determenstic algorithm such that for all distrubtons $\tilde{\sigma}$ :
+  \paragraph{Solution.} First direction, assume through contradiction that there exists a deterministic algorithm such that for all distributions $\tilde{\sigma}$ :
   \begin{equation*}
     \begin{split}
       \dsig{  \calg\left( \sigma \right)  } < c \dsig{ \cbase \left( \sigma \right)  }
     \end{split}
-  \end{equation*} And that holds, in paritcular, for distribution $\tilde{\sigma}$ which suportted by a single $\sigma$. Hence, by the fact that any deterministic algortihm is also a randomized algortithm, set it to be $ \tilde{\text{alg}}$ and that imdetly yeilds a contrudioction. 
-  It left to show the seconed direaction, By the monotonic preporty of random variables we have that for any distribution $\tilde{\sigma}$: 
+  \end{equation*} And that holds, in paritcular, for distribution $\tilde{\sigma}$ which suportted by a single $\sigma$. Hence, because any deterministic algorithm is also a randomized algorithm, set it to be $ \tilde{\text{alg}}$, and that immediately yields a contradiction. 
+  It is left to show the second direction. By the monotonic property of random variables, we have that for any distribution $\tilde{\sigma}$: 
   \begin{equation*}
     \begin{split}
       &  \dalg{ \dsig{ \calg\left( \sigma \right) } } \\
@@ -209,7 +209,7 @@
       & \ \ \ \  \ge c \cdot \dsig{  \cbase\left( \sigma \right) }  
     \end{split}
   \end{equation*}
-  And by the fact that inequlity of excpection between random varibles follows an existness of atomic event on which the inequality holds, we obtain that there is must exists at least a sinlge $\sigma$ such that:
+  And by the fact that inequality of exception between random variables follows an existence of atomic event on which the inequality holds, we obtain that there must exists at least a single $\sigma$ such that:
   \begin{equation*}
     \begin{split}
       \dsig{ \dalg{ \calg\left( \sigma \right) } } \ge c \cdot \dsig{  \cbase\left( \sigma \right) }  
@@ -219,6 +219,7 @@
 \end{multicols*}
 \printbibliography 
 \end{document}
+
 
 
 

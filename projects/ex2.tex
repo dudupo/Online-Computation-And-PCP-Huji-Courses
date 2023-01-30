@@ -63,6 +63,21 @@
 \abstract{We propose a new simple construction based on Tanner Codes, which yields a good LDPC testable code.} 
 \begin{multicols*}{2}
   \paragraph{ex1.} Find a simple description of the work-function algorithm in the case of uniform metric space. 
+  \paragraph{Solution.} 
+\begin{algorithm}[H]
+  \caption{Work-function-Algo for paging.}
+    \label{alg:three}
+    %\KwData{ $x \in \mathbb{F}_{2}^{n}$ }
+    %\KwResult{ $\arg\min {\left\{  y \in C : |y + x|  \right\} }$ if $d(y,C) < \tau $ and False otherwise. }
+    %$ L \leftarrow \text{Array} \{ \} $\\
+    \For { each new day $j$  } {
+      \If{ $x < 1$  } { 
+	$ \xi_{j} \Leftarrow 1 - x$ \\
+	$ x \Leftarrow \left( 1 + \frac{1}{M} \right) x + \frac{1}{\left( c - 1  \right) M } $ \\
+	$ z_{j} \Leftarrow 1$
+      }
+    }
+  \end{algorithm}
   \paragraph{ex2.} Consider the following $3$-point metric space, $w\left( a,b \right) = 1 $ and $w\left( \cdot, c  \right) = M $. The initial configuration is $ \left\{ b,c \right\}$ ($2$ servers). Show that randomized competitive ratio, for some value of $M$ is $ > H_{2} = 1 + \frac{1}{2}$. 
   \paragraph{Solution.} Define the following distribution: 
   \begin{equation*}

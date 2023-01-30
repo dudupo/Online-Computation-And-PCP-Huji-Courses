@@ -73,13 +73,18 @@
       & \ \ \dsig{  \calg\left( \sigma \right)  } \ge c \dsig{ \cbase \left( \sigma \right)  } 
       \end{split}
   \end{equation*}
-  \paragraph{Solution.} First direction, assume through contriduction that for all distrubtons $\tilde{\sigma}$ there exists an algorithm such that: 
+  \paragraph{Solution.} First direction, assume through contriduction that there exists an determenstic algorithm such that for all distrubtons $\tilde{\sigma}$ :
   \begin{equation*}
     \begin{split}
       \dsig{  \calg\left( \sigma \right)  } < c \dsig{ \cbase \left( \sigma \right)  }
     \end{split}
-  \end{equation*} Now let $\tilde{\sigma}$ be the uniform distrubtion, and notice that by defintion $\cbase\left( \sigma \right) \le \calg \left( \sigma \right)$. By the fact that probability function must be non negitive we obtain that. 
-  By the monotonic preporty of random variables we have 
+  \end{equation*} And that holds, in paritcular, for distribution $\tilde{\sigma}$ which suportted by a single $\sigma$. Hence, by the fact that any deterministic algortihm is also a randomized algortithm, set it to be $ \tilde{\text{alg}}$ and that imdetly yeilds a contrudioction. 
+  It left to show the seconed direaction, By the monotonic preporty of random variables we have that for any distribution $\tilde{\sigma}$: 
+  \begin{equation*}
+    \begin{split}
+      \dsig{ \dalg{ \calg\left( \sigma \right) } } \ge c \cdot \dsig{  \cbase\left( \sigma \right) } 
+    \end{split}
+  \end{equation*}
 \end{multicols*}
 \printbibliography 
 \end{document}

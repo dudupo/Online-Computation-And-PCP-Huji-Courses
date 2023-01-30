@@ -74,7 +74,12 @@
     \end{split}
   \end{equation*}
   Using Yao's principle, it's enough to show that any determisntic alogrithm is $H_{2}$ competitive in expectetion aginst the that spasific distribution. First notice that konwing what is the exactly drawn $\sigma$ fix an optimal startegy ehich is one of the following: moving alternaty the server which initialized at $a$ between $a,b$ points, or choosing first the sever that located in $c$ into $a$ in the second senario.
-  Puting down we obtain that $ \dsig{ \cbase \left( \sigma \right)  } = \frac{1}{2} \left(  \frac{M}{3} + M  \right) = \frac{5}{6}M $. 
+  Puting down we obtain that : 
+  \begin{equation*}
+    \begin{split}
+       \dsig{ \cbase \left( \sigma \right)  } = \frac{1}{2} \left(  \frac{M}{3} + M  \right) = \frac{5}{6}M 
+    \end{split}
+  \end{equation*}
  
   \paragraph{ex3.} Show that randomized marking algortihm cannot be $c$-competitive against the adaptive online adversary, for $c=o\left( k \right)$. 
   \paragraph{Solution.} Assume by contrdiction that there is a constant $c> 1$, and a randomizded algorithm which is an $c$-competitive in the adadptive online setting. According to theroem that shown at class, If there is exists an $\alpha$ competitive alg for an online problem in the non-adaptive setting and inadttion there exists a $\beta$ competitive algorithm for the same problem aginst adaptive online adversary, then it holds that there exists an algorithm which is $\alpha\beta$ competitive against an offline adaptive adversary. 

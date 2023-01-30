@@ -62,13 +62,16 @@
   \paragraph{ex5.} Prove Yao's minimax principle. 
   
   \newcommand{\dalg}[1]{\expp{#1 : \text{alg} \sim \tilde{\text{alg}}}}
+  \newcommand{\dsig}[1]{\expp{#1 : \sigma \sim \tilde{\sigma}}}
   \newcommand{\calg}{c_{\text{alg}}}
   \newcommand{\cbase}{c_{\text{base}}}
   \begin{equation*}
     \begin{split}
       & \forall \text{rand. } \tilde{\text{alg}} \  \exists  \ \sigma  \\
       & \ \ \dalg{ \calg\left( \sigma \right) } \ge c \cdot   \cbase\left( \sigma \right) 
-    \end{split}
+      & \Leftrightarrow \exists \ \text{rand.} \ \tilde{\sigma} \forall \text{alg} \\  
+      & \ \ \disg{  \calg\left( \sigma \right)  } \ge c \disg{ \cbase \left( \sigma \right)  } 
+      \end{split}
   \end{equation*}
 \end{multicols*}
 \printbibliography 

@@ -151,30 +151,19 @@
   So in total.
 
 \begin{algorithm}[H]
-    \caption{Decoding}
+    \caption{Ski-Rental}
     \label{alg:three}
-    \KwData{ $x \in \mathbb{F}_{2}^{n}$ }
-    \KwResult{ $\arg\min {\left\{  y \in C : |y + x|  \right\} }$ if $d(y,C) < \tau $ and False otherwise. }
-    $ L \leftarrow \text{Array} \{ \} $\\
-    \For { $ v \in V$} {
-      $c^{\prime}_{v} \leftarrow \arg\min {\left\{  y \in C_{0} : |y + x|_{v} |  \right\} } $\\
-      $ L_{v} \leftarrow c^{\prime}_{v}$
-    }
-    $ z \leftarrow \sum_{v \in V}{c^{\prime}_{v}} $\\
-    \eIf{ $ |z| < \tau \frac{n}{f\left( n \right)} $}{
-      \While{ $|z| > 0$ }{
-	find $v$ and $c \in C_{0}$ such that $|z + c_{v}| < |z|$\\
-	$z \leftarrow z + c_{v}$ \\
-	$ L_{v} \leftarrow  L_{v} + c_{v}$
+    %\KwData{ $x \in \mathbb{F}_{2}^{n}$ }
+    %\KwResult{ $\arg\min {\left\{  y \in C : |y + x|  \right\} }$ if $d(y,C) < \tau $ and False otherwise. }
+    %$ L \leftarrow \text{Array} \{ \} $\\
+    \For { each new day $j$  } {
+      \If{ $x < 1$  } { 
+	$ \xi_{j} \Leftarrow 1 - x$ \\
+	$ x \Leftarrow \left( 1 + \frac{1}{M} \right) x + \frac{1}{\left( c - 1  \right) M } $ \\
+	$ z_{j} \Leftarrow 1$
       }
-    }{
-      reject. 
     }
-    \Return  $S(L) $
-
   \end{algorithm}
-
-
   \paragraph{ex5.} Prove Yao's minimax principle. 
 
   \begin{equation*}

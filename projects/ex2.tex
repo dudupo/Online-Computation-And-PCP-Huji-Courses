@@ -65,7 +65,7 @@
 \begin{multicols*}{2}
   \paragraph{ex1.} Find a simple description of the work-function algorithm in the case of uniform metric space. 
   \paragraph{Solution.} Recall that in the work-function algorithm we weight the configutations by the price one has pay for serving all the requests and ending at those configuration combing the distance between them and the current configuration. In the paging problem the configurations are the content of the cache stack.  
-Denote by $m$ and $k$ the hardisk siz and the number of the servers. Enumarate each of the valid stack states by $Q = q_{0},q_{1},q_{2},\dots q_{M}$  where $M = \binom{m}{k}$. In addition define a weight function $w : Q \rightarrow \mathbb{R}$ to be hamming distance betweem pair of configurations. Finaly define a $M \times m$ table $W_{i,j}$ to store the optimal work that has do be done while serving $\sigma_{0},\sigma_{1},\sigma_{2},\dots \sigma_{j}$ requests and ending in configuration $q_{i}$.     
+  Denote by $m$ and $k$ the hardisk siz and the number of the servers. Enumarate each of the valid stack states by $Q = q_{0},q_{1},q_{2},\dots q_{M}$  where $M = \binom{m}{k}$. In addition define a weight function $w : Q \rightarrow \mathbb{R}$ to be hamming distance betweem pair of configurations. Finaly define a $M \times m$ table $W_{i,j}$ to store the optimal work that has do be done while serving $\sigma_{0},\sigma_{1},\sigma_{2},\dots \sigma_{j}$ requests and ending in configuration $q_{i}$.     
 
   \begin{algorithm}[H]
     \caption{Work-function-Algo for paging.}
@@ -74,21 +74,18 @@ Denote by $m$ and $k$ the hardisk siz and the number of the servers. Enumarate e
     \For { each new request $\sigma_{j}$  } {
       \For { $ i \in [m] $ and $ q_{i} \neq q_{0}$ } {
 	\If { $ \sigma_{j} \in q_{i}$ } {
-	  \For { $ \sigma^{\star} \in q_{i}$ } {
-	    \For { $ \tilde{\sigma} \notin q_{i}$ } {
-	      $q_{i^{\prime} } \leftarrow  q_{i} / \sigma^{\star} \cup \tilde{\sigma}$ \\ 
-	      $W_{i,j} \leftarrow \min \left\{   W_{i,j} ,  W_{i^{\prime},j-1} + 1 \right\} $
-      	}
-      }
-    }
+	  \For { $ \sigma^{\star} \in q_{i}$ and   $ \tilde{\sigma} \notin q_{i}$ } {
+	    $q_{i^{\prime} } \leftarrow  q_{i} / \sigma^{\star} \cup \tilde{\sigma}$ \\ 
+	    $W_{i,j} \leftarrow \min \left\{   W_{i,j} ,  W_{i^{\prime},j-1} + 1 \right\} $
+	  }
+	}
 	\Else {
 	  $W_{i,j} \leftarrow \infty $ 
-	
-      		}
-    	}
-	$q_{0} \leftarrow \arg \min_{i : \sigma_{j} \in q_{i}} \left\{ W_{i,j-1} +  \mathbf{Ham}\left( q_{i}, q_{0} \right)  \right\} $ \\
-	Set $q_{0}$ as the current state, evict and serve if needed. 
-  }
+	}
+      }
+      $q_{0} \leftarrow \arg \min_{i : \sigma_{j} \in q_{i}} \left\{ W_{i,j-1} +  \mathbf{Ham}\left( q_{i}, q_{0} \right)  \right\} $ \\
+      Set $q_{0}$ as the current state, evict and serve if needed. 
+    }
   \end{algorithm}
   \paragraph{ex2.} Consider the following $3$-point metric space, $w\left( a,b \right) = 1 $ and $w\left( \cdot, c  \right) = M $. The initial configuration is $ \left\{ b,c \right\}$ ($2$ servers). Show that randomized competitive ratio, for some value of $M$ is $ > H_{2} = 1 + \frac{1}{2}$. 
   \paragraph{Solution.} Define the following distribution: 

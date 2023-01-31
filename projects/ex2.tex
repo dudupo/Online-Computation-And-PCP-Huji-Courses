@@ -82,7 +82,7 @@ Denote by $m$ and $k$ the hardisk siz and the number of the servers. Enumarate e
 	}
       		}
     	}
-	$q_{0} \leftarrow \arg \min_{i} \left\{ W_{i,j-1} +  \mathbf{Ham}\left( q_{i}, q_{0} \right)  \right\} $ \\
+	$q_{0} \leftarrow \arg \min_{i : \sigma_{j} \in q_{i}} \left\{ W_{i,j-1} +  \mathbf{Ham}\left( q_{i}, q_{0} \right)  \right\} $ \\
 	Set $q_{0}$ as the current state, evict and serve if needed. 
   }
   \end{algorithm}

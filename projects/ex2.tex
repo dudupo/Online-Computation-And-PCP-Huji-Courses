@@ -70,7 +70,7 @@ Denote by $m$ and $k$ the hardisk siz and the number of the servers. Enumarate e
   \begin{algorithm}[H]
     \caption{Work-function-Algo for paging.}
     \label{alg:three}
-    $q_{j^{\prime}} \leftarrow $ initial state \\ 
+    $q_{0} \leftarrow $ initial state \\ 
     \For { each new request $\sigma_{j}$  } {
       \For { $ i \in [m] $} {
 	\If { $ \sigma_{j} \in q_{i}$ } {
@@ -82,8 +82,8 @@ Denote by $m$ and $k$ the hardisk siz and the number of the servers. Enumarate e
 	}
       		}
     	}
-	$q_{j^{\prime}} \leftarrow \arg \min_{i} \left\{ W_{i,j-1} +  \mathbf{Ham}\left( q_{i}, q_{i^{\prime}} \right)  \right\} $ \\
-	Set $q_{j^{\prime}}$ as the current state, evict and serve if needed. 
+	$q_{0} \leftarrow \arg \min_{i} \left\{ W_{i,j-1} +  \mathbf{Ham}\left( q_{i}, q_{0} \right)  \right\} $ \\
+	Set $q_{0}$ as the current state, evict and serve if needed. 
   }
   \end{algorithm}
   \paragraph{ex2.} Consider the following $3$-point metric space, $w\left( a,b \right) = 1 $ and $w\left( \cdot, c  \right) = M $. The initial configuration is $ \left\{ b,c \right\}$ ($2$ servers). Show that randomized competitive ratio, for some value of $M$ is $ > H_{2} = 1 + \frac{1}{2}$. 

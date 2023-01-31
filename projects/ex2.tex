@@ -74,12 +74,16 @@ Denote by $m$ and $k$ the hardisk siz and the number of the servers. Enumarate e
     \For { each new request $\sigma_{j}$  } {
       \For { $ i \in [m] $} {
 	\If { $ \sigma_{j} \in q_{i}$ } {
-	  \For { $ i^{\prime} \in [m] $} { 		 
+	  \For { $ \sigma^{\star} \in q_{i}$ } {
+	    \For { $ \tilde{\sigma} \notin q_{i}$ } {
+		
 	    $W_{i,j} \leftarrow \min \left\{   W_{i,j} ,  W_{i^{\prime},j-1} + \mathbf{Ham}\left( q_{i}, q_{i^{\prime}} \right) \right\} $
       	}
+      }
+    }
 	\Else {
 	  $W_{i,j} \leftarrow \infty $ 
-	}
+	
       		}
     	}
 	$q_{0} \leftarrow \arg \min_{i : \sigma_{j} \in q_{i}} \left\{ W_{i,j-1} +  \mathbf{Ham}\left( q_{i}, q_{0} \right)  \right\} $ \\

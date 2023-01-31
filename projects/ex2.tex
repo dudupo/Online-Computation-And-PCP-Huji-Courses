@@ -65,7 +65,12 @@
 \begin{multicols*}{2}
   \paragraph{ex1.} Find a simple description of the work-function algorithm in the case of uniform metric space. 
   \paragraph{Solution.} Recall that in the work-function algorithm we weight the configutations by the price one has pay for serving all the requests and ending at those configuration combing the distance between them and the current configuration. In the paging problem the configurations are the content of the cache stack.  
-  Denote by $m$ and $k$ the hardisk siz and the number of the servers. Enumarate each of the valid stack states by $Q = q_{0},q_{1},q_{2},\dots q_{M}$  where $M = \binom{m}{k}$. In addition define a weight function $w : Q \rightarrow \mathbb{R}$ to be hamming distance betweem pair of configurations. Finaly define a $M \times m$ table $W_{i,j}$ to store the optimal work that has do be done while serving $\sigma_{0},\sigma_{1},\sigma_{2},\dots \sigma_{j}$ requests and ending in configuration $q_{i}$.     
+  Denote by $m$ and $k$ the hardisk size and the number of the servers. Enumarate each of the valid stack states by $Q = q_{0},q_{1},q_{2},\dots q_{M}$  where $M = \binom{m}{k}$. In addition define a weight function $w : Q \rightarrow \mathbb{R}$ to be hamming distance betweem pair of configurations. Finaly define a $M \times m$ table $W_{i,j}$ to store the optimal work that has do be done while serving $\sigma_{0},\sigma_{1},\sigma_{2},\dots \sigma_{j}$ requests and ending in configuration $q_{i}$.     
+
+  \paragraph{Cliam.} In the uniform case, if $v_{1},v_{2},v_{3},..,v_{l}$ is an configuration path that servers $\sigma_{1},\sigma_{2}..\sigma_{l}$ and ends at configuration $v_{l}$ such that $v_{l}$ deffers from $v_{l-1}$ by $t > 1$ elements, then there is also an optimal path $v_{1},u_{2}..u_{l-1}v_{l}$ which also serves the requests and $v_{l}$ differs from $u_{l-1}$ by at most $t-1$ elements. 
+  \paragraph{Proof.} As $v_{l}$ differs from $v_{l-1}$ by at least two elements, there is must to be an element $\tilde{\sigma} \neq \sigma_{l-1}$ belongs to $v_{l-1}$, By the assumption that the algorithm always holds a full cache, there must to be an element $\sigma^{\star} \in v_{l} / v_{l-1}$ (that could be $\sigma_{l}$ but doesn't has to). Consider the configuration $u_{l-1} = v_{l-1} \cup \sigma^{\star} / \tilde{\sigma}$. Since $v_{1}v_{2},..,v_{l-1},v_{l}$ is optimal, $v_{1},v_{2}..,v_{l-2}u_{l-1}$ must also be optimal, and cost at most $1$ more than the  $v_{1}v_{2},..,v_{l-1} $, clearly we have that $v_{1},v_{2},..u_{l-1}v_{l}$ is also optimal and we done. 
+
+  By induction argument, we obtain that in the uniform matric case is enough to consider configuration path in which any adjacent configuration pair are differ by at most one element. So our work-function algorithm will take advantage of that fact to compute $W$.
 
   \begin{algorithm}[H]
     \caption{Work-function-Algo for paging.}
@@ -78,7 +83,7 @@
 	    $q_{i^{\prime} } \leftarrow  q_{i} / \sigma^{\star} \cup \tilde{\sigma}$ \\ 
 	    $W_{i,j} \leftarrow \min \left\{   W_{i,j} ,  W_{i^{\prime},j-1} + 1 \right\} $
 	  }
-	$W_{i,j} \leftarrow \min \left\{   W_{i,j} ,  W_{i,j-1}  \right\} $ \\
+	  $W_{i,j} \leftarrow \min \left\{   W_{i,j} ,  W_{i,j-1}  \right\} $ \\
 	}
 	\Else {
 	  $W_{i,j} \leftarrow \infty $ 

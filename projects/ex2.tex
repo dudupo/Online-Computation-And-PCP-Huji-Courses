@@ -74,7 +74,7 @@
     \For { each new request $\sigma_{j}$  } {
       \For { $ i \in [m] $ and $ q_{i} \neq q_{0}$ } {
 	\If { $ \sigma_{j} \in q_{i}$ } {
-	  \For { $ \sigma^{\star} \in q_{i}$ and   $ \tilde{\sigma} \notin q_{i}$ } {
+	  \For { $\left( \sigma^{\star}, \tilde{\sigma} \right)$ such that $ \sigma^{\star} \in q_{i}$ and   $ \tilde{\sigma} \notin q_{i}$ } {
 	    $q_{i^{\prime} } \leftarrow  q_{i} / \sigma^{\star} \cup \tilde{\sigma}$ \\ 
 	    $W_{i,j} \leftarrow \min \left\{   W_{i,j} ,  W_{i^{\prime},j-1} + 1 \right\} $
 	  }

@@ -78,6 +78,7 @@
 	    $q_{i^{\prime} } \leftarrow  q_{i} / \sigma^{\star} \cup \tilde{\sigma}$ \\ 
 	    $W_{i,j} \leftarrow \min \left\{   W_{i,j} ,  W_{i^{\prime},j-1} + 1 \right\} $
 	  }
+	$W_{i,j} \leftarrow \min \left\{   W_{i,j} ,  W_{i,j-1}  \right\} $ \\
 	}
 	\Else {
 	  $W_{i,j} \leftarrow \infty $ 

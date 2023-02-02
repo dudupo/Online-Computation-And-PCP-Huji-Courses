@@ -194,8 +194,8 @@
       \If{ $x < 1$  } { 
 	$ \xi_{j} \Leftarrow 1 - x$ \\
 	$ x \Leftarrow \left( 1 + \frac{1}{M} \right) x + \frac{1}{\left( c - 1 \right) M } $ \\
-	$ z_{j} \Leftarrow 1$
-	$\tilde{z_{j}} \leftarrow z_{j} / \left(  1 + \frac{2}{M} \right) //  \left( \sum{z_{j}} \right)  $ 
+	$ z_{j} \Leftarrow 1$ \\ 
+	$\tilde{z_{j}} \leftarrow z_{j} / \left(  1 + \frac{c}{M} \right)  $ 
       }
   }
   \end{algorithm}
@@ -213,7 +213,7 @@ Also Notice that sacling $\tilde{z}_{i} \leftarrow z_{i} \cdot M / \left( \sum_{
     \end{split}
   \end{equation*}
 So $\tilde{z_{j}}$ are valid soultion to the dual fraction program such is $ \left( 1 + \frac{2}{M} \right)$ approximate. As the scaling made by a constant factor, one could ensure to hold the current approximate soultion in each iteration.   
-So it left to show how one can transfrom the fractional version into randomized algorithm that need to choose etiher rent or buy. We will do dat by flip a coin in each iteartion according to the coin result.  
+So it left to show how one can transfrom the fractional version into randomized algorithm that need to choose etiher rent or buy. We will do that by flip a coin in each iteartion at probability $x$. I do not know how to compute the expected cost, 
 %}
   \paragraph{ex5.} Prove Yao's minimax principle. 
 

@@ -125,7 +125,7 @@
   \end{equation*} But for any $ k \le \log 2^{c} $ we obtain the oppsite direction. This means that there is a range of valid $k$ that obtains a better ratio than the lower bound. And that is a contradiction.   
 
   \paragraph{ex4 - Ski Rental.} At each step, the adversary decides either to continue or stop. Stop terminating the game. If it continues, the online algorithm decides either to rent or buy. Rent costs $1$. Buy costs $M > 1$. Design a primal-dual randomized online ski-rental algorithm with a better than $2$ competitive ratio.  
-  \paragraph{Solution.}. Let's start by formulating an integer LP for the Ski-Rental problem. Denote by $m$ the days' number, and associate a variable $x$, indicating whether the algorithm decides to buy. Also, let's associate a variable $\xi_{j}$ for each day, indicating if the algorithm pays for rent. In each turn, the solution must satisfy the restrictions $ \xi_{j} + x  \ge 1$. The cost which we would like to minimize is $ M\cdot x + \sum_{j}{\xi_{j}}$. So, in overall, we get that LP is:    
+  \paragraph{Solution.}. Let's start by formulating an integer LP for the Ski-Rental problem. Denote by $m$ the days' number, and associate a variable $x$, indicating whether the algorithm decides to buy. Also, let's associate a variable $\xi_{j}$ for each day, indicating if the algorithm pays for rent. In each turn, the Solution must satisfy the restrictions $ \xi_{j} + x  \ge 1$. The cost which we would like to minimize is $ M\cdot x + \sum_{j}{\xi_{j}}$. So, in overall, we get that LP is:    
   \begin{equation*}
     \begin{split}
       & \min{ Mx + \sum_{j}{\xi_{j}}} \\
@@ -181,7 +181,7 @@
       \end{bmatrix}
     \end{split}
   \end{equation*}
-  So we would like to have an algortihm that gurntess that the current solution (fraction LP version) for one of the program is valid but sull serves as a good approximation to the other. Consider the following algorithm ( $c$ in the end will be equals to $2$ ): 
+  So we would like to have an algorithm that guarantees that the current Solution (fraction LP version) for one of the programs is valid but sull serves as a good approximation to the other. Consider the following algorithm ( $c$ in the end will be equals to $2$ ): 
 
   %\fbox {
   \begin{algorithm}[H]
@@ -202,18 +202,18 @@
   
   \paragraph{}
 
-By the fact that the algorithm halt only after $x \ge 1 $ it follows that $x$ is a valid solution for the fraction primal program, and therefore is also an upper bound for dual program. 
+By the fact that the algorithm halts only after $x \ge 1 $, it follows that $x$ is a valid solution for the fraction primal program and therefore is also an upper bound for the dual program. 
 
 Also Notice that sacling $\tilde{z}_{i} \leftarrow z_{i} \cdot M / \left( \sum_{i}z_{i}  \right)$, is a vaild soultion for primal program. Denote by $k$ the last day in which  $x < 1$. Namly $z_{j} = 0 $ for any $j > k$, Then we have that :  $x < \left( 1 + 1/M  \right)\cdot 1 + 1 / \left( \left( c-1 \right)M \right) $ So picking $c = 2 \Rightarrow x < 1 + \frac{2}{M}$.
-  Now As in each itearion we add at most : 
+  Now, As in each iteration, we add at most : 
   \begin{equation*}
     \begin{split}
       \Delta  & = x_{t+1} - x_{t} \sim \frac{1}{M} x_{t} + \frac{1}{M} \Rightarrow \frac{k}{M} < 1+ \frac{2}{M} \\
       \Rightarrow & k \le M\left( 1 + \frac{2}{M} \right) \Rightarrow \sum{z_{j}}\le M\left( 1 + \frac{2}{M} \right)
     \end{split}
   \end{equation*}
-So $\tilde{z_{j}}$ are valid soultion to the dual fraction program such is $ \left( 1 + \frac{2}{M} \right)$ approximate. As the scaling made by a constant factor, one could ensure to hold the current approximate soultion in each iteration.   
-So it left to show how one can transfrom the fractional version into randomized algorithm that need to choose etiher rent or buy. We will do that by flip a coin in each iteartion at probability $x$. I do not know how to compute the expected cost, 
+So $\tilde{z_{j}}$ are valid soultion to the dual fraction program such is $ \left( 1 + \frac{2}{M} \right)$ approximate. As a constant factor makes the scaling, one could ensure holding the current approximate Solution in each iteration.   
+So it is left to show how one can transform the fractional version into a randomized algorithm that needs to choose either rent or buy. We will flip a coin in each iteration at probability $x$. I do not know how to compute the expected cost, 
 %}
   \paragraph{ex5.} Prove Yao's minimax principle. 
 
@@ -242,7 +242,7 @@ So it left to show how one can transfrom the fractional version into randomized 
       & \ \ \ \  \ge c \cdot \dsig{  \cbase\left( \sigma \right) }  
     \end{split}
   \end{equation*}
-  And by the fact that inequality of exception between random variables follows an existence of atomic event on which the inequality holds, we obtain that there must exists at least a single $\sigma$ such that:
+  And by the fact that inequality of exception between random variables follows an existence of atomic event on which the inequality holds, we obtain that there must exist at least a single $\sigma$ such that:
   \begin{equation*}
     \begin{split}
       \dsig{ \dalg{ \calg\left( \sigma \right) } } \ge c \cdot \dsig{  \cbase\left( \sigma \right) }  
@@ -252,6 +252,7 @@ So it left to show how one can transfrom the fractional version into randomized 
 \end{multicols*}
 \printbibliography 
 \end{document}
+
 
 
 

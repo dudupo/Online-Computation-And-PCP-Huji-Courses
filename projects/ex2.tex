@@ -166,10 +166,10 @@
 	\cdot & \cdot & \cdot & \cdot & \cdot
       \end{bmatrix} 
       \begin{bmatrix}
-	x \\
-	z_{1} \\ 
-	z_{2} \\
+	z_{1} \\
+	z_{2} \\ 
 	z_{3} \\
+	z_{4} \\
 	\cdot 
       \end{bmatrix} \le
       \begin{bmatrix}
@@ -181,7 +181,7 @@
       \end{bmatrix}
     \end{split}
   \end{equation*}
-  So in total.
+  So we would like to have an algortihm that gurntess that the current solution (fraction LP version) for one of the program is valid but sull serves as a good approximation to the other. Consider the following algorithm:  
 
   %\fbox {
   \begin{algorithm}[H]
@@ -196,8 +196,21 @@
 	$ x \Leftarrow \left( 1 + \frac{1}{M} \right) x + \frac{1}{\left( c - 1  \right) M } $ \\
 	$ z_{j} \Leftarrow 1$
       }
-    }
+  }
+  $\tilde{z_{j}} \leftarrow z_{j} / \left( \sum{z_{j}} \right)  $ 
   \end{algorithm}
+  By the fact that the algorithm halt only after $x \ge 1 $ it follows that $x$ is a valid solution for the fraction primal program, and therefore is also an upper bound for dual program. 
+
+  Also Notice that sacling $\tilde{z}_{i} \leftarrow z_{i} \cdot M / \left( \sum_{i}z_{i}  \right)$, is a vaild soultion for primal program. Denote by $k$ the last day in which  $x < 1$. Namly $z_{j} = 0 $ for any $j > k$, Then we have that :  $x < \left( 1 + 1/M  \right)\cdot 1 + 1 / \left( \left( c-1 \right)M \right) $ So picking $c = 2 \Rightarrow x < 1 + \frac{2}{M}$.
+  Now As in each itearion we add at most : 
+  \begin{equation*}
+    \begin{split}
+      \Delta  & = x_{t+1} - x_{t} \sim \frac{1}{M} x_{t} + \frac{1}{M} \Rightarrow \frac{k}{M} < 1+ \frac{2}{M} \\
+      \Rightarrow & k \le M\left( 1 + \frac{2}{M} \right) \Rightarrow \sum{z_{j}}\le M\left( 1 + \frac{2}{M} \right)
+    \end{split}
+  \end{equation*}
+So $\tilde{z_{j}}$ are valid soultion to the dual fraction program such is $ \left( 1 + \frac{2}{M} \right)$ approximate. As the scaling made by a constant factor, one could ensure to hold the current approximate soultion in each iteration.   
+So it left to show how one can transfrom the fractional version into randomized algorithm that need to choose etiher rent or buy. We will do dat by flip a coin in each iteartion according to the coin result.  
 %}
   \paragraph{ex5.} Prove Yao's minimax principle. 
 

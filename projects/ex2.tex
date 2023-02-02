@@ -181,7 +181,7 @@
       \end{bmatrix}
     \end{split}
   \end{equation*}
-  So we would like to have an algortihm that gurntess that the current solution (fraction LP version) for one of the program is valid but sull serves as a good approximation to the other. Consider the following algorithm:  
+  So we would like to have an algortihm that gurntess that the current solution (fraction LP version) for one of the program is valid but sull serves as a good approximation to the other. Consider the following algorithm ( $c$ in the end will be equals to $2$ ): 
 
   %\fbox {
   \begin{algorithm}[H]
@@ -193,11 +193,11 @@
     \For { each new day $j$  } {
       \If{ $x < 1$  } { 
 	$ \xi_{j} \Leftarrow 1 - x$ \\
-	$ x \Leftarrow \left( 1 + \frac{1}{M} \right) x + \frac{1}{\left( c - 1  \right) M } $ \\
+	$ x \Leftarrow \left( 1 + \frac{1}{M} \right) x + \frac{1}{\left( c - 1 \right) M } $ \\
 	$ z_{j} \Leftarrow 1$
+	$\tilde{z_{j}} \leftarrow z_{j} / \left(  1 + \frac{2}{M} \right) //  \left( \sum{z_{j}} \right)  $ 
       }
   }
-  $\tilde{z_{j}} \leftarrow z_{j} / \left( \sum{z_{j}} \right)  $ 
   \end{algorithm}
   
   \paragraph{}

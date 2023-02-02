@@ -199,6 +199,7 @@
   }
   $\tilde{z_{j}} \leftarrow z_{j} / \left( \sum{z_{j}} \right)  $ 
   \end{algorithm}
+
   By the fact that the algorithm halt only after $x \ge 1 $ it follows that $x$ is a valid solution for the fraction primal program, and therefore is also an upper bound for dual program. 
 
   Also Notice that sacling $\tilde{z}_{i} \leftarrow z_{i} \cdot M / \left( \sum_{i}z_{i}  \right)$, is a vaild soultion for primal program. Denote by $k$ the last day in which  $x < 1$. Namly $z_{j} = 0 $ for any $j > k$, Then we have that :  $x < \left( 1 + 1/M  \right)\cdot 1 + 1 / \left( \left( c-1 \right)M \right) $ So picking $c = 2 \Rightarrow x < 1 + \frac{2}{M}$.

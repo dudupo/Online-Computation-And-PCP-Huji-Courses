@@ -69,14 +69,14 @@
       P_{i,t+1}= \frac{e^{\eta G_{i,t}}}{\sum_{j}{ e^{\eta G_{j,t}}} }
     \end{split}
   \end{equation*} where $G_{i,t} = \sum_{s\le t}{g_{i,t}} $. Prove that the regret of Hedge at time $T$ is $O\left( \sqrt{T\log n} \right)$, for a good choice of the learning rate $\eta$, against the adaptive adversary.  
-  \paragraph{Solution.} Define the potential $\psi\left( t \right) =  \sum_{j}{ e^{\eta G_{i,t}}}$ and notice that by the monotonies of $e^{x}$ we have that $\psi\left( t \right) \le ne^{\eta \max_j G_{i,j}}$. In addition we have that: 
+  \paragraph{Solution.} Define the potential $\psi\left( t \right) =  \sum_{j}{ e^{\eta G_{i,t}}}$ and notice that by the fact that $e^{x}$ is positive function we have that $\psi\left( t \right) \ge e^{\eta \max_j G_{i,j}}$. In addition: 
   \begin{equation*}
     \begin{split}
       & \psi\left( t + 1 \right) =  \sum_{j}{ e^{\eta G_{j,t+1}}} =\sum_{j}{ e^{\eta G_{j,t} + \eta g_{j,t+1}}}  \\
       & \Rightarrow   \psi\left( t \right) \le \psi\left( t + 1 \right)\le \psi\left( t \right)e^{\eta}
     \end{split}
   \end{equation*}
-  So after $T$ steps the potential is bounded by $\psi\left( 0 \right)e^{\eta T}$.
+  So after $T$ steps the potential is bounded by $\psi\left( 0 \right)e^{\eta T} \le ne^{\eta}e^{\eta T}$.
   \paragraph{ex2.} Show a lower bound of $\Omega\left( \sqrt{T} \right)$ in the experts setting on the regret of any online algorithm against the oblivious adversary. 
 
   \paragraph{Solution.} solution. 

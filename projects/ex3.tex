@@ -73,8 +73,8 @@
 
   \begin{equation*}
     \begin{split}
-      & \psi\left( t + 1 \right) =  \sum_{j}{ e^{\eta G_{j,t+1}}} = \sum_{i}{ \frac{e^{\eta G_{i,t}}}{\sum_{j}{ e^{\eta G_{j,t}}} }  }\\
-    & =   \frac{\sum_{i}{e^{\eta G_{i,t}}}}{\sum_{j}{ e^{\eta G_{j,t}}} }  
+      & \psi\left( t + 1 \right) =  \sum_{j}{ e^{\eta G_{j,t+1}}} =\sum_{j}{ e^{\eta G_{j,t} + \eta g_{j,t+1}}}  \\
+    & =   
     \end{split}
   \end{equation*}<++>
   \paragraph{ex2.} Show a lower bound of $\Omega\left( \sqrt{T} \right)$ in the experts setting on the regret of any online algorithm against the oblivious adversary.   

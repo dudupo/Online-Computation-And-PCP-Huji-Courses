@@ -69,7 +69,17 @@
       P_{i,t+1}= \frac{e^{\eta G_{i,t}}}{\sum_{j}{ e^{\eta G_{j,t}}} }
     \end{split}
   \end{equation*} where $G_{i,t} = \sum_{s\le t}{g_{i,t}} $. Prove that the regret of Hedge at time $T$ is $O\left( \sqrt{T\log n} \right)$, for a good choice of the learning rate $\eta$, against the adaptive adversary.  
-  \paragraph{Solution.} Define the potential $\psi\left( t \right) =  \sum_{j}{ e^{\eta G_{i,t}}}$ and notice that by the fact that $e^{x}$ is positive function we have that $\psi\left( t \right) \ge e^{\eta \max_j G_{i,j}}$. In addition: 
+  \paragraph{Solution.} Let us prove the following inequality first: 
+
+  \paragraph{Lemma.} Let $w_0, w_1, .. w_n \in [0,1]^n$ such that $\sum_{i}{w_{i}} = 1$ then there exists $\eta$ such that: 
+
+  \begin{equation*}
+    \begin{split}
+      \sum_{i}{w_{i}e^{\eta x_{i}}} \le e^{\eta}e^{\sum_{i}{w_{i}x_{i}}} 
+    \end{split}
+  \end{equation*}
+
+  Define the potential $\psi\left( t \right) =  \sum_{j}{ e^{\eta G_{i,t}}}$ and notice that by the fact that $e^{x}$ is positive function we have that $\psi\left( t \right) \ge e^{\eta \max_j G_{i,j}}$. In addition: 
   \begin{equation*}
     \begin{split}
       & \frac{\psi\left( t+1 \right)}{\psi\left( t \right)} = \psi\left( t \right)^{-1} \sum_{j}{ e^{\eta G_{j,t} + \eta g_{j,t+1}}} \\

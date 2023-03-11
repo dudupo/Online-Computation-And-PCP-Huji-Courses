@@ -69,23 +69,20 @@
       P_{i,t+1}= \frac{e^{\eta G_{i,t}}}{\sum_{j}{ e^{\eta G_{j,t}}} }
     \end{split}
   \end{equation*} where $G_{i,t} = \sum_{s\le t}{g_{i,t}} $. Prove that the regret of Hedge at time $T$ is $O\left( \sqrt{T\log n} \right)$, for a good choice of the learning rate $\eta$, against the adaptive adversary.  
-  \paragraph{Solution.} Let us prove the following inequality first: 
-
-  \paragraph{Lemma.} Let $w_0, w_1, .. w_n \in [0,1]^n$ such that $\sum_{i}{w_{i}} = 1$ then there exists $\eta$ such that: 
-
-  \begin{equation*}
-    \begin{split}
-      \sum_{i}{w_{i}e^{\eta x_{i}}} \le e^{\eta}e^{\sum_{i}{w_{i}x_{i}}} 
-    \end{split}
-  \end{equation*}
-
-  Define the potential $\psi\left( t \right) =  \sum_{j}{ e^{\eta G_{i,t}}}$ and notice that:
+  %  different time steps $t,t^{\prime}$ the random varibels $g_{t},g_{t^{\prime}}$ are independent. That fact follows immediately drawn process, Namely in each turn the probabilits are recompute according for the known values that, So choice at time $t$ couldn't impact the distribution at time $t^{\prime}$.
+  \paragraph{Solution.}
+  Let $g_{t}$ be the random variable which count the gain at time step $t$ and by $G_{t} = \sum_{t}^{T}{g_{t}}$. Recall that for any pair of random variable $X,Y$ such that $X \ge Y$ it holds that $\expp{X} \ge \expp{Y}$. Also notice that for $x$ restricted to some range $[-r,r]$ there are constants $c_{+}, c_{-}$ depeand on $r$ such that $c_{-}x^{2} \le e^{x} - 1 + x \le c_{+}x^{2}$. Namely, the exponent is bounded by quaderic approximation (second tylor series order).  Define the potential $\psi\left( t \right) =  \sum_{j}{ e^{\eta G_{i,t}}}$ and notice that:
     \begin{enumerate}
       \item $ \frac{\psi\left( t+1 \right)}{\psi\left( t \right)} = \expp{e^{\eta g_{t}}}$
       \item $ \frac{\psi\left( t+1 \right)}{\psi\left( t \right)} \le e^{\eta}$
-      \item $ e^{\eta G_{t,j}} \le e^{\eta} \psi\left( 0 \right)$ 
+      \item $ e^{\eta G_{t,j}} \le e^{\eta} \psi\left( 0 \right)$ for any $j$.
     \end{enumerate}
-
+Therefore we obtain that: 
+\begin{equation*}
+  \begin{split}
+    \frac{e^{G_{j,t} -\eta T}}{ e^{G_{j,t} +\eta T} } \le \frac{\psi\left( T \right)}{\psi\left( 0 \right)} = \prod^{T}{ \expp{ e^{\eta g_{i}} } } = \expp{\prod^{T}{}<++>}<++>
+  \end{split}
+\end{equation*}<++>
   by the fact that $e^{x}$ is positive function we have that $\psi\left( t \right) \ge e^{\eta \max_j G_{i,j}}$. In addition: 
   \begin{equation*}
     \begin{split}

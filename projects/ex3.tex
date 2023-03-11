@@ -81,8 +81,8 @@
     \begin{enumerate}
       \item $ \frac{\psi\left( t+1 \right)}{\psi\left( t \right)} = \expp{e^{\eta g_{t}}}$ relatives to the distribution $P_{i,t+1}$. 
       \item $ \psi\left( t \right) \ge e^{\eta G_{t,j}} $ for any $t$ and $j$ in particular the $j$ which maximizes the gain. 
-      \item $ \frac{\psi\left( t+1 \right)}{\psi\left( t \right)} \le e^{\eta}$
-      \item $ e^{\eta G_{t,j}} \le e^{\eta} \psi\left( 0 \right)$ for any $j$.
+%      \item $ \frac{\psi\left( t+1 \right)}{\psi\left( t \right)} \le e^{\eta}$
+%      \item $ e^{\eta G_{t,j}} \le e^{\eta} \psi\left( 0 \right)$ for any $j$.
     \end{enumerate}
 Therefore we obtain that: 
 \begin{equation*}
@@ -94,6 +94,17 @@ Therefore we obtain that:
 & n e^{\expp{ \sum {\eta g_{t} + c_{\pm}\left( \eta g_{t} \right)^{2} }}} \le n e^{\expp{ \sum {\eta g_{t}}} +\expp{{ c_{\pm}\left( \eta g_{t} \right)^{2} }}}
   \end{split}
 \end{equation*}
+On the other hand by the second property it follows that for any $j$: 
+\begin{equation*}
+  e^{\eta G_{j,T}} \le n e^{\expp{ \sum {\eta g_{t}}} +\expp{{ c_{\pm}\left( \eta g_{t} \right)^{2} }}}
+\end{equation*} 
+By dividing at $e^{\expp{ \sum {\eta g_{t}}}}$, extracting the logarithm and combine the fact that $g_{t}^2 = g_{t}$ (indicator) we have that: 
+\begin{equation*}
+  \begin{split}
+    R_{T} \le \frac{1}{\eta}\log\left( n \right) + c_{+}\eta T
+  \end{split}
+\end{equation*}
+And by choosing $\eta = \sqrt{\log\left( n \right)/T }$ we complete the proof. 
   by the fact that $e^{x}$ is positive function we have that $\psi\left( t \right) \ge e^{\eta \max_j G_{i,j}}$. In addition: 
   \begin{equation*}
     \begin{split}

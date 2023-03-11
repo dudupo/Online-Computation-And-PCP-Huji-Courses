@@ -123,7 +123,7 @@ And by choosing $\eta = \sqrt{\log\left( n \right)/T }$ we complete the proof.
 
   \paragraph{Solution.} Consider an adversarial which draw the values of $g_{i,t}$ uniformly random, in particular $g_{i,t}$'s are independent. Fix an online algorithm for the problem and denote by $g_{t}$ the gain that earn by it at time step $t$. As $g_{i,t}$ are indepandent, the sum $G_{T} = \sum{g_{t}}$ is a sumation of indeapndent variables with the same expection and variance. Therefore we know that $\left( G_{T} - T\mu \right)/ \sqrt{T} \sim G\left( 0 , \sigma \right)$ where $\mu$ and $\sigma$ do not deapnds on $T$. Denote that gaussian by $X$.
 
-In the otherhand run in which the optimal gain $T\mu+\frac{1}{2}\sqrt{T})$ might occured with positive probability. Using that event we infer that the regret has to be at least: 
+In the otherhand run in which the optimal gain $T\mu+\frac{1}{2}\sqrt{T}$ might occured with positive probability. Using that event we infer that the regret has to be at least: 
   \begin{equation*}
     \begin{split}
       R_{T} \ge T  \mu  + \frac{1}{2}\sqrt{T}- \expp{G_{t}} = \frac{1}{2}\sqrt{T}

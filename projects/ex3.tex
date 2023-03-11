@@ -105,20 +105,20 @@ By dividing at $e^{\expp{ \sum {\eta g_{t}}}}$, extracting the logarithm and com
   \end{split}
 \end{equation*}
 And by choosing $\eta = \sqrt{\log\left( n \right)/T }$ we complete the proof. 
-  by the fact that $e^{x}$ is positive function we have that $\psi\left( t \right) \ge e^{\eta \max_j G_{i,j}}$. In addition: 
-  \begin{equation*}
-    \begin{split}
-      & \frac{\psi\left( t+1 \right)}{\psi\left( t \right)} = \psi\left( t \right)^{-1} \sum_{j}{ e^{\eta G_{j,t} + \eta g_{j,t+1}}} \\
-      & = \expp{e^{\eta g_{t}}} \le e^{\expp{\eta g_{t}}} \Rightarrow \psi\left( T \right) \le \psi\left( 0 \right) e^{\eta \expp{G_{t}}} \\
-      & \psi\left( t + 1 \right) =  \sum_{j}{ e^{\eta G_{j,t+1}}} =\sum_{j}{ e^{\eta G_{j,t} + \eta g_{j,t+1}}}  \\
-      %& \Rightarrow   \psi\left( t \right) \le \psi\left( t + 1 \right)\le \psi\left( t \right)e^{\eta} \\ 
-      & \le \sum_{j}{ e^{\eta G_{j,t}  }\left(  1 + c_{1} \eta g_{j,t+1} \right) }= \psi\left( t \right)  +  c_{1}\eta \psi\left( t \right) \expp{g_{t+1}}  \\
-      & \le  e^{\eta} \left( 1 +  c_{2} \right) \psi\left( t \right) \expp{g_{t+1}}  \\
-      & \le \prod_{t}{ \left( 1 + c_{1} \expp{g_{t}}\right) }\left( \psi\left( 0 \right) \right) \le e ^{c_{2} \expp{ \sum{g_{t} } }}\psi\left(0  \right) \\ 
-      & \le e^{c_{2}\expp{G_{t}}} \cdot e^{\eta}n 
-    \end{split}
-  \end{equation*}
-  So after $T$ steps, by taking the logaritm of both sides, we obtain that the regret is bounded by $ R_{T} \le   $.
+%  by the fact that $e^{x}$ is positive function we have that $\psi\left( t \right) \ge e^{\eta \max_j G_{i,j}}$. In addition: 
+%  \begin{equation*}
+%    \begin{split}
+%      & \frac{\psi\left( t+1 \right)}{\psi\left( t \right)} = \psi\left( t \right)^{-1} \sum_{j}{ e^{\eta G_{j,t} + \eta g_{j,t+1}}} \\
+%      & = \expp{e^{\eta g_{t}}} \le e^{\expp{\eta g_{t}}} \Rightarrow \psi\left( T \right) \le \psi\left( 0 \right) e^{\eta \expp{G_{t}}} \\
+%      & \psi\left( t + 1 \right) =  \sum_{j}{ e^{\eta G_{j,t+1}}} =\sum_{j}{ e^{\eta G_{j,t} + \eta g_{j,t+1}}}  \\
+%      %& \Rightarrow   \psi\left( t \right) \le \psi\left( t + 1 \right)\le \psi\left( t \right)e^{\eta} \\ 
+%      & \le \sum_{j}{ e^{\eta G_{j,t}  }\left(  1 + c_{1} \eta g_{j,t+1} \right) }= \psi\left( t \right)  +  c_{1}\eta \psi\left( t \right) \expp{g_{t+1}}  \\
+%      & \le  e^{\eta} \left( 1 +  c_{2} \right) \psi\left( t \right) \expp{g_{t+1}}  \\
+%      & \le \prod_{t}{ \left( 1 + c_{1} \expp{g_{t}}\right) }\left( \psi\left( 0 \right) \right) \le e ^{c_{2} \expp{ \sum{g_{t} } }}\psi\left(0  \right) \\ 
+%      & \le e^{c_{2}\expp{G_{t}}} \cdot e^{\eta}n 
+%    \end{split}
+%  \end{equation*}
+%  So after $T$ steps, by taking the logaritm of both sides, we obtain that the regret is bounded by $ R_{T} \le   $.
   \paragraph{ex2.} Show a lower bound of $\Omega\left( \sqrt{T} \right)$ in the experts setting on the regret of any online algorithm against the oblivious adversary. 
 
   \paragraph{Solution.} solution. 

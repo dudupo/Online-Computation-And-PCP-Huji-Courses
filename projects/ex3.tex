@@ -122,7 +122,12 @@ And by choosing $\eta = \sqrt{\log\left( n \right)/T }$ we complete the proof.
   \paragraph{ex2.} Show a lower bound of $\Omega\left( \sqrt{T} \right)$ in the experts setting on the regret of any online algorithm against the oblivious adversary. 
 
   \paragraph{Solution.} Consider an adversarial which draw the values of $g_{i,t}$ uniformly random, in particular $g_{i,t}$'s are independent. Fix an online algorithm for the problem and denote by $g_{t}$ the gain that earn by it at time step $t$. As $g_{i,t}$ are indepandent, the sum $G_{T} = \sum{g_{t}}$ is a sumation of indeapndent variables with the same expection and variance. Therefore we know that $\left( G_{T} - T\mu \right)/ \sqrt{T} \sim G\left( 0 , \sigma \right)$ where $\mu$ and $\sigma$ do not deapnds on $T$.  
-  In the otherhand run in which the optimal gain $\T(\mu+\frac{1}{2})$ might occured with positive probability (if $\mu > \frac{1}{2}$). Hence,  
+  In the otherhand run in which the optimal gain $T(\mu+\frac{1}{2})$ might occured with positive probability (if $\mu > \frac{1}{2}$). Hence, the regret is at least: 
+  \begin{equation*}
+    \begin{split}
+      R_{T} \ge T \left( \frac{1}{2} + \mu  \right) - \expp{G_{t}} 
+    \end{split}
+  \end{equation*}
   \paragraph{ex3.}Consider a system of linear inequalities $Ax \ge b$, where $A\in [0, \infty]^{m\times n} , b \in  [0, \infty]^{m}$, and unknown $x \in  [0, \infty]^{ n}$. (we are seeking a non-negative solution). An $\varepsilon$-approximate solution $x\ge 0$ satisfies $Ax\ge b - \varepsilon \mathbf{1}$. Suppose we have an efficient procedure for following problem: Given $p \in [0,1]^{m}, \sum_{i \in [m]}{p_{i}} = 1$, decide if exists $x \ge 0, p^{\top}Ax \ge p^{\top}b$. Show how to find an $\varepsilon$-approximate solution to $Ax \ge b$. Analyze the run-time. 
   \paragraph{Solution.} solution. 
   \paragraph{ex4.} Recall that we showed, for $EXP$ updates, that w.p $1 - \delta$ 

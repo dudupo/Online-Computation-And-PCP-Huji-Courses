@@ -46,8 +46,17 @@
 
 \begin{multicols*}{2}
 
+  \section{Basics.} 
   \definition[Convex Polygon]{ $P$ will be said a convex polygon if for every $x,y \in P$ we have that any point $z$ that lays on the line between $x$ and $y$ belongs to $P$.} 
+  
 
+  \subsection{Different Constructions.} 
+  Consider two different polytopes $P,Q \subset \mathbb{R}^{d}$ then we could construct a thired polytop by: 
+  \begin{enumerate}
+    \item Intersection, takeing the $P\cap Q \subset \mathbb{R}^{d}$
+    \item Minkeoski sum, $P+Q = \left\{ p + q : p \in P, q \in Q \right\} \subset \mathbb{R}^{d}$
+    \item Product, $P \times  Q = \left\{ \left( p,q \right):  p \in P, q \in Q \right\} \subset \mathbb{R}^{2d}$
+  \end{enumerate}
 
 \end{multicols*}
   \end{document}

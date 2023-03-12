@@ -88,20 +88,20 @@ Therefore we obtain that:
 \begin{equation*}
   \begin{split}
     & \psi\left( T \right) =  \frac{\psi\left( T \right)}{\psi\left( 0 \right)}\psi\left( 0 \right) = \prod^{T}{\frac{\psi\left( t+1 \right)}{\psi\left( t \right)} }\psi\left( 0 \right) \le \\
-  & n \prod^{T}_{t}{\expp{ e^{\eta g_{t}} }}\le n \prod^{T}_{t}{\expp{ 1 + \eta g_{t} + c_{\pm}\left( \eta g_{t} \right)^{2} }} \\
-& n \prod^{T}_{t}{ 1 + \expp{ \eta g_{t} + c_{\pm}\left( \eta g_{t} \right)^{2} }} \le  
- n \prod^{T}_{t}{ e^{\expp{ \eta g_{t} + c_{\pm}\left( \eta g_{t} \right)^{2} }}} \le \\ 
-& n e^{\expp{ \sum {\eta g_{t} + c_{\pm}\left( \eta g_{t} \right)^{2} }}} \le n e^{\expp{ \sum {\eta g_{t}}} +\expp{{ c_{\pm}\left( \eta g_{t} \right)^{2} }}}
+  & n \prod^{T}_{t}{\expp{ e^{\eta g_{t}} }}\le n \prod^{T}_{t}{\expp{ 1 + \eta g_{t} + c_{0}\left( \eta g_{t} \right)^{2} }} \\
+& n \prod^{T}_{t}{ 1 + \expp{ \eta g_{t} + c_{0}\left( \eta g_{t} \right)^{2} }} \le  
+ n \prod^{T}_{t}{ e^{\expp{ \eta g_{t} + c_{1}\left( \eta g_{t} \right)^{2} }}} \le \\ 
+& n e^{\expp{ \sum {\eta g_{t} + c_{1}\left( \eta g_{t} \right)^{2} }}} \le n e^{\expp{ \sum {\eta g_{t}}} +\expp{{ c_{1}\left( \eta g_{t} \right)^{2} }}}
   \end{split}
 \end{equation*}
 On the other hand, by the second property, it follows that for any $j$: 
 \begin{equation*}
-  e^{\eta G_{j,T}} \le n e^{\expp{ \sum {\eta g_{t}}} +\expp{{ c_{\pm}\left( \eta g_{t} \right)^{2} }}}
+  e^{\eta G_{j,T}} \le n e^{\expp{ \sum {\eta g_{t}}} +\expp{{ c_{1}\left( \eta g_{t} \right)^{2} }}}
 \end{equation*} 
 By dividing at $e^{\expp{ \sum {\eta g_{t}}}}$, extracting the logarithm and combine the fact that $g_{t}^2 = g_{t}$ (indicator) we have that: 
 \begin{equation*}
   \begin{split}
-    R_{T} \le \frac{1}{\eta}\log\left( n \right) + c_{+}\eta T
+    R_{T} \le \frac{1}{\eta}\log\left( n \right) + c_{1}\eta T
   \end{split}
 \end{equation*}
 And by choosing $\eta = \sqrt{\log\left( n \right)/T }$ we complete the proof. 

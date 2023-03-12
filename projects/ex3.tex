@@ -69,9 +69,9 @@
       P_{i,t+1}= \frac{e^{\eta G_{i,t}}}{\sum_{j}{ e^{\eta G_{j,t}}} }
     \end{split}
   \end{equation*} where $G_{i,t} = \sum_{s\le t}{g_{i,t}} $. Prove that the regret of Hedge at time $T$ is $O\left( \sqrt{T\log n} \right)$, for a good choice of the learning rate $\eta$, against the adaptive adversary.  
-  %  different time steps $t,t^{\prime}$ the random varibels $g_{t},g_{t^{\prime}}$ are independent. That fact follows immediately drawn process, Namely in each turn the probabilits are recompute according for the known values that, So choice at time $t$ couldn't impact the distribution at time $t^{\prime}$.
+  %  different time steps $t,t^{\prime}$ the random varibels $g_{t},g_{t^{\prime}}$ are independent. That fact follows an immediately drawn process. Namely, in each turn, the probabilities are recomputed according to the known values, So choice at time $t$ couldn't impact the distribution at time $t^{\prime}$.
   \paragraph{Solution.}
-  Let $g_{t}$ be the random variable which count the gain at time step $t$ and by $G_{t} = \sum_{t}^{T}{g_{t}}$. Recall that for any pair of random variable $X,Y$ such that $X \ge Y$ it holds that $\expp{X} \ge \expp{Y}$. Also notice that for $x$ restricted to some range $[-r,r]$ there are constants $c_{+}, c_{-}$ depeand on $r$ such that $c_{-}x^{2} \le e^{x} - 1 - x \le c_{+}x^{2}$. Namely, the exponent is bounded by quaderic approximation (second tylor series order). By the montenus property of the expection, for any random variable $X$ that maps to bounded range $[-r,r]$ it holds that:
+  Let $g_{t}$ be the random variable which counts the gain at time step $t$ and by $G_{t} = \sum_{t}^{T}{g_{t}}$. Recall that for any pair of random variables $X, Y$ such that $X \ge Y$ holds that $\expp{X} \ge \expp{Y}$. Also notice that for $x$ restricted to some range $[-r,r]$ there are constants $c_{+}, c_{-}$ depend on $r$ such that $c_{-}x^{2} \le e^{x} - 1 - x \le c_{+}x^{2}$. Namely, the exponent is bounded by quadric approximation (second Tylor series order). By the monotonous property of the expectation, for any random variable $X$ that maps to bounded range $[-r,r]$, it holds that:
   \begin{equation*}
     \begin{split}
       c_{-}\expp{x^{2}}\le \expp{e^{x} - x - 1} \le c_{+}\expp{x^{2}}
@@ -94,7 +94,7 @@ Therefore we obtain that:
 & n e^{\expp{ \sum {\eta g_{t} + c_{\pm}\left( \eta g_{t} \right)^{2} }}} \le n e^{\expp{ \sum {\eta g_{t}}} +\expp{{ c_{\pm}\left( \eta g_{t} \right)^{2} }}}
   \end{split}
 \end{equation*}
-On the other hand by the second property it follows that for any $j$: 
+On the other hand, by the second property, it follows that for any $j$: 
 \begin{equation*}
   e^{\eta G_{j,T}} \le n e^{\expp{ \sum {\eta g_{t}}} +\expp{{ c_{\pm}\left( \eta g_{t} \right)^{2} }}}
 \end{equation*} 
@@ -118,19 +118,26 @@ And by choosing $\eta = \sqrt{\log\left( n \right)/T }$ we complete the proof.
 %      & \le e^{c_{2}\expp{G_{t}}} \cdot e^{\eta}n 
 %    \end{split}
 %  \end{equation*}
-%  So after $T$ steps, by taking the logaritm of both sides, we obtain that the regret is bounded by $ R_{T} \le   $.
+%  So after $T$ steps, by taking the logarithm of both sides, we obtain that the regret is bounded by $ R_{T} \le   $.
   \paragraph{ex2.} Show a lower bound of $\Omega\left( \sqrt{T} \right)$ in the experts setting on the regret of any online algorithm against the oblivious adversary. 
 
-  \paragraph{Solution.} Consider an adversarial which draw the values of $g_{i,t}$ uniformly random, in particular $g_{i,t}$'s are independent. Fix an online algorithm for the problem and denote by $g_{t}$ the gain that earn by it at time step $t$. As $g_{i,t}$ are indepandent, the sum $G_{T} = \sum{g_{t}}$ is a sumation of indeapndent variables with the same expection and variance. Therefore we know that $\left( G_{T} - T\mu \right)/ \sqrt{T} \sim G\left( 0 , \sigma \right)$ where $\mu$ and $\sigma$ do not deapnds on $T$. Denote that gaussian by $X$.
+  \paragraph{Solution.} Consider an adversarial which draw the values of $g_{i,t}$ uniformly random, in particular $g_{i,t}$'s are independent. Fix an online algorithm for the problem and denote by $g_{t}$ the gain that earns by it at time step $t$. As $g_{i,t}$ are independent, the sum $G_{T} = \sum{g_{t}}$ is a summation of independent variables with the same exception and variance. Therefore we know that $\left( G_{T} - T\mu \right)/ \sqrt{T} \sim G\left( 0 , \sigma \right)$ where $\mu$ and $\sigma$ do not depends on $T$. Denote that Gaussian by $X$.
 
-In the otherhand run in which the optimal gain $T\mu+\frac{1}{2}\sqrt{T}$ might occured with positive probability. Using that event we infer that the regret has to be at least: 
+On the other hand, run in which the optimal gain $T\mu+\frac{1}{2}\sqrt{T}$ might occur with positive probability. Using that event, we infer that the regret has to be at least: 
   \begin{equation*}
     \begin{split}
       R_{T} \ge T  \mu  + \frac{1}{2}\sqrt{T}- \expp{G_{t}} = \frac{1}{2}\sqrt{T}
     \end{split}
   \end{equation*}
-  \paragraph{ex3.}Consider a system of linear inequalities $Ax \ge b$, where $A\in [0, \infty]^{m\times n} , b \in  [0, \infty]^{m}$, and unknown $x \in  [0, \infty]^{ n}$. (we are seeking a non-negative solution). An $\varepsilon$-approximate solution $x\ge 0$ satisfies $Ax\ge b - \varepsilon \mathbf{1}$. Suppose we have an efficient procedure for following problem: Given $p \in [0,1]^{m}, \sum_{i \in [m]}{p_{i}} = 1$, decide if exists $x \ge 0, p^{\top}Ax \ge p^{\top}b$. Show how to find an $\varepsilon$-approximate solution to $Ax \ge b$. Analyze the run-time. 
-  \paragraph{Solution.} solution. 
+  \paragraph{ex3.}Consider a system of linear inequalities $Ax \ge b$, where $A\in [0, \infty]^{m\times n} , b \in  [0, \infty]^{m}$, and unknown $x \in  [0, \infty]^{ n}$. (we are seeking a non-negative solution). An $\varepsilon$-approximate solution $x\ge 0$ satisfies $Ax\ge b - \varepsilon \mathbf{1}$. Suppose we have an efficient procedure for the following problem: Given $p \in [0,1]^{m}, \sum_{i \in [m]}{p_{i}} = 1$, decide if exists $x \ge 0, p^{\top}Ax \ge p^{\top}b$. Show how to find an $\varepsilon$-approximate solution to $Ax \ge b$. Analyze the run-time. 
+  \paragraph{Solution.} I think that has been misunderstood, and the restriction of $A > 0 $ was written by mistake. Because otherwise, One could pick $x$ to be the vector $x_{i} = \frac{\max{b}}{\min{A}}$ for any $i$, where the minimum is taken over all the non-zero values of $A$. Notice that on the one hand, $x \ge 0 $ and on the other hand, the inequality is satisfied. For see that, consider non-zero row $a_{i}$ of $A$, there is must to be at least one entry $A_{ij^{\prime} \in a_{i}}$ which is nonzero, Hence we have that: 
+  \begin{equation*}
+    \begin{split}
+      \left( Ax \right)_{i} = \sum_{A_{ij} \frac{\max b }{ \min A} } \ge \frac{A_{ij^{\prime}}}{\min{A}}\max {b} \ge b_{i}
+    \end{split}
+  \end{equation*}
+  Also, the above proves that the inequalities system has no solution only if a coordinate exists for which $b_{i} > 0$ and the $i$th row contains only zero values.  
+  One can Compute $x$ by doing at most one iteration over the input, So the total running time is at most $O\left( m n \right)$. My guess is that if $A$ isn't restricted to positive values, then the problem is equivalence to solving an arbitrary LP. 
   \paragraph{ex4.} Recall that we showed, for $EXP$ updates, that w.p $1 - \delta$ 
   \begin{equation*}
     \begin{split}
@@ -153,6 +160,7 @@ In the otherhand run in which the optimal gain $T\mu+\frac{1}{2}\sqrt{T}$ might 
 \end{multicols*}
   \printbibliography 
 \end{document}
+
 
 
 

@@ -37,16 +37,16 @@
 
 
 
-\title{Polytopes.} 
+\title{ Objects With Structures. } 
 \author{David Ponarovsky}
 \maketitle
-
+\tableofcontents
 
 %\abstract{We propose a new simple construction based on Tanner Codes, which yields a good LDPC testable code.} 
 
 \begin{multicols*}{2}
 
-  \section{Basics.} 
+  \section{Polytopes.} 
   \definition[Convex Polygon]{ $P$ will be said a convex polygon if for every $x,y \in P$ we have that any point $z$ that lays on the line between $x$ and $y$ belongs to $P$.} 
   
 
@@ -61,7 +61,9 @@
   \paragraph{ $\mathcal{V}$ and $\mathcal{H}$ descriptors of polytopes.} Polytopes can be describe by both a convex hull or inequalities. There is theorem that state that any convex hull has a presentation defined by inequalities system.
   \lemma{A projection of an $\mathcal{H}$-polyhedron is also $\mathcal{H}$-polyhedron. }
   \definition[The Cyclic Polytope $\mathcal{C}_{d}\left( n \right)$.]{ Let $d,n \in \mathbb{N}$. And let us define the monment curve $x : \mathbb{R} \rightarrow \mathbb{R}^{d}$ as $t_{i}\mapsto t_{i}^{i}$. $\mathcal{C}_{d}\left( 0 \right)$ is the convex hull of $x\left( y_{1} \right), x\left( y_{2} \right) , .. , x\left( y_{3} \right)$. } 
-  \lemma{ For $ S \subset T = \left\{ y_{1} .. y_{n}  \right\}$ such that $|S|=d$ form a facet if and only if any two different item of $T/S$ are different by an even number of items from $S$.}
+  \lemma{ For $ S \subset T = \left\{ y_{1} < y_{2} < y_{3} .. y_{n}  \right\}$ such that $|S|=d$ form a facet if and only if any two different indices $i < j $ we have that the size of the intersection of  $y_{i}, y_{i+1} .. y_{j}$ with $S$ is even. }
+  (That can be used to construct a new LDPC CSS code).  
+  
   \definition[Simplicial.]{ We will say that polytope $P$ is a Simplicial if all his $d-1$ faces are simplexes.} 
 \end{multicols*}
   \end{document}

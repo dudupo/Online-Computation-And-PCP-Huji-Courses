@@ -100,7 +100,7 @@ Consider the following process for decoding $a$,
 \end{algorithm}
 
 \begin{claim}
-  The above decoding returns the correct $i$'th in probability grater than $\frac{1}{2}$. 
+  For $\tau = \Omega\left( \frac{1}{\varepsilon^{4}} \log\left( n \right) \right)$ The above decoding success to decode $w\left( x \right)$ with probability $\ge 1 - \frac{1}{n}$.
 \end{claim}
 \begin{proof}
   In this question we will say that $w$ agree on $x,\sigma_{i}(x)$ if both $x,\sigma_{i}(x)$ were either filliped or unflipped. Clearly if $w(x)$ agree with $w(\sigma_{i}(x))$ than  
@@ -111,10 +111,25 @@ Consider the following process for decoding $a$,
       & = 1 + H_{a}(x) + 1 + H_{a}(\sigma_{i}(x)) =  a_{i} \ \ (  \text{   both flipped.} )
     \end{split}
   \end{equation*}
-  Thus we can bound (\textbf{rudely}) the probability that the decoding fails by the probability that flipping occurred  $w$  . At   Also if $w$ disagree on $x,\sigma_{i}\left( x \right)$ then  $w\left( x \right) + w\left( \sigma_{i}(x) \right) = 1 + a_{i} $.
-  Now consider the inner product from the above section, and observes that $\braket{w(x),w(\sigma_{i}(x))} = 1 - (-1)^{a_{i}}$      
-
+  Thus we can bound the probability that $ w\left( x \right) + w\left( \sigma_{i}(x) \right) \neq a_{_i}$ by the probability that $w$ disagree on $x$ and that append at probability: 
+  
+  \begin{equation*}
+    \begin{split}
+     \xi := \left(1 - f(x)\right)f(\sigma_{i}(x)) + \left(1 - f(\sigma_{i}(x))\right)f(x)
+    \end{split}
+  \end{equation*}
+  Now as we want bound $\xi$ we could think about the maximization problem under the restrictions that $f(x),f(\sigma_{i}(x) \le \frac{1}{2} - \varepsilon$. We know that the maximum lay on the boundary so we can assign $\frac{1}{2} - \varepsilon$ for each of the probabilities to obtain an upper bound. That will yield $\xi \le 2\cdot \left( \frac{1}{2} - \varepsilon \right)\left( \frac{1}{2} + \varepsilon \right)$, namely $\xi \le \frac{1}{2}- 2\varepsilon^{2}$. 
+    Now the probability that a coordinate $i$ will rounded to the opposite side, that it $\hat{a}_{i} \neq a_{i}$ mean that arithmetic mean over $\tau$ experiments were $2\varepsilon^{2}$ far from the expectation. Which by Hoff' bound is bounded by: $e^{\tau 4\varepsilon^{4}}$. So using the union bound we obtain:     
+    \begin{equation*}
+      \begin{split}
+        \prb{\text{ decoding success }} \ge 1 - n \cdot e^{\tau 4\varepsilon^{4}}
+      \end{split}
+    \end{equation*} 
+    Therefore it's enough to take $\tau = O( \frac{1}{\varepsilon^{4}} \log(n)  )$ to obtain a decoder which run at time $O(  \frac{1}{\varepsilon^{4}} n \log(n))$ and success with heigh probability.   
 \end{proof}
+
+\section{Ex 4.}
+
 
 %\end{multicols*}
   \printbibliography 

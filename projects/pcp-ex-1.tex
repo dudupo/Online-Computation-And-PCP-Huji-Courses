@@ -21,7 +21,7 @@
 
     \begin{equation*}
       \begin{split}    
-        \left( Ax \right)_{j} &= \sum_{k}{A_{jk}x_{k}} = \sum_{i \ neq k}{A_{jk}x_{k}}  + A_{ji}x_{i} //  
+        \left( Ax \right)_{j} &= \sum_{k}{A_{jk}x_{k}} = \sum_{i \ neq k}{A_{jk}x_{k}}  + A_{ji}x_{i} \\ 
         & =  \sum_{i \ neq k}{A_{jk}x_{k}}  + A_{ji}
       \end{split}
     \end{equation*}
@@ -29,7 +29,7 @@
 
   \begin{equation*}
     \begin{split}
-      \prb{\left( Ax \right)_{j} = 1} &=  \sum_{ A_{jk}; k\neq i   }{\prb{\left( Ax \right)_{j} = 1 | A_{jk} ; k\neq i }\prb{ A_{jk} ; k\neq i }}  // 
+      \prb{\left( Ax \right)_{j} = 1} &=  \sum_{ A_{jk}; k\neq i   }{\prb{\left( Ax \right)_{j} = 1 | A_{jk} ; k\neq i }\prb{ A_{jk} ; k\neq i }}  \\
       &= \frac{1}{2} 
     \end{split}
   \end{equation*}
@@ -81,7 +81,7 @@ Consider the following process for decoding $a$, first we sample uniformly rando
   The above decoding returns the correct $i$'th in probability grater than $\frac{1}{2}$. 
 \end{claim}
 \begin{proof}
-  In this question we will say that $w$ agree on $x,\sigma_{i}(x)$ if both $x,\sigma_{i}(x)$ were either filliped or unfliped. Clearly if $w(x)$ agree with $w(\sigma_{i}(x))$ than  
+  In this question we will say that $w$ agree on $x,\sigma_{i}(x)$ if both $x,\sigma_{i}(x)$ were either filliped or unflipped. Clearly if $w(x)$ agree with $w(\sigma_{i}(x))$ than  
   \begin{equation*}
     \begin{split}
       w\left( x \right) + w\left( \sigma_{i}(x) \right) & = H_{a}(x) + H_{a}(\sigma_{i}(x)) = \sum_{i\neq j }{a_{j}(x_{j} + x_{j})} + a_{i}(x_{j} + 1 + x_{j}) = a_{j} \text{neither of them were flipped. }  \\

@@ -1,0 +1,102 @@
+\documentclass{article}
+
+\input{usepackage.tex}
+\input{newcommands.tex}
+
+\title{PCP - Huji Course, Ex 1.} 
+\author{David Ponarovsky}
+\maketitle
+%\abstract{We propose a new simple construction based on Tanner Codes, which yields a good LDPC testable code.} 
+
+\newcommand{\FF}{\mathbb{F}}
+
+\begin{document}
+\begin{multicols*}{2}
+  
+  \section{Ex 1.}
+  \begin{claim}
+    Let $A$ be a random matrix in $M(\mathbb{F}_{2}^{k\times n})$ then for any non zero $x\in \FF$ we have that $Ax$ distributed uniformly.   
+  \end{claim}
+  \begin{proof}
+    By the fact that $x\neq 0$ there exists at least one coordinate $i \in [k]$ such that $x_{i}\neq 0$. Thus we have 
+
+    \begin{equation*}
+      \begin{split}    
+        \left( Ax \right)_{j} &= \sum_{k}{A_{jk}x_{k}} = \sum_{i \ neq k}{A_{jk}x_{k}}  + A_{ji}x_{i} //  
+        & =  \sum_{i \ neq k}{A_{jk}x_{k}}  + A_{ji}
+      \end{split}
+    \end{equation*}
+  Notice that due to the fact that $\FF_{2}$ is a field, there is exactly one assignment that satisfies the equation conditioned on all the values $A_{jk}$ where $j\neq k$.    
+
+  \begin{equation*}
+    \begin{split}
+      \prb{\left( Ax \right)_{j} = 1} &=  \sum_{ A_{jk}; k\neq i   }{\prb{\left( Ax \right)_{j} = 1 | A_{jk} ; k\neq i }\prb{ A_{jk} ; k\neq i }}  // 
+      = \frac{1}{2} 
+    \end{split}
+  \end{equation*}
+  therefore any coordinate of $Ax$ distributed uniformly $\Rightarrow$ $Ax$ distributed uniformly. 
+  \end{proof}
+By the uniformity of $Ax$ we obtain that the expected Hamming wight of $Ax$ is : 
+\begin{equation*}
+  \begin{split}
+    \expp{|Ax| } = \expp{\sum_{i}^{n}{(Ax)_{i}}} = \frac{1}{2} n    
+  \end{split}
+\end{equation*} As the coordinates of $A_{x}$ are independent (each row of $A$ is sampled separately) we can use the Hoff' bound to conclude that: 
+\begin{equation*}
+  \begin{split}
+    \prb{| |Ax| - \expp{|Ax|}| \ge \left(\frac{1}{2} - \delta \right) n } & \le e^{-n \left(\frac{1}{2} - \delta \right)^{2} } 
+    \Rightarrow
+  \end{split}
+\end{equation*}
+Now we will use the union bound to show that any $x\in \FF_{2}^{k}$, $Ax$ is at weight at least $\delta$.  
+\begin{equation*}
+  \begin{split}
+    \prb{|Ax| \ge \delta : \forall x \in \FF_{2}^{k} } \ge 1 - |\FF_{2}^{k}| \cdot e^{-n \left(\frac{1}{2} - \delta \right)^{2} } 
+  \end{split}
+\end{equation*}
+Denote $k = \rho n$ and notice that the above holds when $\rho \ge \left(\frac{1}{2} - \delta \right)^{2} $  
+\section{Ex 2.}
+\begin{claim}
+  Let $v_{1},v_{2} .. v_{m}$ unit vectors in an inner-product space such that  $\braket{v_{i}, v_{j}} \le -2\varepsilon $ for all $i\neq j$, then $m \le \frac{1}{2\varepsilon}+1$.
+\end{claim}
+\begin{proof}
+  Let's us bound form both sides the norm of the summation $|\sum_{i}{v_{i}}|$. As the norm is by definition (construction) non-negative we are going to bound from the left by $0$, on the other hand we have that: 
+  \begin{equation*}
+    \begin{split}
+      0 \le |\sum_{v_{i}}{v_{i}}| = m + 2\sum_{i,j}{\braket{v_{i},v_{j}}} \le m - 2 \cdot \frac{m\left( m-1 \right)}{2} \cdot 2\varepsilon  
+    \end{split}
+  \end{equation*}
+  Thus we obtain $ m\left( 2(m-1)\varepsilon - 1  \right) \le 0 $ namely, $m \le \frac{1}{2\varepsilon} + 1$   
+\end{proof}
+Now, define the following product for $u,v \in \FF_{2}^{n} $, $\braket{v,u} = \sum_{i}{ (-1)^{v_{i}} (-1)^{\bar{u}_{i}}  }$ observes that: 
+\begin{enumerate}
+  \item $\braket{v,v} = \sum_{i}{ 1  } = n \ge 0 $.
+  \item $\braket{v,u} = \braket{u,v}$.
+  \item $\braket{ax + by,z} = (-1)^{a}\braket{x,z} + (-1)^{b}\braket{y,z}$. 
+\end{enumerate}
+
+Now the $v$'s corresponds to code with distance at least $d$ then, i.e for any codewords $v$ and $u$ disagree on at least $d$ coordinates, and therefore $\braket{v,u} \le$ \verb|agree|$-$ \verb|disagree| \verb|= n - 2 disagree| $=n -2d$. Now consider the normal codewords $\tilde{v_{1}} .. \tilde{v_{n}}$ and assume that $ \braket{ \tilde{v_{i}},\tilde{v_{j}}} = \left(1 - 2\delta \right)= \frac{1}{n}\left( n -2 d(v_{i},v_{j}) \right) \le  \varepsilon$. So if $d \ge \frac{1}{2} + \varepsilon$ we obtain the condition of the above claim. 
+
+\section{Ex 3.}
+Consider the following process for decoding $a$, first we sample uniformly random $x \in \FF_{2}^{n}$ and assign: $\hat{a}_{i} \leftarrow w(x) + w(\sigma_{i}(x))$.
+\begin{claim}
+  The above decoding returns the correct $i$'th in probability grater than $\frac{1}{2}$. 
+\end{claim}
+\begin{proof}
+  In this question we will say that $w$ agree on $x,\sigma_{i}(x)$ if both $x,\sigma_{i}(x)$ were either filliped or unfliped. Clearly if $w(x)$ agree with $w(\sigma_{i}(x))$ than  
+  \begin{equation*}
+    \begin{split}
+      w\left( x \right) + w\left( \sigma_{i}(x) \right) & = H_{a}(x) + H_{a}(\sigma_{i}(x)) = \sum_{i\neq j }{a_{j}(x_{j} + x_{j})} + a_{i}(x_{j} + 1 + x_{j}) = a_{j} \text{neither of them were flipped. }  \\
+      & = 1 + H_{a}(x) + 1 + H_{a}(\sigma_{i}(x)) =  a_{i} \text{both flipped.}
+    \end{split}
+  \end{equation*}
+  Also if $w$ disagree on $x,\sigma_{i}\left( x \right)$ then  $w\left( x \right) + w\left( \sigma_{i}(x) \right) = 1 + a_{i} $.
+  Now consider the inner product from the above section, and observes that $\braket{w(x),w(\sigma_{i}(x))} = 1 - (-1)^{a_{i}}$      
+
+\end{proof}
+
+\end{multicols*}
+  \printbibliography 
+\end{document}
+
+

@@ -132,17 +132,9 @@ Consider the following process for decoding $a$,
 \subsection{(a)} We will prove that if for any $x$, $f$ interpolate well on $ x, x+1, .. ,x+d+1$ than any it interpolate well on every coordinates set at size $d+1$. Denote by $J \subset \FF_{q}$ at size $d+1$. Let's continue by induction on $\max J$. The base case $\max J = d+1 \Rightarrow J = \{1,2 .., d+1\}$ follow straightforwardly from the assumption. Assume the correctness for any $J$ such that $\max J \le x_{0}$ and consider $J^{\prime}$ such that $\max J^{\prime} = x_{0} + $. 
 Now it given that $ S = \{ x_{0} - d, x_{0} - d + 1, .. x_{0} + 1 \}$ is well interpolating set,  so there exists coefficients $a_{1}, a_{d+1}$ such that $a_{d+1}f(x_{0}+1) = \sum_{x_{i}\in S/(x_{0}+1)}{a_{i}f\left( x_{i} \right)}$ On the overhand, for ant any $x_{i} \in S / (x_{0}+1)$ the union $K = x_{i} \cup J / (x_{0} + 1)$ is subset of $\FF_{q}$ at size $d+1$ such that $\max K \le x_{0}$.
 Hence by induction assumption $K$ is well interpolating set and we can exchange any $f(x_{i})$ for $x_{i} \in S$ by a linear combination of $f(x_{i})$ for $x_{i} \in J/ ( x_{0} + 1)$. So in overall we obtain that $J$ is depended set, namely $f$ is well interpolate on $J$.  
-\subsection{(b)} 
-We will prove the claim only for monoms $x^{l} \mapsto \left( tx + s \right)^{l}$ and that will sufficent by lineratiy arguments. Again we will show correction by induction on $l$, if $l=1$ then it's trivial. Suppose the rightness of the claim for any degree lower then $l$ and consider the monom $x^{l+1}$.  Note that for any $t\neq 0,s \in \FF_{q}$ we have that $(tx +s)^{l+1} = (tx +s)^{l} \left( tx + s \right) = s (tx +s)^{l} + tx (tx +s)^{l}$. 
-Now applay the induction assumption to obtain that:  
-\begin{equation*}
-  \begin{split}
-    a_{d+1} (tx +s)^{l} (x_{d+1} ) = \sum_{i}{a_{i} (tx +s)^{l} (x_{i} )}\Rightarrow \left(tx (tx +s)^{l}\right) (x_{i}) =tx_{i}\left( a_{i}^{-1}\left(a_{d+1} - a_{j}( \cdot )  \right) \right)   
-  \end{split}
-\end{equation*}<++>
-Note that $q$ is prime, thus $\left( \FF_{q} / 0 , \cdot  \right)$ and  $ \left( \FF_{q} , +  \right)$ are cyclic groups and therefore any $s \in \left( \FF_{q} , +  \right)$ and a subset of $J \subset \FF_{q}$ of $d+1$ coordinates the set $s + J$ is also at size $d+1$ (no collision occurs). Therefore we could find 
+\subsection{(b)} Define the function $g(x) = f(t^{-1}(x-s))$. Note that $q$ is prime, thus $\left( \FF_{q} / 0 , \cdot  \right)$ and  $ \left( \FF_{q} , +  \right)$ are groups and the inverse elements $-s,t^{-1}$ are exist and uniqs. Suppose that $y$ is a zero of $g \Rightarrow$ $f(t(y+s)) = g(y) = 0$, Hence the number of zeros of $f$ equals to the number of zeros of $g$, which means that their degree are equal $\Rightarrow$ $g$ is also a polynomial at degree at most $d$, $\Rightarrow a_{1}, a_{2} .. a_{d}$ are also the interpolation coefficients respecting to the interpolation set $\{ tx_{1}+s, tx_{2}+s, .., tx_{d} +s  \}$. 
 
-Now for any set $\{x_{1} + s, x_{2} + s , .. ,x_{d+1}+s \}$ we could find the interpolation coffetions relative to the function  
+
 
 %\end{multicols*}
   \printbibliography 

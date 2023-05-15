@@ -134,8 +134,9 @@ Now it given that $ S = \{ x_{0} - d, x_{0} - d + 1, .. x_{0} + 1 \}$ is well in
 Hence by induction assumption $K$ is well interpolating set and we can exchange any $f(x_{i})$ for $x_{i} \in S$ by a linear combination of $f(x_{i})$ for $x_{i} \in J/ ( x_{0} + 1)$. So in overall we obtain that $J$ is depended set, namely $f$ is well interpolate on $J$.  
 \subsection{(b)} Define the function $g(x) = f(t^{-1}(x-s))$. Note that $q$ is prime, thus $\left( \FF_{q} / 0 , \cdot  \right)$ and  $ \left( \FF_{q} , +  \right)$ are groups and the inverse elements $-s,t^{-1}$ are exist and uniqs. Suppose that $y$ is a zero of $g \Rightarrow$ $f(t(y+s)) = g(y) = 0$, Hence the number of zeros of $f$ equals to the number of zeros of $g$, which means that their degree are equal $\Rightarrow$ $g$ is also a polynomial at degree at most $d$, $\Rightarrow a_{1}, a_{2} .. a_{d}$ are also the interpolation coefficients respecting to the interpolation set $\{ tx_{1}+s, tx_{2}+s, .., tx_{d} +s  \}$. 
 
-
-
+\section{Ex (5).}
+\subsection{(a)} As shown in the above section, by the fact that $q$ is prime we have that $g_{v,u} $ act on $\FF_{q}^{m}$ by $g_{u,v}(x) = v + ux$, (for any $u\neq 0$) Thus $f(g_{u,v}(x))$ is just a permutation over the values of $f$. As the number of zeros remain the same, we have that $f(g_{u,v}(x))$ is also degree $d$ polynomial. Thus the restircted polynomail $f|_{L}$ correspond to restriction $L_{\prime}$ of another polynomial obtained by taking $v^{\prime} =0$ and $u$ to be supported only on single coordinate. Hence the restricted polynomial can has at most $d$ zeros.
+\subsection{(b)}
 %\end{multicols*}
   \printbibliography 
 \end{document}

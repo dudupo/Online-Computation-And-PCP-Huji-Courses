@@ -10,7 +10,6 @@
 \newcommand{\FF}{\mathbb{F}}
 
 \begin{document}
-\maketitle
 \begin{multicols*}{2}
   
   \section{Ex 1.}
@@ -31,7 +30,7 @@
   \begin{equation*}
     \begin{split}
       \prb{\left( Ax \right)_{j} = 1} &=  \sum_{ A_{jk}; k\neq i   }{\prb{\left( Ax \right)_{j} = 1 | A_{jk} ; k\neq i }\prb{ A_{jk} ; k\neq i }}  // 
-      = \frac{1}{2} 
+      &= \frac{1}{2} 
     \end{split}
   \end{equation*}
   therefore any coordinate of $Ax$ distributed uniformly $\Rightarrow$ $Ax$ distributed uniformly. 
@@ -45,7 +44,6 @@ By the uniformity of $Ax$ we obtain that the expected Hamming wight of $Ax$ is :
 \begin{equation*}
   \begin{split}
     \prb{| |Ax| - \expp{|Ax|}| \ge \left(\frac{1}{2} - \delta \right) n } & \le e^{-n \left(\frac{1}{2} - \delta \right)^{2} } 
-    \Rightarrow
   \end{split}
 \end{equation*}
 Now we will use the union bound to show that any $x\in \FF_{2}^{k}$, $Ax$ is at weight at least $\delta$.  

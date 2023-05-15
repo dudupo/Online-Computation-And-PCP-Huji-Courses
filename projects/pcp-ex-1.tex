@@ -83,7 +83,21 @@ Now the $v$'s corresponds to code with distance at least $d$ then, i.e for any c
 So if $d \ge \frac{1}{2} + \varepsilon$ we obtain the condition of the above claim. 
 
 \section{Ex 3.}
-Consider the following process for decoding $a$, first we sample uniformly random $x \in \FF_{2}^{n}$ and assign: $\hat{a}_{i} \leftarrow w(x) + w(\sigma_{i}(x))$.
+Consider the following process for decoding $a$,
+
+
+\begin{algorithm}[H]
+  \For{$ i \in [n]$} {
+    $x \sim_{u} \FF_{2}^{n}$ \\
+%    \While{ $w\left( x \right) \neq  w\left( \sigma_{i}(x) \right)$  }{
+%       $x \sim_{u} \FF_{2}^{n}$
+%    }
+    $a_{i} \leftarrow w\left( x \right) \neq  w\left( \sigma_{i}(x) \right)$
+  }
+\end{algorithm}
+
+
+first we sample uniformly random $x \in \FF_{2}^{n}$ and assign: $\hat{a}_{i} \leftarrow w(x) + w(\sigma_{i}(x))$.
 \begin{claim}
   The above decoding returns the correct $i$'th in probability grater than $\frac{1}{2}$. 
 \end{claim}
@@ -96,7 +110,7 @@ Consider the following process for decoding $a$, first we sample uniformly rando
       & = 1 + H_{a}(x) + 1 + H_{a}(\sigma_{i}(x)) =  a_{i} \ \ (  \text{   both flipped.} )
     \end{split}
   \end{equation*}
-  Also if $w$ disagree on $x,\sigma_{i}\left( x \right)$ then  $w\left( x \right) + w\left( \sigma_{i}(x) \right) = 1 + a_{i} $.
+  Thus we can bound (\textbf{rudely}) the probability that the decoding fails by the probability that flipping occurred  $w$  . At   Also if $w$ disagree on $x,\sigma_{i}\left( x \right)$ then  $w\left( x \right) + w\left( \sigma_{i}(x) \right) = 1 + a_{i} $.
   Now consider the inner product from the above section, and observes that $\braket{w(x),w(\sigma_{i}(x))} = 1 - (-1)^{a_{i}}$      
 
 \end{proof}

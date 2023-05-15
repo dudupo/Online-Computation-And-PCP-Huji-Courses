@@ -87,17 +87,18 @@ Consider the following process for decoding $a$,
 
 
 \begin{algorithm}[H]
-  \For{$ i \in [n]$} {
-    $x \sim_{u} \FF_{2}^{n}$ \\
-%    \While{ $w\left( x \right) \neq  w\left( \sigma_{i}(x) \right)$  }{
-%       $x \sim_{u} \FF_{2}^{n}$
-%    }
-    $a_{i} \leftarrow w\left( x \right) \neq  w\left( \sigma_{i}(x) \right)$
-  }
+  \For {$ t \in [\tau]$}  {
+    \For{$ i \in [n]$} {
+      $x \sim_{u} \FF_{2}^{n}$ \\
+      $a_{i}^{(t)} \leftarrow w\left( x \right) + w\left( \sigma_{i}(x) \right)$
+    }
+}
+\For{$ i \in [n]$} {
+  $\hat{a}_{i} \leftarrow [ \frac{1}{\tau}\sum_{t}^{\tau}{ a_{i}^{(t)}  }  ]$ 
+}
+\Return $ \hat{a}_{0}, \hat{a}_{1}, \hat{a}_{2} .. \hat{a}_{n} $
 \end{algorithm}
 
-
-first we sample uniformly random $x \in \FF_{2}^{n}$ and assign: $\hat{a}_{i} \leftarrow w(x) + w(\sigma_{i}(x))$.
 \begin{claim}
   The above decoding returns the correct $i$'th in probability grater than $\frac{1}{2}$. 
 \end{claim}

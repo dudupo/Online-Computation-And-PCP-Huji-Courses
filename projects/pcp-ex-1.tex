@@ -73,7 +73,14 @@ Now, define the following product for $u,v \in \FF_{2}^{n} $, $\braket{v,u} = \s
   \item $\braket{ax + by,z} = (-1)^{a}\braket{x,z} + (-1)^{b}\braket{y,z}$. 
 \end{enumerate}
 
-Now the $v$'s corresponds to code with distance at least $d$ then, i.e for any codewords $v$ and $u$ disagree on at least $d$ coordinates, and therefore $\braket{v,u} \le$ \verb|agree|$-$ \verb|disagree| \verb|= n - 2 disagree| $=n -2d$. Now consider the normal codewords $\tilde{v_{1}} .. \tilde{v_{n}}$ and assume that $ \braket{ \tilde{v_{i}},\tilde{v_{j}}} = \left(1 - 2\delta \right)= \frac{1}{n}\left( n -2 d(v_{i},v_{j}) \right) \le  \varepsilon$. So if $d \ge \frac{1}{2} + \varepsilon$ we obtain the condition of the above claim. 
+Now the $v$'s corresponds to code with distance at least $d$ then, i.e for any codewords $v$ and $u$ disagree on at least $d$ coordinates, and therefore $\braket{v,u} \le$ \verb|agree|$-$ \verb|disagree| \verb|= n - 2 disagree| $=n -2d$. Now consider the normal codewords $\tilde{v_{1}} .. \tilde{v_{n}}$ and assume that 
+
+\begin{equation*}
+  \begin{split}
+    \braket{ \tilde{v_{i}},\tilde{v_{j}}} = \left(1 - 2\delta \right)= \frac{1}{n}\left( n -2 d(v_{i},v_{j}) \right) \le  \varepsilon
+  \end{split}
+\end{equation*}
+So if $d \ge \frac{1}{2} + \varepsilon$ we obtain the condition of the above claim. 
 
 \section{Ex 3.}
 Consider the following process for decoding $a$, first we sample uniformly random $x \in \FF_{2}^{n}$ and assign: $\hat{a}_{i} \leftarrow w(x) + w(\sigma_{i}(x))$.

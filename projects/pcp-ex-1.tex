@@ -259,17 +259,19 @@ Hence by induction assumption $K$ is well interpolating set and we can exchange 
 Now, as $g(v),t \neq 0$, we obtain that $g(vt)$ is equal exactly to $t^{d}\cdot c$ where $c$ is the sum of coefficients of each monomial of $g$ (also $c = g(1)$). As $f(x) - g(x)$ is a polynomial of degree $d-1$, it holds from the previous section that $(f-g)(vt)$ is also a polynomial of degree at most $d-1$. Thus, it cannot zero out $g(vt) \Rightarrow$ $f(vt) = (f - g)(vt) + g(vt)$ is also a polynomial of degree $d$.        
 
 \section{Ex (6).}
-\subsection{(a) and (b).} Notice that the polynomial $f$ could be written as $\sum_{i,j}{a_{i}a_{j}x^{i}y^{j}}$. Thus, the assignments of $(d+1)^{2}$ points define $(d+1)^{2}$ equations over $(d+1)^{2}$ variables. In addition, as the determinant of the matrix equals
+\subsection{(a) and (b).} Let $F$ be a function from $ \{0,1.. d \}^{2} \rightarrow \FF_{q}$, we are going to define a $d$-degree polynomail $f : \FF_{q}^{2}\rightarrow \FF_{q}$  that agree with $F$ and show that is uniq. Notice that any polynomial could be written as $\sum_{i,j}{a_{i}a_{j}x^{i}y^{j}}$. Thus, the assignments of $(d+1)^{2}$ points define $(d+1)^{2}$ equations over $(d+1)^{2}$ variables. In addition, as the determinant of the matrix equals
 \begin{equation}
   \begin{split}
   \sum_{\sigma \in S_{n}}{ \left( -1 \right)^{\sigma(\pi)}\prod_{\sigma( x^{\sigma(n)_{1}}y^{\sigma(n)_{2}}  ) } } &= \prod_{i<j}{\left(x_{i} - x_{j}  \right)}\prod_{i<j}\left(y_{i} -y_{j} \right) \\
   &= \prod_{i<j}{\left(x_{i} - x_{j}  \right)}\prod_{i<j}\left(y_{i} -y_{j} \right) = \prod{i^{d-i}}\prod{j^{d-j}} \not{|} q
 \end{split}
 \end{equation}
-So the detriment is not zero, thus we can solve that system by gauss elimination and obtain unique solution . 
-
+So the detriment is not zero, thus we can solve that system by gauss elimination and obtain unique solution. The soultion is uniq and define the coffecints of $f$.  
 
 \subsection{(c).}
+
+Now consider a function $f : \FF_{q}^{2} \rightarrow \FF_{q}$ which any restriction of $f$ to a line is a polynimail at degree at most $d$.   
+
 
 %\end{multicols*}
   \printbibliography 

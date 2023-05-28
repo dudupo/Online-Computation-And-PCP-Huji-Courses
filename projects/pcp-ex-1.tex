@@ -305,7 +305,8 @@ So the detriment is not zero, thus we can solve that system by gauss elimination
 
 \subsection{(c).}
 
-Now consider a function $f : \FF_{q}^{2} \rightarrow \FF_{q}$ which any restriction of $f$ to any line is a polynomial at degree at most $d$. Let us denote by $f^{\prime}$ the polynomial defined by the point $ \{ f(0,0), f(0,1) .. f(d,d) \}$ namely, $f^{\prime}$ is the result of the interpolation over the restriction $f$ to $\{ 0,..,d \}^{2}$. Suppose that there is a point $(x_{0},y_{0})$ on which $f^{\prime},f$ disagree. Thus, the functions $g(x) := f(x,y_{0})$ and $g^{\prime}(x) := f^{\prime}\left( x,y_{0} \right)$ are not equal. But the points $\{ (1,y_{0}), (2,y_{0}) , .. , (d,y_{0})\}$ define a unique $d$-degree polynomial and therefore   
+Now consider a function $f : \FF_{q}^{2} \rightarrow \FF_{q}$ which any restriction of $f$ to any line is a polynomial at degree at most $d$. Let us denote by $f^{\prime}$ the polynomial defined by the point $ \{ f(0,0), f(0,1) .. f(d,d) \}$ namely, $f^{\prime}$ is the result of the interpolation over the restriction $f$ to $\{ 0,..,d \}^{2}$. Recall that the interpolation give a unique polynomial with degree at most $d$ in each variable.  Suppose that there is a point $(x_{0},y_{0})$ on which $f^{\prime},f$ disagree. Thus, the functions $g(x) := f(x,y_{0})$ and $g^{\prime}(x) := f^{\prime}\left( x,y_{0} \right)$ are not equal. But the points $\{ (1,y_{0}), (2,y_{0}) , .. , (d,y_{0})\}$ define a unique $d$-degree polynomial and therefore the restriction $f|_{y = y_{0}}$ must be equal to $f^{\prime}|L$ as they both a single variable polynomials at degree at most $d$.   
+
 
 
 %\end{multicols*}

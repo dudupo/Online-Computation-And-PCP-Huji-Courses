@@ -13,75 +13,146 @@
 \maketitle
 %\begin{multicols*}{2}
   
-  \section{Ex 1.}
-  \begin{claim}
-    Let $A$ be a random matrix in $M(\mathbb{F}_{2}^{k\times n})$ then for any non zero $x\in \FF$ we have that $Ax$ distributed uniformly.   
-  \end{claim}
-  \begin{proof}
-    By the fact that $x\neq 0$ there exists at least one coordinate $i \in [k]$ such that $x_{i}\neq 0$. Thus we have 
-
-    \begin{equation*}
-      \begin{split}    
-        \left( Ax \right)_{j} &= \sum_{k}{A_{jk}x_{k}} = \sum_{i \ neq k}{A_{jk}x_{k}}  + A_{ji}x_{i} \\ 
-        & =  \sum_{i \ neq k}{A_{jk}x_{k}}  + A_{ji}
+%  \section{Ex 1.}
+%  \begin{claim}
+%    Let $A$ be a random matrix in $M(\mathbb{F}_{2}^{k\times n})$ then for any non zero $x\in \FF$ we have that $Ax$ distributed uniformly.   
+%  \end{claim}
+%  \begin{proof}
+%    By the fact that $x\neq 0$ there exists at least one coordinate $i \in [k]$ such that $x_{i}\neq 0$. Thus we have 
+%
+%    \begin{equation*}
+%      \begin{split}    
+%        \left( Ax \right)_{j} &= \sum_{k}{A_{jk}x_{k}} = \sum_{i \ neq k}{A_{jk}x_{k}}  + A_{ji}x_{i} \\ 
+%        & =  \sum_{i \ neq k}{A_{jk}x_{k}}  + A_{ji}
+%      \end{split}
+%    \end{equation*}
+%  Notice that due to the fact that $\FF_{2}$ is a field, there is exactly one assignment that satisfies the equation conditioned on all the values $A_{jk}$ where $j\neq k$.    
+%
+%  \begin{equation*}
+%    \begin{split}
+%      \prb{\left( Ax \right)_{j} = 1} &=  \sum_{ A_{jk}; k\neq i   }{\prb{\left( Ax \right)_{j} = 1 | A_{jk} ; k\neq i }\prb{ A_{jk} ; k\neq i }}  \\
+%      &= \frac{1}{2} 
+%    \end{split}
+%  \end{equation*}
+%  therefore any coordinate of $Ax$ distributed uniformly $\Rightarrow$ $Ax$ distributed uniformly. 
+%  \end{proof}
+%By the uniformity of $Ax$ we obtain that the expected Hamming wight of $Ax$ is : 
+%\begin{equation*}
+%  \begin{split}
+%    \expp{|Ax| } = \expp{\sum_{i}^{n}{(Ax)_{i}}} = \frac{1}{2} n    
+%  \end{split}
+%\end{equation*} As the coordinates of $A_{x}$ are independent (each row of $A$ is sampled separately) we can use the Hoff' bound to conclude that: 
+%\begin{equation*}
+%  \begin{split}
+%    \prb{| |Ax| - \expp{|Ax|}| \ge \left(\frac{1}{2} - \delta \right) n } & \le e^{-n \left(\frac{1}{2} - \delta \right)^{2} } 
+%  \end{split}
+%\end{equation*}
+%Now we will use the union bound to show that any $x\in \FF_{2}^{k}$, $Ax$ is at weight at least $\delta$.  
+%\begin{equation*}
+%  \begin{split}
+%    \prb{|Ax| \ge \delta : \forall x \in \FF_{2}^{k} } \ge 1 - |\FF_{2}^{k}| \cdot e^{-n \left(\frac{1}{2} - \delta \right)^{2} } 
+%  \end{split}
+%\end{equation*}
+%Denote $k = \rho n$ and notice that the above holds when $\rho \ge \left(\frac{1}{2} - \delta \right)^{2} $  
+%\section{Ex 2.}
+%\begin{claim}
+%  Let $v_{1},v_{2} .. v_{m}$ unit vectors in an inner-product space such that  $\braket{v_{i}, v_{j}} \le -2\varepsilon $ for all $i\neq j$, then $m \le \frac{1}{2\varepsilon}+1$.
+%\end{claim}
+%\begin{proof}
+%  Let's us bound form both sides the norm of the summation $|\sum_{i}{v_{i}}|$. As the norm is by definition (construction) non-negative we are going to bound from the left by $0$, on the other hand we have that: 
+%  \begin{equation*}
+%    \begin{split}
+%      0 \le |\sum_{v_{i}}{v_{i}}| = m + 2\sum_{i,j}{\braket{v_{i},v_{j}}} \le m - 2 \cdot \frac{m\left( m-1 \right)}{2} \cdot 2\varepsilon  
+%    \end{split}
+%  \end{equation*}
+%  Thus we obtain $ m\left( 2(m-1)\varepsilon - 1  \right) \le 0 $ namely, $m \le \frac{1}{2\varepsilon} + 1$   
+%\end{proof}
+%Now, define the following product for $u,v \in \FF_{2}^{n} $, $\braket{v,u} = \sum_{i}{ (-1)^{v_{i}} (-1)^{\bar{u}_{i}}  }$ observes that: 
+%\begin{enumerate}
+%  \item $\braket{v,v} = \sum_{i}{ 1  } = n \ge 0 $.
+%  \item $\braket{v,u} = \braket{u,v}$.
+%  \item $\braket{ax + by,z} = (-1)^{a}\braket{x,z} + (-1)^{b}\braket{y,z}$. 
+%\end{enumerate}
+%
+%Now the $v$'s corresponds to code with distance at least $d$ then, i.e for any codewords $v$ and $u$ disagree on at least $d$ coordinates, and therefore $\braket{v,u} \le$ \verb|agree|$-$ \verb|disagree| \verb|= n - 2 disagree| $=n -2d$. Now consider the normal codewords $\tilde{v_{1}} .. \tilde{v_{n}}$ and assume that 
+%
+%\begin{equation*}
+%  \begin{split}
+%    \braket{ \tilde{v_{i}},\tilde{v_{j}}} = \left(1 - 2\delta \right)= \frac{1}{n}\left( n -2 d(v_{i},v_{j}) \right) \le  \varepsilon
+%  \end{split}
+%\end{equation*}
+%So if $d \ge \frac{1}{2} + \varepsilon$ we obtain the condition of the above claim. 
+%
+\section{Ex 1.}
+Let $A$ be a random matrix in $M(\mathbb{F}_{2}^{k\times n})$. For any non-zero $x \in \FF$, we have that $Ax$ is distributed uniformly.
+\begin{claim}
+\end{claim}
+\begin{proof}
+By the fact that $x \neq 0$, there exists at least one coordinate $i \in [k]$ such that $x_i \neq 0$. Thus, we have
+\begin{equation*}
+    \begin{split}    
+        \left( Ax \right)_{j} &= \sum_{k}{A_{jk}x_{k}} = \sum_{i \neq k}{A_{jk}x_{k}}  + A_{ji}x_{i} \\ 
+        & =  \sum_{i \neq k}{A_{jk}x_{k}}  + A_{ji}
       \end{split}
-    \end{equation*}
-  Notice that due to the fact that $\FF_{2}$ is a field, there is exactly one assignment that satisfies the equation conditioned on all the values $A_{jk}$ where $j\neq k$.    
+\end{equation*}
+Notice that due to the fact that $\FF_{2}$ is a field, there is exactly one assignment that satisfies the equation conditioned on all the values $A_{jk}$ where $j \neq k$.    
 
-  \begin{equation*}
+\begin{equation*}
     \begin{split}
-      \prb{\left( Ax \right)_{j} = 1} &=  \sum_{ A_{jk}; k\neq i   }{\prb{\left( Ax \right)_{j} = 1 | A_{jk} ; k\neq i }\prb{ A_{jk} ; k\neq i }}  \\
+      \prb{\left( Ax \right)_{j} = 1} &=  \sum_{ A_{jk}; k\neq i   }{\prb{\left( Ax \right)_{j} = 1 \mid A_{jk} ; k\neq i }\prb{ A_{jk} ; k\neq i }}  \\
       &= \frac{1}{2} 
     \end{split}
-  \end{equation*}
-  therefore any coordinate of $Ax$ distributed uniformly $\Rightarrow$ $Ax$ distributed uniformly. 
-  \end{proof}
-By the uniformity of $Ax$ we obtain that the expected Hamming wight of $Ax$ is : 
+\end{equation*}
+Therefore, any coordinate of $Ax$ is distributed uniformly $\Rightarrow$ $Ax$ is distributed uniformly. 
+\end{proof}
+By the uniformity of $Ax$, we obtain that the expected Hamming weight of $Ax$ is: 
 \begin{equation*}
   \begin{split}
     \expp{|Ax| } = \expp{\sum_{i}^{n}{(Ax)_{i}}} = \frac{1}{2} n    
   \end{split}
-\end{equation*} As the coordinates of $A_{x}$ are independent (each row of $A$ is sampled separately) we can use the Hoff' bound to conclude that: 
+\end{equation*} 
+As the coordinates of $A_{x}$ are independent (each row of $A$ is sampled separately), we can use the Hoff's bound to conclude that: 
 \begin{equation*}
   \begin{split}
     \prb{| |Ax| - \expp{|Ax|}| \ge \left(\frac{1}{2} - \delta \right) n } & \le e^{-n \left(\frac{1}{2} - \delta \right)^{2} } 
   \end{split}
 \end{equation*}
-Now we will use the union bound to show that any $x\in \FF_{2}^{k}$, $Ax$ is at weight at least $\delta$.  
+Now, we will use the union bound to show that any $x \in \FF_{2}^{k}$, $Ax$ is of weight at least $\delta$.  
 \begin{equation*}
   \begin{split}
     \prb{|Ax| \ge \delta : \forall x \in \FF_{2}^{k} } \ge 1 - |\FF_{2}^{k}| \cdot e^{-n \left(\frac{1}{2} - \delta \right)^{2} } 
   \end{split}
 \end{equation*}
-Denote $k = \rho n$ and notice that the above holds when $\rho \ge \left(\frac{1}{2} - \delta \right)^{2} $  
+Denote $k = \rho n$ and notice that the above holds when $\rho \ge \left(\frac{1}{2} - \delta \right)^{2} $.  
+
 \section{Ex 2.}
 \begin{claim}
-  Let $v_{1},v_{2} .. v_{m}$ unit vectors in an inner-product space such that  $\braket{v_{i}, v_{j}} \le -2\varepsilon $ for all $i\neq j$, then $m \le \frac{1}{2\varepsilon}+1$.
+  Let $v_{1},v_{2}, \dots, v_{m}$ be unit vectors in an inner-product space such that  $\braket{v_{i}, v_{j}} \le -2\varepsilon $ for all $i\neq j$, then $m \le \frac{1}{2\varepsilon}+1$.
 \end{claim}
 \begin{proof}
-  Let's us bound form both sides the norm of the summation $|\sum_{i}{v_{i}}|$. As the norm is by definition (construction) non-negative we are going to bound from the left by $0$, on the other hand we have that: 
+  Let us bound the norm of the summation $|\sum_{i}{v_{i}}|$ from both sides. As the norm is non-negative by definition, we will bound it from the left by $0$. On the other hand, we have that: 
   \begin{equation*}
     \begin{split}
       0 \le |\sum_{v_{i}}{v_{i}}| = m + 2\sum_{i,j}{\braket{v_{i},v_{j}}} \le m - 2 \cdot \frac{m\left( m-1 \right)}{2} \cdot 2\varepsilon  
     \end{split}
   \end{equation*}
-  Thus we obtain $ m\left( 2(m-1)\varepsilon - 1  \right) \le 0 $ namely, $m \le \frac{1}{2\varepsilon} + 1$   
+  Thus, we obtain $ m\left( 2(m-1)\varepsilon - 1  \right) \le 0 $, namely, $m \le \frac{1}{2\varepsilon} + 1$   
 \end{proof}
-Now, define the following product for $u,v \in \FF_{2}^{n} $, $\braket{v,u} = \sum_{i}{ (-1)^{v_{i}} (-1)^{\bar{u}_{i}}  }$ observes that: 
+Now, define the following product for $u,v \in \FF_{2}^{n} $, $\braket{v,u} = \sum_{i}{ (-1)^{v_{i}} (-1)^{\bar{u}_{i}}  }$ and observe that: 
 \begin{enumerate}
   \item $\braket{v,v} = \sum_{i}{ 1  } = n \ge 0 $.
   \item $\braket{v,u} = \braket{u,v}$.
   \item $\braket{ax + by,z} = (-1)^{a}\braket{x,z} + (-1)^{b}\braket{y,z}$. 
 \end{enumerate}
 
-Now the $v$'s corresponds to code with distance at least $d$ then, i.e for any codewords $v$ and $u$ disagree on at least $d$ coordinates, and therefore $\braket{v,u} \le$ \verb|agree|$-$ \verb|disagree| \verb|= n - 2 disagree| $=n -2d$. Now consider the normal codewords $\tilde{v_{1}} .. \tilde{v_{n}}$ and assume that 
+Now, if the $v$'s correspond to a code with distance at least $d$, then, for any codewords $v$ and $u$ that disagree on at least $d$ coordinates, we have that $\braket{v,u} \le$ \verb|agree|$-$ \verb|disagree| \verb|= n - 2 disagree| $=n -2d$. Now consider the normal codewords $\tilde{v_{1}} .. \tilde{v_{n}}$ and assume that 
 
 \begin{equation*}
   \begin{split}
     \braket{ \tilde{v_{i}},\tilde{v_{j}}} = \left(1 - 2\delta \right)= \frac{1}{n}\left( n -2 d(v_{i},v_{j}) \right) \le  \varepsilon
   \end{split}
 \end{equation*}
-So if $d \ge \frac{1}{2} + \varepsilon$ we obtain the condition of the above claim. 
+Therefore, if $d \ge \frac{1}{2} + \varepsilon$, we obtain the condition of the above claim.
 
 \section{Ex 3.}
 Consider the following process for decoding $a$,
@@ -129,15 +200,76 @@ Consider the following process for decoding $a$,
     Therefore it's enough to take $\tau = O( \frac{1}{\varepsilon^{4}} \log(n)  )$ to obtain a decoder which run at time $O(  \frac{1}{\varepsilon^{4}} n \log(n))$ and success with heigh probability.   
 \end{proof}
 
+\section{Ex 3.}
+Consider the following process for decoding $a$:
+
+\begin{algorithm}[H]
+  \For {$ t \in [\tau]$}  {
+    \For{$ i \in [n]$} {
+      $x \sim_{u} \FF_{2}^{n}$ \\
+      $a_{i}^{(t)} \leftarrow w\left( x \right) + w\left( \sigma_{i}(x) \right)$
+    }
+}
+\For{$ i \in [n]$} {
+  $\hat{a}_{i} \leftarrow [ \frac{1}{\tau}\sum_{t}^{\tau}{ a_{i}^{(t)}  }  ]$ 
+}
+\Return $ \hat{a}_{0}, \hat{a}_{1}, \hat{a}_{2} .. \hat{a}_{n} $
+\end{algorithm}
+
+\begin{claim}
+  For $\tau = \Omega\left( \frac{1}{\varepsilon^{4}} \log\left( n \right) \right)$ the above decoding succeeds in decoding $w\left( x \right)$ with probability $\ge 1 - \frac{1}{n}$.
+\end{claim}
+\begin{proof}
+  In this question we will say that $w$ agrees on $x,\sigma_{i}(x)$ if both $x,\sigma_{i}(x)$ were either flipped or unflipped. Clearly, if $w(x)$ agrees with $w(\sigma_{i}(x))$ then  
+  \begin{equation*}
+    \begin{split}
+      w\left( x \right) + w\left( \sigma_{i}(x) \right) & = H_{a}(x) + H_{a}(\sigma_{i}(x)) \\
+      & = \sum_{i\neq j }{a_{j}(x_{j} + x_{j})} + a_{i}(x_{j} + 1 + x_{j})  = a_{j} \ \ ( \text{   neither of them were flipped. } ) \\
+      & = 1 + H_{a}(x) + 1 + H_{a}(\sigma_{i}(x)) =  a_{i} \ \ (  \text{   both flipped.} )
+    \end{split}
+  \end{equation*}
+  Thus, we can bound the probability that $ w\left( x \right) + w\left( \sigma_{i}(x) \right) \neq a_{_i}$ by the probability that $w$ disagrees on $x$ and that is at probability: 
+  
+  \begin{equation*}
+    \begin{split}
+     \xi := \left(1 - f(x)\right)f(\sigma_{i}(x)) + \left(1 - f(\sigma_{i}(x))\right)f(x)
+    \end{split}
+  \end{equation*}
+  Now, to bound $\xi$, we can think about the maximization problem under the restrictions that $f(x),f(\sigma_{i}(x) \le \frac{1}{2} - \varepsilon$. We know that the maximum lies on the boundary, so we can assign $\frac{1}{2} - \varepsilon$ for each of the probabilities to obtain an upper bound. That will yield $\xi \le 2\cdot \left( \frac{1}{2} - \varepsilon \right)\left( \frac{1}{2} + \varepsilon \right)$, namely $\xi \le \frac{1}{2}- 2\varepsilon^{2}$. 
+    Now, the probability that a coordinate $i$ will be rounded to the opposite side, i.e. $\hat{a}_{i} \neq a_{i}$, means that the arithmetic mean over $\tau$ experiments is $2\varepsilon^{2}$ far from the expectation. According to Hoff's bound, this is bounded by $e^{\tau 4\varepsilon^{4}}$. Thus, using the union bound, we obtain:     
+    \begin{equation*}
+      \begin{split}
+        \prb{\text{ decoding success }} \ge 1 - n \cdot e^{\tau 4\varepsilon^{4}}
+      \end{split}
+    \end{equation*} 
+    Therefore, it is enough to take $\tau = O( \frac{1}{\varepsilon^{4}} \log(n)  )$ to obtain a decoder that runs in time $O(  \frac{1}{\varepsilon^{4}} n \log(n))$ and succeeds with high probability.   
+\end{proof}
 \section{Ex 4.}
 \subsection{(a)} We will prove that if for any $x$, $f$ interpolate well on $ x, x+1, .. ,x+d+1$ than any it interpolate well on every coordinates set at size $d+1$. Denote by $J \subset \FF_{q}$ at size $d+1$. Let's continue by induction on $\max J$. The base case $\max J = d+1 \Rightarrow J = \{1,2 .., d+1\}$ follow straightforwardly from the assumption. Assume the correctness for any $J$ such that $\max J \le x_{0}$ and consider $J^{\prime}$ such that $\max J^{\prime} = x_{0} + $. 
 Now it given that $ S = \{ x_{0} - d, x_{0} - d + 1, .. x_{0} + 1 \}$ is well interpolating set,  so there exists coefficients $a_{1}, a_{d+1}$ such that $a_{d+1}f(x_{0}+1) = \sum_{x_{i}\in S/(x_{0}+1)}{a_{i}f\left( x_{i} \right)}$ On the overhand, for ant any $x_{i} \in S / (x_{0}+1)$ the union $K = x_{i} \cup J / (x_{0} + 1)$ is subset of $\FF_{q}$ at size $d+1$ such that $\max K \le x_{0}$.
 Hence by induction assumption $K$ is well interpolating set and we can exchange any $f(x_{i})$ for $x_{i} \in S$ by a linear combination of $f(x_{i})$ for $x_{i} \in J/ ( x_{0} + 1)$. So in overall we obtain that $J$ is depended set, namely $f$ is well interpolate on $J$.  
 \subsection{(b)} Define the function $g(x) = f(t^{-1}(x-s))$. Note that $q$ is prime, thus $\left( \FF_{q} / 0 , \cdot  \right)$ and  $ \left( \FF_{q} , +  \right)$ are groups and the inverse elements $-s,t^{-1}$ are exist and uniqs. Suppose that $y$ is a zero of $g \Rightarrow$ $f(t(y+s)) = g(y) = 0$, Hence the number of zeros of $f$ equals to the number of zeros of $g$, which means that their degree are equal $\Rightarrow$ $g$ is also a polynomial at degree at most $d$, $\Rightarrow a_{1}, a_{2} .. a_{d}$ are also the interpolation coefficients respecting to the interpolation set $\{ tx_{1}+s, tx_{2}+s, .., tx_{d} +s  \}$. 
 
+
+
 \section{Ex (5).}
-\subsection{(a)} As shown in the above section, by the fact that $q$ is prime we have that $g_{v,u} $ act on $\FF_{q}^{m}$ by $g_{u,v}(x) = u + vx$, (for any $v\neq 0$) Thus $f(g_{u,v}(x))$ is just a permutation over the values of $f$. As the number of zeros remain the same, we have that $f(g_{u,v}(x))$ is also degree $d$ polynomial. Thus the restricted polynomial $f|_{L}$ correspond to restriction $L_{\prime}$ of another polynomial obtained by taking $u^{\prime} =0$ and $v$ to be supported only on single coordinate. Hence the restricted polynomial can has at most $d$ zeros.
-\subsection{(b)}
+\subsection{(a)} As shown in the previous section, by the fact that $q$ is prime, we have that $g_{u,v}$ acts on $\FF_{q}^{m}$ by $g_{u,v}(x) = u + vx$, (for any $v \neq 0$). Thus, $f(g_{u,v}(x))$ is just a permutation over the values of $f$. As the number of zeros remains the same, we have that $f(g_{u,v}(x))$ is also a degree $d$ polynomial. Therefore, the restricted polynomial $f|_{L}$ corresponds to the restriction $L'$ of another polynomial obtained by taking $u' = 0$ and $v$ to be supported only on a single coordinate. Hence, the restricted polynomial can have at most $d$ zeros.
+\subsection{(b)} As we have that $f$ is a polynomial of degree exactly $d$, there must be a monomial $x_{1}^{d_{1}}x_{2}^{d_{2}}..x_{k}^{d_{k}}$ such that $\sum_{i}{d_{i}} = d$. Denote by $g$ the sum of all those monomials, and by $v \in \FF_{q}^{n}$ a coordinate on which $g(v) \neq 0$ (if there is no such $v$, then we could write $f$ as a sum of monomials, each of degree at most $d-1$).
+
+Now, as $g(v),t \neq 0$, we obtain that $g(vt)$ is equal exactly to $t^{d}\cdot c$ where $c$ is the sum of coefficients of each monomial of $g$ (also $c = g(1)$). As $f(x) - g(x)$ is a polynomial of degree $d-1$, it holds from the previous section that $(f-g)(vt)$ is also a polynomial of degree at most $d-1$. Thus, it cannot zero out $g(vt) \Rightarrow$ $f(vt) = (f - g)(vt) + g(vt)$ is also a polynomial of degree $d$.        
+
+\section{Ex (6).}
+\subsection{(a) and (b).} Notice that the polynomial $f$ could be written as $\sum_{i,j}{a_{i}a_{j}x^{i}y^{j}}$. Thus, the assignments of $(d+1)^{2}$ points define $(d+1)^{2}$ equations over $(d+1)^{2}$ variables. In addition, as the determinant of the matrix equals
+\begin{equation}
+  \begin{split}
+  \sum_{\sigma \in S_{n}}{ \left( -1 \right)^{\sigma(\pi)}\prod_{\sigma( x^{\sigma(n)_{1}}y^{\sigma(n)_{2}}  ) } } &= \prod_{i<j}{\left(x_{i} - x_{j}  \right)}\prod_{i<j}\left(y_{i} -y_{j} \rightv) \\
+  %&= \prod_{i<j}{\left(x_{i} - x_{j}  \right)}\prod_{i<j}\left(y_{i} -y_{j} \right) = \prod{i^{d-i}}\prod{j^{d-j}} \not{|} q
+\end{split}
+\end{equation}
+So the detriment is not zero, thus we can solve that system by gauss elimination and obtain unique solution . 
+
+
+\subsection{(c).}
 
 %\end{multicols*}
   \printbibliography 

@@ -1,0 +1,138 @@
+\documentclass{article}
+
+\input{usepackage.tex}
+\input{newcommands.tex}
+
+\title{PCP - Huji Course, Ex 2.} 
+\author{David Ponarovsky}
+%\abstract{We propose a new simple construction based on Tanner Codes, which yields a good LDPC testable code.} 
+
+\newcommand{\FF}{\mathbb{F}_{q}}
+\newcommand{\Chi}[1]{\chi_{ \left\{ #1  \right\} } }
+\begin{document}
+\maketitle
+
+\section{Ex 1. Sumchecking with coefficients.}
+
+We would like to verify that a given polynomial box $P$ satisfies that $ \sum_{x\in [d]^{m}}{ \varphi\left( x \right) f_{P}\left( x \right) } = 0 $  by accessing to at most $O\left(md\right)$ variables. For any function $\varphi : [d]^{m} \rightarrow \FF$. Denote by $\varphi^{\prime} : \FF^{m} \rightarrow \FF$ the extension of $\varphi$ into a polynomial over $\FF^{m}$. We saw in that lectures (and also in the previews assignment) that there is such a uinq extension. 
+
+We are going to split the section into three, first we are going to show how to verify that $\sum_{x \in [d]^{m}}{ f_{P}\left( x \right) } = 0 $. When the polynomial is a function into $\FF$. ( I think, but not sure, that in the lecture we saw only the case when $q = 2$ ). Then in the second part we will show how can one redact the coefficients case into the non-coefficients case. Finally, in the last part, we combine all together to show that the construction achieve the requirements. 
+
+\subsection{Over non binary field. } Let's define a series of polynomial boxes $f_{i}$ such that: 
+
+\begin{equation*}
+  \begin{split}
+    f_{0} & = f \\ 
+  f_{i+1} \left( x_{1}, .. , x_{m-i} \right) & = \sum_{y \in [d] } f_{i}\left(x_{1}, .. , x_{m-i}, x_{m-i+1} = y \right)
+  \end{split}
+\end{equation*}
+Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_{m}$. Now, notice that if $f$ is an honest assignment then $f_{m}$ is just the summation of $f$ over the cube $[d]^{m}$. So it sufficient to show the existences of verifier that reject with heigh probability any string far from been encoded by the previews structure.
+
+\begin{algorithm}[H]
+  Sample uniformly random $i \sim [m]$ and check that $f_{i}$ is a codeword of the polynomial code in $m$ variables at degree at most $m\cdot d$.  
+    
+    $r_{1}, r_{2} .., r_{m} \leftarrow$ sample uniformly  $m$ points of $[d]$ \\
+    \For{$ i \in [1,m]$} {
+      Check if $f_{i+1}\left( r_{1} , .., r_{m-i-1}, x_{m-i} \right) - \sum_{y \in [d]}{f_{i} \left( r_{1}, r_{2}, .., r_{m-i-1},x_{m-i}, y \right)} $ is the zero polynomial by a random test that uses at most single query. (Here $x_{m-i} \in [d]$ is the only variable)  \\
+      \ \\
+      If not then reject.  
+    }
+    Accept if $f_{_0} = 0 $  
+\end{algorithm}
+
+\begin{proof} For convenient let's denote by $g_{i}\left( x_{m-i} \right)$ the difference that been queried in line number $3$. 
+  \begin{enumerate}
+    \item Correctness. Easy. If the assignment is honest then by definition $g_{i} = 0$ for any $i \in [m]$ and therefore for any $x_{m-i}$ we will have that $g_{i} \left( x_{m-i} \right) = 0$. So, in that case iteration will pass. And whole proof will be aspected  with probability $1$.  
+    \item Soundness. Assume that there is   any $\deg f_{i+1}  \le \deg f_{i}$, Thus asking 
+  \end{enumerate}
+\end{proof}
+
+\subsection{ Coefficients $\mapsto$ non-coefficients. }
+Now as we proved in the classes $\deg f \cdot g \le \deg f + \deg g$. Therefore we can redact  the problem of verifying whether the weight summation is zero by considering the summation of the polynomial $\varphi^{\prime} \cdot f$ over the cube $[d]^{m}$. 
+
+
+\begin{algorithm}[H]
+  Sample uniformly random $x \sim  [d]^{m}$ and check that $\varphi^{\prime}\left( x \right) = \varphi\left( x \right)$   \\
+  Check that $\varphi$ is a polynomial at degree at most $d\cdot m$. \\
+  If both of the checks passed, accept. 
+\end{algorithm}
+
+\begin{proof}
+\end{proof}
+
+\subsection{Combine all.}
+\begin{algorithm}[H]
+  Use the first tester to check the validity of the pair $\left(\varphi^{\prime},\varphi\right)$. \\
+  Check that the degree of $\xi$ is at most $2md$ \\ 
+  Check that the polynomial $f\cdot \varphi^{\prime} - \xi$ is the zero polynomial. \\
+  Using the first verifier, accept if the summation of $\xi$ overt the cube $[d]^{m}$ is zero.  
+\end{algorithm}
+
+\begin{proof}
+\end{proof}
+
+\section{Ex 2.}
+The question concerns with the following test: \ctt{rewrite again.}
+
+\begin{algorithm}[H]
+  Choose $x,y \in \{\pm1\}^{k}$ independently. \\
+  Choose $\mu \in \{\pm\}$. \\ 
+  Choose a random noise $z \in \{\pm\}^{k}$ such that $z_{i}$ gets $+1$ with probability $1-\varepsilon$.  \\
+  Accept if $\mu f\left( \mu x \right) \cdot g\left( y \right) = f\left(z \cdot x c^{-1}\left( y \right)  \right)$
+
+\end{algorithm}
+
+
+\subsection{2.a.} Let $f = \Chi{i}, g = \Chi{j}$ and $j = c(i)$. In that case it holds that: 
+
+\begin{equation*}
+  \begin{split}
+    \mu f\left( \mu x \right) \cdot g\left( y \right)  &= \mu \Chi{i}\left( \mu x \right)\Chi{j}\left( y \right) = \mu^{2}x_{i}y_{j} = x_{i}y_{j} \\ 
+    f\left(z \cdot x c^{-1}\left( y \right)  \right) & = \Chi{i}\left( zx c^{-1}(y) \right) = z_{i}x_{i}y_{j} 
+  \end{split}
+\end{equation*}
+Thus, the test pass only if $z_{i} = 1$ and it given that this event happens with probability $1-\varepsilon$. 
+
+\subsection{2.b.} 
+Denote by $\alpha_{I} \in \mathbb{R}$ and $\beta_{I} \in \mathbb{R}$ the coefficients of $f,g$ over the character $\Chi{I}$.  
+\begin{equation*}
+  \begin{split}
+    & \expp{\mu f\left( \mu x \right) \cdot g\left( y \right)f\left(z \cdot x c^{-1}\left( y \right)  \right)} \\
+    & = \sum_{I,J,K}\alpha_{I}\alpha_{K}\beta_{J}\expp{ \mu \Chi{I}\left( \mu x \right)\Chi{J}\left( y \right) \Chi{K}\left( zx c^{-1}(y) \right) } \\
+    & = \sum_{I,J,K}\alpha_{I}\alpha_{K}\beta_{J} \mu^{|I|+1}\expp{ \Chi{I}\left( x \right)\Chi{J}\left( y \right) \varepsilon^{|z|}(-1)^{|z \cap K|} \Chi{K}\left( x c^{-1}(y) \right) }   
+  \end{split}
+\end{equation*}
+So it left to compute the expectation $ \expp{ \Chi{I}\left( x \right)\Chi{J}\left( y \right) \Chi{K}\left( x c^{-1}(y) \right) }$ and observes that if $c^{-1}(y)$ has no intersection with $K$. Define by $C(K)$ all the indices $i$ such that there exist $ k \in K$ for which $y_{c_{k}} = y_{i}$. 
+\begin{equation*}
+  \begin{split}
+    \expp{\prod_{i \in I}{ x_{i}} \prod_{j \in J}{ y_{j}} \prod_{k \in K }{ x_{k}\cdot y_{c_{k}}} } = \expp{\prod_{i \in I \Delta K }{ x_{i}} \prod_{j \in J \Delta C(K) }{ y_{j}}}
+  \end{split}
+\end{equation*}
+\begin{proof}
+\end{proof}
+
+
+\subsection{Ex 3. The label cover problem.} 
+Let us assume that that $|\Sigma|$ is a power of $2$. Associate for each vertex a vector in $\mathbb{F}^{|\Sigma|}_{2}$ (Soon we will add more $\Theta(|\Sigma|)$ variables for having a sparse sum checking, namely for checking that $\sum_{j}^{|\Sigma|}{ x_{vj} }= 1$). And for each constraint. 
+
+Idea, there are more than $\mu <++> $ equations that satisfied then $\Rightarrow$ there are more than $\Theta\left( |V| \right)$ which their local environment is $\frac{1}{2} \mu$ satisfied. $\Rightarrow$ the local $T_{\varepsilon}(c)$ test accepts with probability $\frac{1}{2}+\delta (\mu)$ and therefore there exist $i \in L_{\delta}(f),j \in M_{\delta}(g)$ s.t $c(i) = j       $. $\Rightarrow$ we could pick $f$ and $g$ to be $\Chi{i}$ on those vertices and get a solution such $\left(1-\varepsilon\right) \cdot <++> $ are satisfied.    
+
+
+Other direction to consider, suppose that we satisfy more than $\frac{1}{2} + \delta$ equations, than for at least $\Theta\left(  \right)$ of the edges we success to fined $i,j, i = c(j)$. Therefore we can construct another assignment in which at least $1 - \varepsilon$ of the equations are satisfied.     
+
+\section{Part 3.}
+Define the Bipartite graph $G = (L,R,E)$. Associate the left vertices with the variables and the right vertices with the closures. Let $x$ be variable, and $\varphi$ a closure in which $x$ appears. Sets the permeation of the edges as following, if $x$ appears in his positive form, namely $\varphi = x \vee .. $ then set on the edge $\left\{ x, \varphi \right\}$ the identity permutation otherwise set the flipping permutation. 
+
+
+\begin{claim}
+  Let $A$ an assignment such that satisfy $\xi$ relations and it's support on the right side is at most $1 - \alpha$ then flipping assignment $ 1 + A$ also satisfy $\xi$ relations, but has at least $\alpha$ support on the right side.     
+\end{claim}
+\begin{proof}
+\end{proof}
+
+Suppose that we have an assignment that satisfies $ \ge \mu/3 $ of the closers,  
+
+
+\end{document}
+
+

@@ -153,7 +153,7 @@ Define by $\alpha_{i}$ to be the number of right vertices which satisfy exactly 
 \end{claim}
 
 \begin{proof}
-  Let $v \in R$ be a vertex that satisfies less than two edges. By the fact that for any 3-CNF closure there is exactly one assignment over the triple in her support does not satisfy it, it follows that $|\Sigma_{v}| = 2^{3}-1 = 7$. Therefore, we can replace $A(v)$ to a triple that agree with the first two vertices connected to it (And that process might restrict the value of the third terminal in the triple).     
+  Let $v \in R$ be a vertex that satisfies less than two edges. Recall that $\Sigma_{v}$ contains all the triple that satisfy the closure associated with $v$. By the fact that for any 3-CNF closure there is exactly one assignment which does not satisfy it, It follows that $|\Sigma_{v}| = 2^{3}-1 = 7 \ge 2^{2}$. Therefore, we can replace $A(v)$ by a triple that agree with the first two vertices connected to it.     
 \end{proof}
 
 Consider the vector $x \in \mathbb{F}_{2}^{*}$ obtained by taking the bits on the left vertices ''as they are'', any which will satisfies more than $\mu$ closures.

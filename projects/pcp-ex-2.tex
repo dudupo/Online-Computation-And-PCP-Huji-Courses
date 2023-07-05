@@ -121,6 +121,9 @@ Idea, there are more than $\mu <++> $ equations that satisfied then $\Rightarrow
 Other direction to consider, suppose that we satisfy more than $\frac{1}{2} + \delta$ equations, than for at least $\Theta\left(  \right)$ of the edges we success to fined $i,j, i = c(j)$. Therefore we can construct another assignment in which at least $1 - \varepsilon$ of the equations are satisfied.     
 
 \section{Part 3.}
+
+\paragraph{Label cover when the aleph-bet depends on the vertex.} Instead of showing reduction into the general label cover we will show a reduction to a similar problem in which vertices can have an additional restriction on the valid charters that one can sets on. In formal, we will say that $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ instance of Generalized-Label-Cover if there is an assignment $A : V \rightarrow \Sigma$ such that for any $\{v,u\} \in E$ it holds that $c_{e}A(v) = A(u)$ and in addition for any $v \in V$ we have that $A(v) \in \Sigma_{v} \subset \Sigma$.  
+
 \paragraph{The reduction.} Define the Bipartite graph $G = (L,R,E)$. Associate the left vertices with the variables. For the right vertices, consider the $3!$ permutations of the closures, and associate for any of them a right vertex. For example, consider the closure $ x\vee y \vee z$, then associate a right vertex with the closures $x \vee y \vee z$,  $y \vee z \vee x$, $z \vee x \vee y$, $y \vee x \vee z$ and etc.
 
 For the edges, connect between any closure on the right an edge between it and the left vertices which associate with the first terminal on the closure.Notice that the right degree of the graph is $1$ while the left degree of the vertex associated with terminal $x$ is:
@@ -132,7 +135,7 @@ For the edges, connect between any closure on the right an edge between it and t
 The permeations on the edges defined as follow: Let $x$ be variable, and $\psi$ a closure in which $x$ is the first terminal. Sets the permeation of the edges as following, if $x$ appears in his positive form, namely $\psi = x \vee .. $ then set on the edge $\left\{ x, \psi \right\}$ the identity permutation otherwise set the flipping permutation. 
 
 
-\paragraph{Compeletnce. } Suppose that $\varphi \in \text{E3-CNF-SAT}$ and let $x \in \mathbb{F}_{2}^{*}$ be the assignment that satisfies $\varphi$.That it, $\varphi\left( x \right) = \mathbf{True}$. Let $A$ be the assignment that sets for any vertex on the left the bit matched to that literal by $x$ and for literal on the right the bit $1$.      
+\paragraph{Compeletnce. } Suppose that $\varphi \in \text{E3-CNF-SAT}$ and let $x \in \mathbb{F}_{2}^{*}$ be the assignment that satisfies $\varphi$. That it, $\varphi\left( x \right) = \mathbf{True}$. Let $A$ be the assignment that sets for any vertex on the left the bit matched to that literal by $x$ and for literal on the right the bit $1$.      
 
 
 \begin{claim}

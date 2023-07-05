@@ -139,7 +139,9 @@ Other direction to consider, suppose that we satisfy more than $\frac{1}{2} + \d
 
 \paragraph{Compeletnce. } Suppose that $\varphi \in \text{E3-CNF-SAT}$ and let $x \in \mathbb{F}_{2}^{*}$ be the assignment that satisfies $\varphi$. That it, $\varphi\left( x \right) = \mathbf{True}$. Let $A$ be the assignment that sets for any vertex on the left the bit matched to that literal by $x$ follows by zeros padding. And for any right vertex the triple of the bits corresponding to literals involving in the associated closure. By the fact that $x$ satisfies $\varphi$ any closure in $\varphi$ is satisfied by $x$ and therefore each of the right vertices (closures) see on his local view a character of $\Sigma_{v}$. In addition by the definition of the construction any pair of connected vertices satisfies the edge restriction. 
 
-\paragraph{Soundness.} Suppose that $\varphi \not\in \text{E3-CNF-SAT}$ and $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ is an instance obtained by the reduction above. Assume throawds contradiction that there exists assignment $A$ such that more than $\mu^{\prime}= 6\mu$ of the restriction $\{c_{e}\}$ are satisfied. We will show how one can construct a vector $x \in \mathbb{F}_{2}^{*}$ which will satisfies more than $\mu$ closures. Denote by $x_{u}$ be the literal associated with vertex $u$. Sets $x_{u}$ to be the bit that satisfies the majority of edges on $u$ support.    
+\paragraph{Soundness.} Suppose that $\varphi \not\in \text{E3-CNF-SAT}$ and $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ is an instance obtained by the reduction above. Assume throawds contradiction that there exists assignment $A$ such that more than $\mu^{\prime}= 6\mu$ of the restriction $\{c_{e}\}$ are satisfied. We will show how one can construct a vector $x \in \mathbb{F}_{2}^{*}$ which will satisfies more than $\mu$ closures.
+
+Denote by $x_{u}$ be the literal associated with vertex $u$. Sets $x_{u}$ to be the bit that satisfies the majority of edges on $u$ support.    
 \begin{equation*}
   \begin{split}
     x_{u} = \arg \max_{ A(u) = \{0,1\} }{ |\{c_{e}A(v) = A(u)\}| }   

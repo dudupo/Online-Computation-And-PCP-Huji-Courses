@@ -115,7 +115,7 @@ So it left to compute the expectation $ \expp{ \Chi{I}\left( x \right)\Chi{J}\le
 \subsection{Ex 3. The label cover problem.} 
 Let us assume that that $|\Sigma|$ is a power of $2$. Associate for each vertex a vector in $\mathbb{F}^{|\Sigma|}_{2}$ (Soon we will add more $\Theta(|\Sigma|)$ variables for having a sparse sum checking, namely for checking that $\sum_{j}^{|\Sigma|}{ x_{vj} }= 1$). And for each constraint. 
 
-Idea, there are more than $\mu <++> $ equations that satisfied then $\Rightarrow$ there are more than $\Theta\left( |V| \right)$ which their local environment is $\frac{1}{2} \mu$ satisfied. $\Rightarrow$ the local $T_{\varepsilon}(c)$ test accepts with probability $\frac{1}{2}+\delta (\mu)$ and therefore there exist $i \in L_{\delta}(f),j \in M_{\delta}(g)$ s.t $c(i) = j       $. $\Rightarrow$ we could pick $f$ and $g$ to be $\Chi{i}$ on those vertices and get a solution such $\left(1-\varepsilon\right) \cdot <++> $ are satisfied.    
+Idea, there are more than $\mu  $ equations that satisfied then $\Rightarrow$ there are more than $\Theta\left( |V| \right)$ which their local environment is $\frac{1}{2} \mu$ satisfied. $\Rightarrow$ the local $T_{\varepsilon}(c)$ test accepts with probability $\frac{1}{2}+\delta (\mu)$ and therefore there exist $i \in L_{\delta}(f),j \in M_{\delta}(g)$ s.t $c(i) = j       $. $\Rightarrow$ we could pick $f$ and $g$ to be $\Chi{i}$ on those vertices and get a solution such $\left(1-\varepsilon\right) \cdot  $ are satisfied.    
 
 
 Other direction to consider, suppose that we satisfy more than $\frac{1}{2} + \delta$ equations, than for at least $\Theta\left(  \right)$ of the edges we success to fined $i,j, i = c(j)$. Therefore we can construct another assignment in which at least $1 - \varepsilon$ of the equations are satisfied.     
@@ -139,7 +139,12 @@ Other direction to consider, suppose that we satisfy more than $\frac{1}{2} + \d
 
 \paragraph{Compeletnce. } Suppose that $\varphi \in \text{E3-CNF-SAT}$ and let $x \in \mathbb{F}_{2}^{*}$ be the assignment that satisfies $\varphi$. That it, $\varphi\left( x \right) = \mathbf{True}$. Let $A$ be the assignment that sets for any vertex on the left the bit matched to that literal by $x$ follows by zeros padding. And for any right vertex the triple of the bits corresponding to literals involving in the associated closure. By the fact that $x$ satisfies $\varphi$ any closure in $\varphi$ is satisfied by $x$ and therefore each of the right vertices (closures) see on his local view a character of $\Sigma_{v}$. In addition by the definition of the construction any pair of connected vertices satisfies the edge restriction. 
 
-\paragraph{Soundness.} Suppose that $\varphi \not\in \text{E3-CNF-SAT}$ and $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ is an instance obtained by the reduction above. Assume throawds contradiction that there exists assignment $A$ such that more than $\mu^{\prime}= 6\mu$ of the restriction $\{c_{e}\}$ are satisfied. We will show how one can construct a vector $x \in \mathbb{F}_{2}^{*}$ which will satisfies more than $\mu$ closures. Let $x_{u}$ be the literal associated with vertex $u$.  
+\paragraph{Soundness.} Suppose that $\varphi \not\in \text{E3-CNF-SAT}$ and $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ is an instance obtained by the reduction above. Assume throawds contradiction that there exists assignment $A$ such that more than $\mu^{\prime}= 6\mu$ of the restriction $\{c_{e}\}$ are satisfied. We will show how one can construct a vector $x \in \mathbb{F}_{2}^{*}$ which will satisfies more than $\mu$ closures. Denote by $x_{u}$ be the literal associated with vertex $u$. Sets $x_{u}$ to be the bit that satisfies the majority of edges on $u$ support.    
+\begin{equation*}
+  \begin{split}
+    x_{u} = \arg \max_{ \{0,1\} }{ c_{e}A(v) = A(u) }   
+  \end{split}
+\end{equation*}
 
 
 %\begin{claim}

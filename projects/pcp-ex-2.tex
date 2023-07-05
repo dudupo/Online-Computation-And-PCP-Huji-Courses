@@ -122,7 +122,7 @@ Other direction to consider, suppose that we satisfy more than $\frac{1}{2} + \d
 
 \section{Part 3.}
 
-\paragraph{Label cover when the aleph-bet depends on the vertex.} Instead of showing reduction into the general label cover we will show a reduction to a similar problem in which vertices can have an additional restriction on the valid charters that one can sets on. In formal, we will say that $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ instance of Generalized-Label-Cover if there is an assignment $A : V \rightarrow \Sigma$ such that for any $\{v,u\} \in E$ it holds that $c_{e}A(v) = A(u)$ and in addition for any $v \in V$ we have that $A(v) \in \Sigma_{v} \subset \Sigma$.  
+\paragraph{Label cover when the aleph-bet depends on the vertex.} Instead of showing reduction into the general label cover we will show a reduction to a similar problem in which vertices can have an additional restriction on the valid charters that one can sets on. In formal, we will say that $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ instance of Generalized-Label-Cover if there is an labeling $A : V \rightarrow \Sigma$ such that for any $\{v,u\} \in E$ it holds that $c_{e}A(v) = A(u)$ and in addition for any $v \in V$ we have that $A(v) \in \Sigma_{v} \subset \Sigma$.  
 
 \paragraph{The reduction.} Define the Bipartite graph $G = (L,R,E)$. Associate the left vertices with the variables and the right with the closures. Define $\{u,v\}$ to be an edge if the literal which associate with the vertex $u$ is in the closure associate with vertex $v$. For the alphabet take $\Sigma = \mathbb{Z}_{2}^3$. For any right vertex $v\in R$ define $\Sigma_{v}$ be all the assignments for which the $v$-closures is satisfied and for any left vertex $u$ define $\Sigma_{u} = \{ \left( 1 , 0 , 0 \right), \left( 0 , 0, 0 \right) \}$. Finally define $c_{e}$ for $ e = \left\{ v \in R, u \in L \right\}$ to be the projection of $\sigma \in \Sigma$, setted on $v$, to the coordinate corresponding with $u$. For example, assume that $v$ associate with $x\vee y \vee z $ and let $u$ be the vertex associate with $x$, And assume that $A(v) = (1,0,1)$ , then $c_{e}A_{v} = (1,0,0)$.           
 
@@ -137,9 +137,9 @@ Other direction to consider, suppose that we satisfy more than $\frac{1}{2} + \d
 %The permeations on the edges defined as follow: Let $x$ be variable, and $\psi$ a closure in which $x$ is the first terminal. Sets the permeation of the edges as following, if $x$ appears in his positive form, namely $\psi = x \vee .. $ then set on the edge $\left\{ x, \psi \right\}$ the identity permutation otherwise set the flipping permutation. 
 %
 
-\paragraph{Compeletnce. } Suppose that $\varphi \in \text{E3-CNF-SAT}$ and let $x \in \mathbb{F}_{2}^{*}$ be the assignment that satisfies $\varphi$. That it, $\varphi\left( x \right) = \mathbf{True}$. Let $A$ be the assignment that sets for any vertex on the left the bit matched to that literal by $x$ follows by zeros padding. And for any right vertex the triple of the bits corresponding to literals involving in the associated closure. By the fact that $x$ satisfies $\varphi$ any closure in $\varphi$ is satisfied by $x$ and therefore each of the right vertices (closures) see on his local view a character of $\Sigma_{v}$. In addition by the definition of the construction any pair of connected vertices satisfies the edge restriction. 
+\paragraph{Compeletnce. } Suppose that $\varphi \in \text{E3-CNF-SAT}$ and let $x \in \mathbb{F}_{2}^{*}$ be the assignment that satisfies $\varphi$. That it, $\varphi\left( x \right) = \mathbf{True}$. Let $A$ be the labeling that sets for any vertex on the left the bit matched to that literal by $x$ follows by zeros padding. And for any right vertex the triple of the bits corresponding to literals involving in the associated closure. By the fact that $x$ satisfies $\varphi$ any closure in $\varphi$ is satisfied by $x$ and therefore each of the right vertices (closures) see on his local view a character of $\Sigma_{v}$. In addition by the definition of the construction any pair of connected vertices satisfies the edge restriction. 
 
-\paragraph{Soundness.} Suppose that $\varphi \not\in \text{E3-CNF-SAT}$ and $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ is an instance obtained by the reduction above. Assume throawds contradiction that there exists assignment $A$ such that more than $\mu^{\prime}= 6\mu$ of the restriction $\{c_{e}\}$ are satisfied. 
+\paragraph{Soundness.} Suppose that $\varphi \not\in \text{E3-CNF-SAT}$ and $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ is an instance obtained by the reduction above. Assume throawds contradiction that there exists labeling $A$ such that more than $\mu^{\prime}= 6\mu$ of the restriction $\{c_{e}\}$ are satisfied. 
 
 Define by $\alpha_{i}$ to be the number of right vertices which satisfy exactly $i$ edges, that it, 
 \begin{equation*}
@@ -147,6 +147,10 @@ Define by $\alpha_{i}$ to be the number of right vertices which satisfy exactly 
     \alpha_{i} = \left| \left\{ | \left\{ c_{e}A\left( v \right) = A\left( u \right) : u \in L \right\} | = i : v \in R   \right\} \right| 
   \end{split}
 \end{equation*}
+
+\begin{claim}
+  For any labeling $A$ such that $\alpha_{3} \ge \mu$ there exists an assignment $x \in \mathbb{F}_{2}^{*}$ satisfies at least $\mu$ portion of the restrictions. 
+\end{claim}
 
 \begin{claim}
   For any labeling $A$ that satisfy $\xi$ constraints, there exists labeling $A^{\prime}$ such that any constraint that satisfied by $A$ also satisfied by $A^{\prime}$ and in addition $\alpha_{0}=\alpha_{1}=0$. Put it differently, we can assume that $\alpha_{0}=\alpha_{1}=0$.

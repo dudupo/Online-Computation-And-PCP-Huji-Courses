@@ -123,7 +123,14 @@ Other direction to consider, suppose that we satisfy more than $\frac{1}{2} + \d
 \section{Part 3.}
 \paragraph{The reduction.} Define the Bipartite graph $G = (L,R,E)$. Associate the left vertices with the variables. For the right vertices, consider the $3!$ permutations of the closures, and associate for any of them a right vertex. For example, consider the closure $ x\vee y \vee z$, then associate a right vertex with the closures $x \vee y \vee z$,  $y \vee z \vee x$, $z \vee x \vee y$, $y \vee x \vee z$ and etc.
 
-For the edges, connect between any closure on the right an edge between it and the left vertices which associate with the first terminal on the closure.Notice that the right degree of the graph is $1$ while the left degree is $\sum_{x \in \text{terminals} }{ 2 \times \text{ number of closures containing } x}  $ 
+For the edges, connect between any closure on the right an edge between it and the left vertices which associate with the first terminal on the closure.Notice that the right degree of the graph is $1$ while the left degree is 
+
+\begin{equation*}
+  \begin{split}
+    \sum_{x \in \text{terminals} }{ \left( 2 \times \text{ number of closures containing } x \right) }  
+  \end{split}
+\end{equation*}
+ 
 
 Let $x$ be variable, and $\varphi$ a closure in which $x$ appears. Sets the permeation of the edges as following, if $x$ appears in his positive form, namely $\varphi = x \vee .. $ then set on the edge $\left\{ x, \varphi \right\}$ the identity permutation otherwise set the flipping permutation. 
 

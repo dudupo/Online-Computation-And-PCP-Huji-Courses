@@ -152,6 +152,10 @@ Define by $\alpha_{i}$ to be the number of right vertices which satisfy exactly 
   For any labeling $A$ that satisfy $\xi$ constraints, there exists labeling $A^{\prime}$ such that any constraint that satisfied by $A$ also satisfied by $A^{\prime}$ and in addition $\alpha_{0}=\alpha_{1}=0$. Put it differently, we can assume that $\alpha_{0}=\alpha_{1}=0$.
 \end{claim}
 
+\begin{proof}
+  Let $v \in R$ be a vertex that satisfies less than two edges. By the fact that for any 3-CNF closure there is exactly one assignment over the triple in her support does not satisfy it, it follows that $|\Sigma_{v}| = 2^{3}-1 = 7$. Therefore, we can replace $A(v)$ to a triple that agree with the first two vertices connected to it (And that process might restrict the value of the third terminal in the triple).     
+\end{proof}
+
 Consider the vector $x \in \mathbb{F}_{2}^{*}$ obtained by taking the bits on the left vertices ''as they are'', any which will satisfies more than $\mu$ closures.
 
 %\begin{claim}

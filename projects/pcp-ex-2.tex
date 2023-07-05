@@ -142,7 +142,7 @@ Other direction to consider, suppose that we satisfy more than $\frac{1}{2} + \d
 \paragraph{Soundness.} Suppose that $\varphi \not\in \text{E3-CNF-SAT}$ and $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ is an instance obtained by the reduction above. Assume throawds contradiction that there exists assignment $A$ such that more than $\mu^{\prime}= 6\mu$ of the restriction $\{c_{e}\}$ are satisfied. We will show how one can construct a vector $x \in \mathbb{F}_{2}^{*}$ which will satisfies more than $\mu$ closures. Denote by $x_{u}$ be the literal associated with vertex $u$. Sets $x_{u}$ to be the bit that satisfies the majority of edges on $u$ support.    
 \begin{equation*}
   \begin{split}
-    x_{u} = \arg \max_{ \{0,1\} }{ |\{c_{e}A(v) = A(u)\}| }   
+    x_{u} = \arg \max_{ A(u) = \{0,1\} }{ |\{c_{e}A(v) = A(u)\}| }   
   \end{split}
 \end{equation*}
 

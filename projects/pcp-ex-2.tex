@@ -121,7 +121,12 @@ Idea, there are more than $\mu <++> $ equations that satisfied then $\Rightarrow
 Other direction to consider, suppose that we satisfy more than $\frac{1}{2} + \delta$ equations, than for at least $\Theta\left(  \right)$ of the edges we success to fined $i,j, i = c(j)$. Therefore we can construct another assignment in which at least $1 - \varepsilon$ of the equations are satisfied.     
 
 \section{Part 3.}
-Define the Bipartite graph $G = (L,R,E)$. Associate the left vertices with the variables and the right vertices with the closures. Let $x$ be variable, and $\varphi$ a closure in which $x$ appears. Sets the permeation of the edges as following, if $x$ appears in his positive form, namely $\varphi = x \vee .. $ then set on the edge $\left\{ x, \varphi \right\}$ the identity permutation otherwise set the flipping permutation. 
+\paragraph{The reduction.} Define the Bipartite graph $G = (L,R,E)$. Associate the left vertices with the variables. For the right vertices, consider the $3!$ permutations of the closures, and associate for any of them a right vertex. For example, consider the closure $ x\vee y \vee z$, then associate a right vertex with the closures $x \vee y \vee z$,  $y \vee z \vee x$, $z \vee x \vee y$, $y \vee x \vee z$ and etc.
+
+For the edges, connect between any closure on the right an edge between it and the left vertices which associate with the first terminal on the closure.Notice that the right degree of the graph is $1$ while the left degree is $\sum_{x \in \text{terminals} }{ 2 \times \text{ number of closures containing } x}  $ 
+
+Let $x$ be variable, and $\varphi$ a closure in which $x$ appears. Sets the permeation of the edges as following, if $x$ appears in his positive form, namely $\varphi = x \vee .. $ then set on the edge $\left\{ x, \varphi \right\}$ the identity permutation otherwise set the flipping permutation. 
+
 
 
 \begin{claim}

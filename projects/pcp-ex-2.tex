@@ -146,7 +146,7 @@ Observes that for any subset $S \subset [n]$ it holds that:
 
 \begin{equation*}
   \begin{split}
-    \le \frac{1}{4} +  \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}}  
+    \le \frac{1}{4} +  \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}}  \le \frac{1}{4} +  \max_{I} \alpha_{I}^{2}\beta_{C^{-1}(I)}  \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4} }{|\alpha_{I}|  \left( 1 -2 \varepsilon \right)^{|I|}}
   \end{split}
 \end{equation*}
 So it left to compute the expectation $ \expp{ \Chi{I}\left( x \right)\Chi{J}\left( y \right) \Chi{K}\left( x c^{-1}(y) \right) }$ and observes that if $c^{-1}(y)$ has no intersection with $K$. Define by $C(K)$ all the indices $i$ such that there exist $ k \in K$ for which $y_{c_{k}} = y_{i}$. 

@@ -99,9 +99,21 @@ Denote by $\alpha_{I} \in \mathbb{R}$ and $\beta_{I} \in \mathbb{R}$ the coeffic
   \begin{split}
     & \expp{\mu f\left( \mu x \right) \cdot g\left( y \right)f\left(z \cdot x c^{-1}\left( y \right)  \right)} \\
     & = \sum_{I,J,K}\alpha_{I}\alpha_{K}\beta_{J}\expp{ \mu \Chi{I}\left( \mu x \right)\Chi{J}\left( y \right) \Chi{K}\left( zx c^{-1}(y) \right) } \\
-    & = \sum_{I,J,K}\alpha_{I}\alpha_{K}\beta_{J} \mu^{|I|+1}\expp{ \Chi{I}\left( x \right)\Chi{J}\left( y \right) \varepsilon^{|z|}(-1)^{|z \cap K|} \Chi{K}\left( x c^{-1}(y) \right) }   
+    & = \sum_{I,J,K}\alpha_{I}\alpha_{K}\beta_{J}\expp{\expp{ \mu \Chi{I}\left( \mu x \right)\Chi{J}\left( y \right) \Chi{K}\left( zx c^{-1}(y) \right)|\mu}} \\ 
+    & = \sum_{I,J,K}\alpha_{I}\alpha_{K}\beta_{J}\frac{1}{2}\left( \left( - 1 \right)^{|I|+1}  + 1\right) \expp{  \Chi{I}\left(  x \right)\Chi{J}\left( y \right) \Chi{K}\left( zx c^{-1}(y) \right) }  
+   % & = \sum_{I,J,K}\alpha_{I}\alpha_{K}\beta_{J} \mu^{|I|+1}\expp{ \Chi{I}\left( x \right)\Chi{J}\left( y \right) \varepsilon^{|z|}(-1)^{|z \cap K|} \Chi{K}\left( x c^{-1}(y) \right) }   
   \end{split}
 \end{equation*}
+Thus, all the elements in which $|I|$ is even contribute zero for the exception. Now, let's apply the conditional expectation formula again conditioning over $I,J,K, x,y$:   
+\begin{equation*}
+  \begin{split}
+    &  = \sum_{I,J,K, |I| \text{is odd} }\alpha_{I}\alpha_{K}\beta_{J} \expp{\expp{ \Chi{I}\left(  x \right)\Chi{J}\left( y \right) \Chi{K}\left( zx c^{-1}(y) \right) | I,J,K }} \\  
+    &  = \sum_{I,J,K, |I| \text{is odd} }\alpha_{I}\alpha_{K}\beta_{J} \expp{ \sum_{ \xi = 0}^{|K|}{ { |K| \choose \xi } \left( -\varepsilon \right)^{\xi} \left( 1 - \varepsilon \right)^{|K|- \xi} \Chi{I}\left(  x \right)\Chi{J}\left( y \right) \Chi{K}\left( x c^{-1}(y) \right) }} \\  
+    &  = \sum_{I,J,K, |I| \text{is odd} }\alpha_{I}\alpha_{K}\beta_{J} \expp{ \left( 1 -2 \varepsilon \right)^{|K|} \Chi{I}\left(  x \right)\Chi{J}\left( y \right) \Chi{K}\left( x c^{-1}(y) \right) }   
+   % & = \sum_{I,J,K}\alpha_{I}\alpha_{K}\beta_{J} \mu^{|I|+1}\expp{ \Chi{I}\left( x \right)\Chi{J}\left( y \right) \varepsilon^{|z|}(-1)^{|z \cap K|} \Chi{K}\left( x c^{-1}(y) \right) }   
+  \end{split}
+\end{equation*}
+
 So it left to compute the expectation $ \expp{ \Chi{I}\left( x \right)\Chi{J}\left( y \right) \Chi{K}\left( x c^{-1}(y) \right) }$ and observes that if $c^{-1}(y)$ has no intersection with $K$. Define by $C(K)$ all the indices $i$ such that there exist $ k \in K$ for which $y_{c_{k}} = y_{i}$. 
 \begin{equation*}
   \begin{split}

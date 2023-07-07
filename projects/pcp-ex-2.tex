@@ -112,7 +112,23 @@ Thus, all the elements in which $|I|$ is even contribute zero for the exception.
     &  = \sum_{I,J,K, |I| \text{is odd} }\alpha_{I}\alpha_{K}\beta_{J} \expp{ \left( 1 -2 \varepsilon \right)^{|K|} \Chi{I}\left(  x \right)\Chi{J}\left( y \right) \Chi{K}\left( x c^{-1}(y) \right) }   
   \end{split}
 \end{equation*}
-Let us denote by $C^{-1}(K)$ the indices $C^{-1}(K) = \{ j : \exists i , c(i) = j \}$  
+Let us denote by $C^{-1}(K)$ the indices $C^{-1}(K) = \{ j : \exists i \in K, c(i) = j \}$. Then we get that:  
+\begin{equation*}
+  \begin{split}
+    \Chi{K}\left( x c^{-1}(y) \right) = \prod_{i \in K}{x_{i}y_{c_{i}}} =  \Chi{K}\left( K \right) \Chi{C^{-1}(K)}\left( y  \right)
+  \end{split}
+\end{equation*} Recall that for any $I,J \subset [n]$ it holds that: 
+\begin{equation*}
+  \begin{split}
+    \expp{ \Chi{I}(x)\Chi{J}(x) } = \expp{ \Chi{I \Delta J}(x) } = \mathbf{1}_{ I = J }
+  \end{split}
+\end{equation*}
+And therefore the above simplified into: 
+\begin{equation*}
+  \begin{split}
+    \sum_{|I| \text{is odd} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}}   
+  \end{split}
+\end{equation*}
 So it left to compute the expectation $ \expp{ \Chi{I}\left( x \right)\Chi{J}\left( y \right) \Chi{K}\left( x c^{-1}(y) \right) }$ and observes that if $c^{-1}(y)$ has no intersection with $K$. Define by $C(K)$ all the indices $i$ such that there exist $ k \in K$ for which $y_{c_{k}} = y_{i}$. 
 \begin{equation*}
   \begin{split}

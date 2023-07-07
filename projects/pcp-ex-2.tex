@@ -123,12 +123,19 @@ Let us denote by $C^{-1}(K)$ the indices $C^{-1}(K) = \{ j : \exists i \in K, c(
     \expp{ \Chi{I}(x)\Chi{J}(x) } = \expp{ \Chi{I \Delta J}(x) } = \mathbf{1}_{ I = J }
   \end{split}
 \end{equation*}
-And therefore the above simplified into: 
+And therefore the above can be simplified into: 
 \begin{equation*}
   \begin{split}
     \sum_{|I| \text{is odd} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}}   
   \end{split}
 \end{equation*}
+\ctt{ add explanation. } 
+\begin{equation*}
+  \begin{split}
+    & \sum_{|I| \text{is odd} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}}  \le \frac{1}{2} + \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{2} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}}   
+   \end{split}
+\end{equation*}
+
 So it left to compute the expectation $ \expp{ \Chi{I}\left( x \right)\Chi{J}\left( y \right) \Chi{K}\left( x c^{-1}(y) \right) }$ and observes that if $c^{-1}(y)$ has no intersection with $K$. Define by $C(K)$ all the indices $i$ such that there exist $ k \in K$ for which $y_{c_{k}} = y_{i}$. 
 \begin{equation*}
   \begin{split}

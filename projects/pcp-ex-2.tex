@@ -176,10 +176,19 @@ So it left to compute the expectation $ \expp{ \Chi{I}\left( x \right)\Chi{J}\le
 \subsection{Ex 3. The label cover problem.} 
 Let us assume that that $|\Sigma|$ is a power of $2$. Associate for each vertex a vector in $\mathbb{F}^{|\Sigma|}_{2}$ (Soon we will add more $\Theta(|\Sigma|)$ variables for having a sparse sum checking, namely for checking that $\sum_{j}^{|\Sigma|}{ x_{vj} }= 1$). And for each constraint. 
 
+
 Idea, there are more than $\mu  $ equations that satisfied then $\Rightarrow$ there are more than $\Theta\left( |V| \right)$ which their local environment is $\frac{1}{2} \mu$ satisfied. $\Rightarrow$ the local $T_{\varepsilon}(c)$ test accepts with probability $\frac{1}{2}+\delta (\mu)$ and therefore there exist $i \in L_{\delta}(f),j \in M_{\delta}(g)$ s.t $c(i) = j       $. $\Rightarrow$ we could pick $f$ and $g$ to be $\Chi{i}$ on those vertices and get a solution such $\left(1-\varepsilon\right) \cdot  $ are satisfied.    
 
 
 Other direction to consider, suppose that we satisfy more than $\frac{1}{2} + \delta$ equations, than for at least $\Theta\left(  \right)$ of the edges we success to fined $i,j, i = c(j)$. Therefore we can construct another assignment in which at least $1 - \varepsilon$ of the equations are satisfied.     
+
+\begin{equation*}
+  \begin{split}
+    & A(v) = \Chi{i} \\ 
+    & A(u) = \Chi{j} \\ 
+    & j = P_{uv} i  
+  \end{split}
+\end{equation*}
 
 \section{Part 3.}
 

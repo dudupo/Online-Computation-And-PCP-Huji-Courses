@@ -193,15 +193,15 @@ For every $\{v, u\} \in E$. A probabilistic verifier takes a candidate $f\times 
 And notice that on binary field the test is equivalence for picking a random equation from the liner system in which each equation contains exactly tree variables.  
 %vertex $v \in V$ define a variable $\xi_{v} \in \mathbb{F}_{2}^{|\Sigma|}$ and for any when we think on the functions $f,g : \pm^{|\Sigma|} \rightarrow \pm $ as the 'witness'/'input' given by the 'prover'/'user'
 %For any $x,y,\mu, z$ 
-\paragraph{Compeletnce. } Suppose that $\braket{G=(V,E), \{ c_{e} \} } \in (\mu,1)$-Label Cover then either there exists a labeling $A$ such that $c_{vu}(A(v)) = A_{u}$ for any $\{v,u\}\in E$ or that any labeling satisfies at most $\mu$ constraints. For compeletnce, let's assume the first case, and consider the function $f \times V : \pm \times V \rightarrow \pm$ defined as follow: $f_{v} = \Chi{A(v)}$.   
-\begin{equation*}
-  \begin{split}
-    & A(v) = \Chi{i} \\ 
-    & A(u) = \Chi{j} \\ 
-    & j = P_{uv} i  
-  \end{split}
-\end{equation*}
-\paragraph{Soundness.} .. 
+\paragraph{Compeletnce. } Suppose that $\braket{G=(V,E), \{ c_{e} \} } \in (\mu,1)$-Label Cover then either there exists a labeling $A$ such that $c_{vu}(A(v)) = A_{u}$ for any $\{v,u\}\in E$ or that any labeling satisfies at most $\mu$ constraints. For compeletnce, let's assume the first case, and denote by $A$ the satisfying labeling. Consider the function $f \times V : \pm \times V \rightarrow \pm$ defined as follow: $f_{v} = \Chi{A(v)}$, So by the first section of part 2 we have that any of the test accepts with probability $1-\varepsilon$. That it, as we pick a test uniformly random, the existences of satisfying labeling for the label cover problem give a function that pass the test with probability $1-\varepsilon$. 
+%\begin{equation*}
+%  \begin{split}
+%    & A(v) = \Chi{i} \\ 
+%    & A(u) = \Chi{j} \\ 
+%    & j = P_{uv} i  
+%  \end{split}
+%\end{equation*}
+\paragraph{Soundness.} Now, assume the second case, namely that any labeling satisfies at most $\mu$ constraints. 
 \section{Part 3.}
 
 \paragraph{Label cover when the aleph-bet depends on the vertex.} Instead of showing reduction into the general label cover we will show a reduction to a similar problem in which vertices can have an additional restriction on the valid charters that one can sets on. In formal, we will say that $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ instance of Generalized-Label-Cover if there is an labeling $A : V \rightarrow \Sigma$ such that for any $\{v,u\} \in E$ it holds that $c_{e}A(v) = A(u)$ and in addition for any $v \in V$ we have that $A(v) \in \Sigma_{v} \subset \Sigma$.  

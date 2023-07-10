@@ -187,10 +187,13 @@ Other direction to consider, suppose that we satisfy more than $\frac{1}{2} + \d
     \prb{T_{\varepsilon}(c_{ \{ v,u\} }) \text{ accepts on } f_{v},f_{u} } \ge \frac{1}{2} + \delta
   \end{split}
 \end{equation*}
-For every $\{v, u\} \in E$. A probabilistic verifier takes a candidate $f\times V : \pm  \times V \rightarrow \pm$, picks a random edge $e \in E$ and then check $T_{\varepsilon}\left( c_{e} \right)$ over the function $f_{v},f_{u}$.    
+For every $\{v, u\} \in E$. A probabilistic verifier takes a candidate $f\times V : \pm  \times V \rightarrow \pm$, picks a random edge $e \in E$ and then check $T_{\varepsilon}\left( c_{e} \right)$ over the functions $f_{v},f_{u}$.    
 
 
 And notice that on binary field the test is equivalence for picking a random equation from the liner system in which each equation contains exactly tree variables.  
+%vertex $v \in V$ define a variable $\xi_{v} \in \mathbb{F}_{2}^{|\Sigma|}$ and for any when we think on the functions $f,g : \pm^{|\Sigma|} \rightarrow \pm $ as the 'witness'/'input' given by the 'prover'/'user'
+%For any $x,y,\mu, z$ 
+\paragraph{Compeletnce. } Suppose that $\braket{G=(V,E), \{ c_{e} \} } \in (\mu,1)$-Label Cover than there exists a labeling $A$ such that 
 \begin{equation*}
   \begin{split}
     & A(v) = \Chi{i} \\ 
@@ -198,9 +201,6 @@ And notice that on binary field the test is equivalence for picking a random equ
     & j = P_{uv} i  
   \end{split}
 \end{equation*}
-%vertex $v \in V$ define a variable $\xi_{v} \in \mathbb{F}_{2}^{|\Sigma|}$ and for any when we think on the functions $f,g : \pm^{|\Sigma|} \rightarrow \pm $ as the 'witness'/'input' given by the 'prover'/'user'
-For any $x,y,\mu, z$ 
-\paragraph{Compeletnce. } .. 
 \paragraph{Soundness.} .. 
 \section{Part 3.}
 

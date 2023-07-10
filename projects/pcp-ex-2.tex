@@ -194,7 +194,7 @@ For every $\{v, u\} \in E$. A probabilistic verifier takes a candidate $f\times 
 %    & j = P_{uv} i  
 %  \end{split}
 %\end{equation*}
-\paragraph{Soundness.} \ctt{Wrong proof.} Now, assume the second case, namely that any labeling satisfies at most $\mu$ constraints. Also assume through contridiction that there exists an assigment that satisfies more than $\frac{1}{2}+\delta$ equations. Therefore on more than $\frac{1}{4}$ of the tests $f$ pass with probablility at least: $\frac{1}{4}\cdot 1 + \frac{3/4}p   \ge \frac{1}{2} + \delta$ $\Rightarrow p \ge \frac{1}{3} +\frac{4}{3} \delta$. the  at least $1-\mu$ edges there is   
+\paragraph{Soundness.} \ctt{Wrong proof.} Now, assume the second case, namely that any labeling satisfies at most $\mu$ constraints. Also assume through contridiction that there exists an assigment that satisfies more than $\frac{3}{4}+\delta$ equations. Therefore on more than $\frac{1}{4}$ of the tests $f$ pass with probablility at least: $\frac{1}{4}\cdot 1 + \frac{3/4}p   \ge \frac{3}{4} + \delta$ $\Rightarrow p \ge \frac{2}{3} +\frac{4}{3} \delta$. the  at least $1-\mu$ edges there is   
 \section{Part 3.}
 
 \paragraph{Label cover when the aleph-bet depends on the vertex.} Instead of showing reduction into the general label cover we will show a reduction to a similar problem in which vertices can have an additional restriction on the valid charters that one can sets on. In formal, we will say that $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ instance of Generalized-Label-Cover if there is an labeling $A : V \rightarrow \Sigma$ such that for any $\{v,u\} \in E$ it holds that $c_{e}A(v) = A(u)$ and in addition for any $v \in V$ we have that $A(v) \in \Sigma_{v} \subset \Sigma$.  

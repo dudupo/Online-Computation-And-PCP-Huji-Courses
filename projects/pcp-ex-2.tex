@@ -174,13 +174,7 @@ So it left to compute the expectation $ \expp{ \Chi{I}\left( x \right)\Chi{J}\le
 
 
 \subsection{Ex 3. The label cover problem.} 
-Let us assume that that $|\Sigma|$ is a power of $2$. Associate for each vertex a vector in $\mathbb{F}^{|\Sigma|}_{2}$ (Soon we will add more $\Theta(|\Sigma|)$ variables for having a sparse sum checking, namely for checking that $\sum_{j}^{|\Sigma|}{ x_{vj} }= 1$). And for each constraint. 
 
-
-Idea, there are more than $\mu  $ equations that satisfied then $\Rightarrow$ there are more than $\Theta\left( |V| \right)$ which their local environment is $\frac{1}{2} \mu$ satisfied. $\Rightarrow$ the local $T_{\varepsilon}(c)$ test accepts with probability $\frac{1}{2}+\delta (\mu)$ and therefore there exist $i \in L_{\delta}(f),j \in M_{\delta}(g)$ s.t $c(i) = j       $. $\Rightarrow$ we could pick $f$ and $g$ to be $\Chi{i}$ on those vertices and get a solution such $\left(1-\varepsilon\right) \cdot  $ are satisfied.    
-
-
-Other direction to consider, suppose that we satisfy more than $\frac{1}{2} + \delta$ equations, than for at least $\Theta\left(  \right)$ of the edges we success to fined $i,j, i = c(j)$. Therefore we can construct another assignment in which at least $1 - \varepsilon$ of the equations are satisfied.     
 \paragraph{The reduction.} Let $\braket{G=(V,E), \{ c_{e} \} }$ be a given instance of the Label cover problem. For each edge $e = \{v,u\} \in E$ define the test $T_{\varepsilon}\left( c_{e} \right)$ as defined above , Thus in total we define a $|E|$ tests, denote them by $T$. Consider the language $L$ such that a test collection $T$ is in $L$ if there exists function $f \times V$ such that the probability:  
 \begin{equation*}
   \begin{split}
@@ -201,7 +195,7 @@ For every $\{v, u\} \in E$. A probabilistic verifier takes a candidate $f\times 
 %    & j = P_{uv} i  
 %  \end{split}
 %\end{equation*}
-\paragraph{Soundness.} Now, assume the second case, namely that any labeling satisfies at most $\mu$ constraints. Therefore any  
+\paragraph{Soundness.} Now, assume the second case, namely that any labeling satisfies at most $\mu$ constraints. Therefore on at least $1-\mu$ edges there is   
 \section{Part 3.}
 
 \paragraph{Label cover when the aleph-bet depends on the vertex.} Instead of showing reduction into the general label cover we will show a reduction to a similar problem in which vertices can have an additional restriction on the valid charters that one can sets on. In formal, we will say that $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ instance of Generalized-Label-Cover if there is an labeling $A : V \rightarrow \Sigma$ such that for any $\{v,u\} \in E$ it holds that $c_{e}A(v) = A(u)$ and in addition for any $v \in V$ we have that $A(v) \in \Sigma_{v} \subset \Sigma$.  

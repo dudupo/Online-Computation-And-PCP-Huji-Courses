@@ -101,9 +101,9 @@ Denote by $\alpha_{I} \in \mathbb{R}$ and $\beta_{I} \in \mathbb{R}$ the coeffic
     & = \sum_{I,J,K}\alpha_{I}\alpha_{K}\beta_{J}\expp{ \mu \Chi{I}\left( \mu x \right)\Chi{J}\left( y \right) \Chi{K}\left( zx c^{-1}(y) \right) } \\
     & = \sum_{I,J,K}\alpha_{I}\alpha_{K}\beta_{J}\expp{\expp{ \mu \Chi{I}\left( \mu x \right)\Chi{J}\left( y \right) \Chi{K}\left( zx c^{-1}(y) \right)|\mu}} \\ 
     & = \sum_{I,J,K}\alpha_{I}\alpha_{K}\beta_{J}\frac{1}{2}\left( \left( - 1 \right)^{|I|+1}  + 1\right) \expp{  \Chi{I}\left(  x \right)\Chi{J}\left( y \right) \Chi{K}\left( zx c^{-1}(y) \right) }  
-   % & = \sum_{I,J,K}\alpha_{I}\alpha_{K}\beta_{J} \mu^{|I|+1}\expp{ \Chi{I}\left( x \right)\Chi{J}\left( y \right) \varepsilon^{|z|}(-1)^{|z \cap K|} \Chi{K}\left( x c^{-1}(y) \right) }   
   \end{split}
 \end{equation*}
+
 Thus, all the elements in which $|I|$ is even contribute zero for the exception. Now, let's apply the conditional expectation formula again conditioning over $I,J,K, x,y$:   
 \begin{equation*}
   \begin{split}
@@ -129,7 +129,17 @@ And therefore the above can be simplified into:
     \sum_{|I| \text{is odd} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}}   
   \end{split}
 \end{equation*}
-\ctt{ add explanation. } 
+
+\subsection{2.c} 
+First let's bound from below the excpection by the given that $f$ and $g$ pass the test with probability at least $\frac{1}{2} + \delta$:
+
+\begin{equation*}
+  \begin{split}
+    & \expp{\mu f\left( \mu x \right) \cdot g\left( y \right)f\left(z \cdot x c^{-1}\left( y \right)  \right)} \\ 
+    & = \prb{\mu f\left( \mu x \right) \cdot g\left( y \right) = f\left(z \cdot x c^{-1}\left( y \right)  \right)} -  \prb{\mu f\left( \mu x \right) \cdot g\left( y \right) \neq f\left(z \cdot x c^{-1}\left( y \right)  \right)} \\ 
+   & \ge \frac{1}{2}+\delta - \left( \frac{1}{2} - \delta \right) = 2\delta
+  \end{split}
+\end{equation*}
 \begin{equation*}
   \begin{split}
     & \sum_{|I| \text{is odd} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}}  \le \frac{1}{4} \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} < \frac{1}{4}}{\alpha_{I}^{2}\beta_{C^{-1}(I)}}  + \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}}  

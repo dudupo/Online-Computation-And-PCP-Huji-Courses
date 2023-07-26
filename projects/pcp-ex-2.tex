@@ -159,43 +159,43 @@ Using Cauchy-Schwartz to bound from above, we obtain:
     & \sum_{|I| \text{is odd} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}}  \le \frac{1}{4} \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} < \frac{1}{4}}{\alpha_{I}^{2}\beta_{C^{-1}(I)}}  + \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}}  
    \end{split}
 \end{equation*}
-Observes that for any subset $S \subset [n]$ it holds that: 
-
-\begin{equation*}
-  \begin{split}
-    & \sum_{|I| \in S }{\alpha_{I}^{2}\beta_{C^{-1}(I)}} \le \sum_{|I| \subset [n] }{\alpha_{I}^{2}\beta_{C^{-1}(I)}} \le \\ 
-    & \frac{1}{2} \left( \sum_{|I| \subset [n] }{\alpha_{I}^{4}} + \sum_{|I| \subset [n] }{\beta_{I}^{2}}   \right) = \frac{1}{2} \left(|f|_{4}^{4} + |g|_{2}^{2} \right) = 1
-  \end{split}
-\end{equation*}
-In addition: 
-\begin{equation*}
-  \begin{split}
-   & \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}} \\
-  \le  & \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4}, \beta_{C^{-1}(I)} \ge 0  }{\alpha_{I}^{2} \beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}} \\
-  \le  &  \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4}, \beta_{C^{-1}(I)} \ge 0  }{ \frac{1}{4}\left(|\alpha_{I}|^{2} +  \beta_{C^{-1}(I)}^{2} |\alpha_{I}|^{2}\left( 1 -2 \varepsilon \right)^{2|I|}\right) } \\ 
-  \le & \frac{1}{4} \left( 1  + \max \beta_{C^{-1}(I)} |\alpha_{I}| \left( 1 - 2\varepsilon \right)^{2|I|} \cdot \sum_{J}a_{J}\beta_{C^{-1}(J)} \right) \\
-  \le & \frac{1}{4} \left( 1  + \max \beta_{C^{-1}(I)} |\alpha_{I}| \left( 1 - 2\varepsilon \right)^{2|I|}  \right) \\
-  \end{split}
-\end{equation*}
-
-So the inequality becomes:  
-
-\begin{equation*}
-  \begin{split}
-    & \le \frac{1}{4} +  \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}} \\
-    & \le \frac{1}{4} +  \max_{I} \alpha_{I}^{2}\beta_{C^{-1}(I)}  \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4} }{|\alpha_{I}|  \left( 1 -2 \varepsilon \right)^{|I|}} \\ 
-    & \le \frac{1}{4} + 
-  \end{split}
-\end{equation*}
-So it left to compute the expectation $ \expp{ \Chi{I}\left( x \right)\Chi{J}\left( y \right) \Chi{K}\left( x c^{-1}(y) \right) }$ and observes that if $c^{-1}(y)$ has no intersection with $K$. Define by $C(K)$ all the indices $i$ such that there exist $ k \in K$ for which $y_{c_{k}} = y_{i}$. 
-\begin{equation*}
-  \begin{split}
-    \expp{\prod_{i \in I}{ x_{i}} \prod_{j \in J}{ y_{j}} \prod_{k \in K }{ x_{k}\cdot y_{c_{k}}} } = \expp{\prod_{i \in I \Delta K }{ x_{i}} \prod_{j \in J \Delta C(K) }{ y_{j}}}
-  \end{split}
-\end{equation*}
-\begin{proof}
-\end{proof}
-
+%Observes that for any subset $S \subset [n]$ it holds that: 
+%
+%\begin{equation*}
+%  \begin{split}
+%    & \sum_{|I| \in S }{\alpha_{I}^{2}\beta_{C^{-1}(I)}} \le \sum_{|I| \subset [n] }{\alpha_{I}^{2}\beta_{C^{-1}(I)}} \le \\ 
+%    & \frac{1}{2} \left( \sum_{|I| \subset [n] }{\alpha_{I}^{4}} + \sum_{|I| \subset [n] }{\beta_{I}^{2}}   \right) = \frac{1}{2} \left(|f|_{4}^{4} + |g|_{2}^{2} \right) = 1
+%  \end{split}
+%\end{equation*}
+%In addition: 
+%\begin{equation*}
+%  \begin{split}
+%   & \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}} \\
+%  \le  & \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4}, \beta_{C^{-1}(I)} \ge 0  }{\alpha_{I}^{2} \beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}} \\
+%  \le  &  \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4}, \beta_{C^{-1}(I)} \ge 0  }{ \frac{1}{4}\left(|\alpha_{I}|^{2} +  \beta_{C^{-1}(I)}^{2} |\alpha_{I}|^{2}\left( 1 -2 \varepsilon \right)^{2|I|}\right) } \\ 
+%  \le & \frac{1}{4} \left( 1  + \max \beta_{C^{-1}(I)} |\alpha_{I}| \left( 1 - 2\varepsilon \right)^{2|I|} \cdot \sum_{J}a_{J}\beta_{C^{-1}(J)} \right) \\
+%  \le & \frac{1}{4} \left( 1  + \max \beta_{C^{-1}(I)} |\alpha_{I}| \left( 1 - 2\varepsilon \right)^{2|I|}  \right) \\
+%  \end{split}
+%\end{equation*}
+%
+%So the inequality becomes:  
+%
+%\begin{equation*}
+%  \begin{split}
+%    & \le \frac{1}{4} +  \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}  \left( 1 -2 \varepsilon \right)^{|I|}} \\
+%    & \le \frac{1}{4} +  \max_{I} \alpha_{I}^{2}\beta_{C^{-1}(I)}  \sum_{|I| \text{is odd}, (1-2\varepsilon)^{|I|} \ge \frac{1}{4} }{|\alpha_{I}|  \left( 1 -2 \varepsilon \right)^{|I|}} \\ 
+%    & \le \frac{1}{4} + 
+%  \end{split}
+%\end{equation*}
+%So it left to compute the expectation $ \expp{ \Chi{I}\left( x \right)\Chi{J}\left( y \right) \Chi{K}\left( x c^{-1}(y) \right) }$ and observes that if $c^{-1}(y)$ has no intersection with $K$. Define by $C(K)$ all the indices $i$ such that there exist $ k \in K$ for which $y_{c_{k}} = y_{i}$. 
+%\begin{equation*}
+%  \begin{split}
+%    \expp{\prod_{i \in I}{ x_{i}} \prod_{j \in J}{ y_{j}} \prod_{k \in K }{ x_{k}\cdot y_{c_{k}}} } = \expp{\prod_{i \in I \Delta K }{ x_{i}} \prod_{j \in J \Delta C(K) }{ y_{j}}}
+%  \end{split}
+%\end{equation*}
+%\begin{proof}
+%\end{proof}
+%
 \subsection{Ex 3. The label cover problem.} 
 \paragraph{The reduction.} Let $\braket{G=(V,E), \{ c_{e} \} }$ be a given instance of the Label cover problem. For each edge $e = \{v,u\} \in E$ define the test $T_{\varepsilon}\left( c_{e} \right)$ as defined above , Thus in total we define a $|E|$ tests, denote them by $T$. Consider the language $L$ such that a test collection $T$ is in $L$ if there exists function $f \times V$ such that the probability:  
 \begin{equation*}

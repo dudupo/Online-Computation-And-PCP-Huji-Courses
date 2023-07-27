@@ -211,8 +211,7 @@ Now we are about to show that for at least $\delta$ of tests the product $ \expp
             & \le \prb{ u,v \text{ s.t } \expp{\cdot }\ge \delta}  + \delta 
     \end{split}
   \end{equation*}
-  Thus for at least $\delta$ fraction of the tests equation \ref{equ:we} holds. 
-  $\Rightarrow p \ge \frac{2}{3} +\frac{4}{3} \delta$. (\ctt{Wrong argument}) So ..  
+  Thus for at least $\delta$ fraction of the tests equation \ref{equ:we} holds. Now consider the follow probablisitc assignment, for any vertex $v$ we choose a set $I \subset [n]$ at probability that eqauls to the projection of $f_{v}$ on $\Chi{I}$, then picking uniformly form the support of $I$ a lavbel for $v$.   
 \section{Part 3.}
 
 \paragraph{Label cover when the aleph-bet depends on the vertex.} Instead of showing reduction into the general label cover we will show a reduction to a similar problem in which vertices can have an additional restriction on the valid charters that one can sets on. In formal, we will say that $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ instance of Generalized-Label-Cover if there is an labeling $A : V \rightarrow \Sigma$ such that for any $\{v,u\} \in E$ it holds that $c_{e}A(v) = A(u)$ and in addition for any $v \in V$ we have that $A(v) \in \Sigma_{v} \subset \Sigma$.  

@@ -211,7 +211,14 @@ Now we are about to show that for at least $\delta$ of tests the product $ \expp
             & \le \prb{ u,v \text{ s.t } \expp{\cdot }\ge \delta}  + \delta 
     \end{split}
   \end{equation*}
-  Thus for at least $\delta$ fraction of the tests equation \ref{equ:we} holds. Now consider the follow probablisitc assignment, for any vertex $v$ we choose a set $I \subset [n]$ at probability that eqauls to the projection of $f_{v}$ on $\Chi{I}$, then picking uniformly form the support of $I$ a label for $v$.   
+  Thus for at least $\delta$ fraction of the tests equation \ref{equ:we} holds. Now consider the follow probablisitc assignment, for any vertex $v$ we choose a set $I \subset [n]$ at probability that eqauls to the projection of $f_{v}$ on $\Chi{I}$ square, namely $|\braket{f_{v},\Chi{I} }|^{2}$ then picking uniformly form the support of $I$ a label for $v$. Therfore for any tests assoicate with $u,v$ satisfies $\expp{\cdot} \ge \delta$ we have that the probability that $c_{v,u}A(v)=A(u)$ is at least:     
+  \begin{equation*}
+    \begin{split}
+      & \sum_{|I| \text{is odd} , |I| \le \eta n  }{|\braket{f_{v},\Chi{I} }|^{2}|\braket{f_{ru},\Chi{c^{-1}(I)} }|^{2}  \cdot \prb{\text{ pick } i \in I, j\in C^{-1}(I) , c(i)=j }  } \\ 
+      & \le \sum_{|I| \text{is odd} , |I| \le \eta n  }{|\braket{f_{v},\Chi{I} }|^{2}|\braket{f_{ru},\Chi{c^{-1}(I)} }|^{2} \cdot \frac{1}{|I||C^{-1}(I)}} \\ 
+      & \le \left(\frac{1}{2} \log_{1-2\varepsilon}\left( \delta^{3} \right)\right)^{-2}\cdot \sum_{|I| \text{is odd} , |I| \le \eta n  }{|\braket{f_{v},\Chi{I} }|^{2}|\braket{f_{ru},\Chi{c^{-1}(I)} }|^{2}} 
+    \end{split}
+  \end{equation*}
 \section{Part 3.}
 
 \paragraph{Label cover when the aleph-bet depends on the vertex.} Instead of showing reduction into the general label cover we will show a reduction to a similar problem in which vertices can have an additional restriction on the valid charters that one can sets on. In formal, we will say that $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ instance of Generalized-Label-Cover if there is an labeling $A : V \rightarrow \Sigma$ such that for any $\{v,u\} \in E$ it holds that $c_{e}A(v) = A(u)$ and in addition for any $v \in V$ we have that $A(v) \in \Sigma_{v} \subset \Sigma$.  

@@ -23,7 +23,7 @@ We are going to split the section into three, first we are going to show how to 
 \begin{equation*}
   \begin{split}
     f_{0} & = f \\ 
-  f_{i+1} \left( x_{1}, .. , x_{m-i} \right) & = \sum_{y \in [q] } f_{i}\left(x_{1}, .. , x_{m-i}, x_{m-i+1} = y \right)
+  f_{i+1} \left( x_{1}, .. , x_{m-i} \right) & = \sum_{y \in [d] } f_{i}\left(x_{1}, .. , x_{m-i}, x_{m-i+1} = y \right)
   \end{split}
 \end{equation*}
 Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_{m}$. Now, notice that if $f$ is an honest assignment then $f_{m}$ is just the summation of $f$ over the cube $[d]^{m}$. So it sufficient to show the existences of verifier that reject with heigh probability any string far from been encoded by the previews structure.

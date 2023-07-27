@@ -202,7 +202,7 @@ For every $\{v, u\} \in E$. A probabilistic verifier takes a candidate $f\times 
 
 Now we are about to show that for at least $\delta$ of tests the product $ \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y)) | u,v }$ conditioned on the test is greater than $\delta$. For convinent let's use the notation $\expp{ \cdot } \ge \delta$ for refering to tests that the avereing in on their product is grater than $\delta$, and by the same manner let's use the notatin $\expp{\cdot } \le \delta$. So:   
 
-  \begin{equation*}
+  \begin{equation}
     \begin{split}
       2\delta \le  &  \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y))} = \\ 
     & \  \prb{ u,v \text{ s.t } \expp{ \cdot } \ge \delta }  \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y)) | u,v \text{ s.t } \expp{ \cdot  } \ge \delta  } +\\ 
@@ -210,7 +210,7 @@ Now we are about to show that for at least $\delta$ of tests the product $ \expp
 & \le \prb{ u,v \text{ s.t } \expp{ \cdot } \ge \delta} \cdot 1 + \prb{ u,v \text{ s.t } \expp{\cdot } \le \delta}  \cdot \delta \\ 
             & \le \prb{ u,v \text{ s.t } \expp{\cdot }\ge \delta}  + \delta 
     \end{split}
-  \end{equation*}
+  \end{equation}
   Thus for at least $\delta$ fraction of the tests equation \ref{equ:we} holds. 
   $\Rightarrow p \ge \frac{2}{3} +\frac{4}{3} \delta$. (\ctt{Wrong argument}) So ..  
 \section{Part 3.}

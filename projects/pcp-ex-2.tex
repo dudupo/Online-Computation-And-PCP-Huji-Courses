@@ -197,8 +197,15 @@ For every $\{v, u\} \in E$. A probabilistic verifier takes a candidate $f\times 
 %    & j = P_{uv} i  
 %  \end{split}
 %\end{equation*}
-\paragraph{Soundness.} Now, assume the second case, namely that any labeling satisfies at most $\mu$ constraints. Also assume through contridiction that there exists an assigment that satisfies more than $\frac{1}{2}+\delta$ equations, so by the same arguments we use in section 2.b we have that the expection of the product $ \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y)} \ge 2 \delta$ when here, in addition for taking the expection over the $x,y,z,\mu$ we also suming on the edges $\{v,u\}\in E$. Therefore more than $\delta$ of the tests $f$ pass with probablility at least: $\delta$
+\paragraph{Soundness.} Now, assume the second case, namely that any labeling satisfies at most $\mu$ constraints. Also assume through contridiction that there exists an assigment that satisfies more than $\frac{1}{2}+\delta$ equations, so by the same arguments we use in section 2.b we have that the expection of the product $ \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y)} \ge 2 \delta$ when here, in addition for taking the expection over the $x,y,z,\mu$ we also suming on the edges $\{v,u\}\in E$. Therefore more than $\delta$ of the tests $f$ the excpaction of : $\delta$
 
+  \begin{equation*}
+    \begin{split}
+      & \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y)} = \\ 
+        & \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y) | u,v \text{ s.t } \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y)} \ge \delta  } +\\ 
+            & \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y) | u,v \text{ s.t } \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y)} \ge \delta } 
+    \end{split}
+  \end{equation*}
   $\Rightarrow p \ge \frac{2}{3} +\frac{4}{3} \delta$. (\ctt{Wrong argument}) So ..  
 \section{Part 3.}
 

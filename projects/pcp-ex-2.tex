@@ -18,7 +18,7 @@ We would like to verify that a given polynomial box $P$ satisfies that $ \sum_{x
 
 We are going to split the section into three, first we are going to show how to verify that $\sum_{x \in [d]^{m}}{ f_{P}\left( x \right) } = 0 $. When the polynomial is a function into $\FF$. ( I think, but not sure, that in the lecture we saw only the case when $q = 2$ ). Then in the second part we will show how can one redact the coefficients case into the non-coefficients case. Finally, in the last part, we combine all together to show that the construction achieve the requirements. 
 
-\paragraph{Comment.} The following soultion acsses to $\Theta\left( m^{2} \cdot d \right)$ variabels, that in contrast to the requirement that verfication will acsses to at most $\Theta\left( m\cdot d \right)$ variabels. 
+%\paragraph{Comment.} The following soultion acsses to $\Theta\left( m^{2} \cdot d \right)$ variabels, that in contrast to the requirement that verfication will acsses to at most $\Theta\left( m\cdot d \right)$ variabels. 
 
 \subsection{Over non binary field. } Let's define a series of polynomial boxes $f_{i}$ such that: 
 
@@ -31,8 +31,8 @@ We are going to split the section into three, first we are going to show how to 
 Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_{m}$. Now, notice that if $f$ is an honest assignment then $f_{m}$ is just the summation of $f$ over the cube $[d]^{m}$. So it sufficient to show the existences of verifier that reject with heigh probability any string far from been encoded by the previews structure.
 
 \begin{algorithm}[H]
-  Sample uniformly random $i \sim [m]$ and check that $f_{i}$ is a codeword of the polynomial code in $m$ variables at degree at most $m\cdot d$.  
-    
+  Sample a line and a point and use them to test any of the polynomails $f_{i}$ by the line vrsus point test consuming $\Theta\left( m\cdot d \right)$ of randomness. 
+ %Check for any $i \sim [m]$ that $f_{i}$ is a codeword of the polynomial code in $m$ variables at degree at most $m\cdot d$. Use the standart interpolation test.        
     $r_{1}, r_{2} .., r_{m} \leftarrow$ sample uniformly  $m$ points of $[d]$ \\
     \For{$ i \in [1,m]$} {
       Check if $f_{i+1}\left( r_{1} , .., r_{m-i-1}, x_{m-i} \right) - \sum_{y \in [d]}{f_{i} \left( r_{1}, r_{2}, .., r_{m-i-1},x_{m-i}, y \right)} $ is the zero polynomial by a random test that uses at most single query. (Here $x_{m-i} \in [d]$ is the only variable)  \\

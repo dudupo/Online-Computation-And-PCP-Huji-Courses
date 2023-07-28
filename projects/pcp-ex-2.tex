@@ -65,15 +65,6 @@ Now as we proved in the classes $\deg f \cdot g \le \deg f + \deg g$. Therefore 
 \begin{algorithm}[H]
   Sample uniformly random $x \sim  [d]^{m}$ and check that $\varphi^{\prime}\left( x \right) = \varphi\left( x \right)$   \\
   Check that $\varphi$ is a polynomial at degree at most $d\cdot m$. \\
-  If both of the checks passed, accept. 
-\end{algorithm}
-
-\begin{proof}
-\end{proof}
-
-\subsection{Combine all.}
-\begin{algorithm}[H]
-  Use the first tester to check the validity of the pair $\left(\varphi^{\prime},\varphi\right)$. \\
   Check that the degree of $\xi$ is at most $2md$ \\ 
   Check that the polynomial $f\cdot \varphi^{\prime} - \xi$ is the zero polynomial. \\
   Using the first verifier, accept if the summation of $\xi$ overt the cube $[d]^{m}$ is zero.  

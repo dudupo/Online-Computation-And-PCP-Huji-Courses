@@ -42,18 +42,18 @@ Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_
     Accept if $f_{m} = 0 $  
 \end{algorithm}
 
-\begin{proof} For convenient let's denote by $g_{i}\left( x_{m-i} \right)$ the difference that been queried in line number $3$. 
+\begin{proof} For convenient let's denote by $g_{i}\left( x_{m-i} \right)$ the difference that been queried in line number $4$. 
   \begin{enumerate}
     \item Correctness. Easy. If the assignment is honest then by definition $g_{i} = 0$ for any $i \in [m]$ and therefore for any $x_{m-i}$ we will have that $g_{i} \left( x_{m-i} \right) = 0$. So, in that case iteration will pass. And whole proof will be aspected  with probability $1$.  
-    \item Soundness. Assume an adversiray input in which $f_{m} = 0$ but $\sum_{\mathbf{x} \in [d]^{m}}{f_{0}(x)}\neq 0$. (The case which $f_{m} \neq 0$ is not intersting). Now, observers that this can happens only if either at least one the $f_{i}$ dosn't setted according the definetion above or at least of the $f_{i}$ is not a polynomail at degree at most $m\cdot d $.  In the first case, there exsists at least one $i$ such that:
-      \begin{equation}
-        \label{equ:sat}
-        \begin{split}
-          & f_{i+1} \left( x_{1}, .. , x_{m-i} \right)  \neq  \sum_{y \in [d] } f_{i}\left(x_{1}, .. , x_{m-i}, x_{m-i+1} = y \right) \\
-          \Rightarrow & f_{i+1} \left( x_{1}, .. , x_{m-i} \right) -  \sum_{y \in [d] } f_{i}\left(x_{1}, .. , x_{m-i}, x_{m-i+1} = y \right) \neq 0  
-        \end{split}
-      \end{equation}
-      Now the probability to reject the proof is greater than the probability to catch that equation \ref{equ:sat} doesn't holds when probing $f_{i+1},f_{i}$. As we are assuming that all the $f_{i}$ are polynomails (the second case, in which they aren't, is treated next) the differnece is also a polynomail at degree at most $m\cdot d$ and therefore the probability to fall on non zero point is at least $1 - \frac{m\cdot d}{q} \Rightarrow $  with probabiliy at most $\frac{m\cdot d}{q}$ the test accept. 
+    \item Soundness. Assume an adversiray input in which $f_{m} = 0$ but $\sum_{\mathbf{x} \in [d]^{m}}{f_{0}(x)}\neq 0$. (The case which $f_{m} \neq 0$ is not intersting). Now, observers that this can happens only if either at least one the $f_{i}$ dosn't setted according the definetion above or at least of the $f_{i}$ is not a polynomail at degree at most $m\cdot d $.  In the first case, there exsists at least one $i$ such that $g_{i}\neq 0$:
+%      \begin{equation}
+%        \label{equ:sat}
+%        \begin{split}
+%          & f_{i+1} \left( x_{1}, .. , x_{m-i} \right)  \neq  \sum_{y \in [d] } f_{i}\left(x_{1}, .. , x_{m-i}, x_{m-i+1} = y \right) \\
+%          \Rightarrow & f_{i+1} \left( x_{1}, .. , x_{m-i} \right) -  \sum_{y \in [d] } f_{i}\left(x_{1}, .. , x_{m-i}, x_{m-i+1} = y \right) \neq 0  
+%        \end{split}
+%      \end{equation}
+      Now the probability to reject the proof is greater than the probability to catch a nonzero point when probing $g_{i}$. As we are assuming that all the $f_{i}$ are polynomails (the second case, in which they aren't, is treated next) the differnece is also a polynomail at degree at most $m\cdot d$ and therefore the probability to fall on non zero point is at least $1 - \frac{m\cdot d}{q} \Rightarrow $  with probabiliy at most $\frac{m\cdot d}{q}$ the test accept. 
       We use similar arguments to treat the case in which one of the functions $f_{i}$ is not a polynomail. The probability for rejecting is grater than the probabiliy that $f_{i}$ pass a low degree polynomail test. 
   \end{enumerate}
 \end{proof}
@@ -79,7 +79,11 @@ Our verfier will take as proof:
   Using the sumcheck verifier, accept if the summation of $\xi$ over the cube $[d]^{m}$ is zero.  
 \end{algorithm}
 
-\begin{proof}
+\begin{proof} For convenient let's denote by $g_{i}\left( x_{m-i} \right)$ the difference that been queried in line number $3$. 
+  \begin{enumerate}
+    \item Correctness.
+    \item Soundness.  
+  \end{enumerate}
 \end{proof}
 
 \section{Ex 2.}

@@ -292,7 +292,10 @@ For example, assume that $v$ associate with $x\vee \bar{y} \vee z $ and let $u_{
 %The permeations on the edges defined as follow: Let $x$ be variable, and $\psi$ a closure in which $x$ is the first terminal. Sets the permeation of the edges as following, if $x$ appears in his positive form, namely $\psi = x \vee .. $ then set on the edge $\left\{ x, \psi \right\}$ the identity permutation otherwise set the flipping permutation. 
 %
 
-\paragraph{Completeness. } Suppose that $\varphi \in \text{E3-CNF-SAT}$ and let $x \in \mathbb{F}_{2}^{*}$ be the assignment that satisfies $\varphi$. That it, $\varphi\left( x \right) = \mathbf{True}$. Let $A$ be the labeling that sets for any vertex on the left the bit matched to that literal by $x$ follows by zeros padding. And for any right vertex the triple of the bits corresponding to literals involving in the associated closure. By the fact that $x$ satisfies $\varphi$ any closure in $\varphi$ is satisfied by $x$ and therefore each of the right vertices (closures) see on his local view a character of $\Sigma_{v}$. In addition by the definition of the construction any pair of connected vertices satisfies the edge restriction. 
+\paragraph{Completeness. } Suppose that $\varphi \in \text{E3-CNF-SAT}$ and let $x \in \mathbb{F}_{2}^{*}$ be the assignment that satisfies $\varphi$. That it, $\varphi\left( x \right) = \mathbf{True}$. Let $A$ be the labeling that sets for any vertex on the left the bit matched to that literal by $x$. By the fact that $x$ satisfies $\varphi$ any closure in $\varphi$ is satisfied by $x$ and therefore each of the right vertices (closures) see on his local view at least one neighbor $u$ such $c_{u,v}A_{u} = 1 = A_{v}$ otherwise no literal in the support of $u$-closure satisfies him in contrast to the assumption that $x$ is satisfying $\varphi$.
+
+
+In addition by the definition of the construction any pair of connected vertices satisfies the edge restriction. 
 
 \paragraph{Soundness.} Suppose that $\varphi \in \text{E3-CNF-SAT}$ but not satisfiable and $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ is an instance obtained by the reduction above. Assume towards contradiction that there exists labeling $A$ such that more than $\mu^{\prime}= 6\mu$ of the restriction $\{c_{e}\}$ are satisfied. 
 

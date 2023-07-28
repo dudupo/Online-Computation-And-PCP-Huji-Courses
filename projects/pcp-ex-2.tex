@@ -277,9 +277,9 @@ Now we are about to show that for at least $\delta$ of tests the product $ \expp
 
 \paragraph{The reduction.} Define the Bipartite graph $G = (L,R,E)$. Associate the left vertices with the variables and the right with the closures. Define $\{u,v\}$ to be an edge if the literal which associate with the vertex $u$ is in the closure associate with vertex $v$. For the alphabet take $\Sigma = \{0 , 1\}$. For any right vertex $v\in R$ define $\Sigma_{v} = \{1\}$ and for any left vertex $u$ define $\Sigma_{u} = \{1,0\}$. Finally define $c_{e}$ for $ e = \left\{ v \in R, u \in L \right\}$ to be the identity if the variable associate with $u$ appears in it's normal formal inside the closure (i.e not negative), otherwise define $c_{e}$ to be the flipping operator.
 
-For example, assume that $v$ associate with $x\vee \bar{y} \vee z $ and let $u_{1},u_{2}$ be the vertices associated with $x$ and $y$. Then $\Sigma_{v} = \{ 1 \}$, $\Sigma_{u_{1}}=\Sigma_{u_{2}}=\{1,0\}$ and $c_{u_{1},v}A_{u_{1}} = A_{u_{1}}$, $c_{u_{2},v}A_{u_{2}} = \bar{A_{u_{2}}}$. 
+For example, assume that $v$ associate with $x\vee \bar{y} \vee z $ and let $u_{1},u_{2}$ be the vertices associated with $x$ and $y$. Then $\Sigma_{v} = \{ 1 \}$, $\Sigma_{u_{1}}=\Sigma_{u_{2}}=\{1,0\}$ and $c_{u_{1},v}A_{u_{1}} = A_{u_{1}}$, $c_{u_{2},v}A_{u_{2}} = \bar{A}_{u_{2}}$. 
 
-Observes that a labeling $A$ in which $c_{u,v}A_{u}=A_{v}$ correspond to an assignment in which the variable associate with $u$ satisfies the closure associated with $v$.  
+Observes that a labeling $A$ in which $c_{u,v}A_{u}=A_{v}$ corresponds to an assignment in which the variable associate with $u$ satisfies the closure associated with $v$.  
 
 %For the right vertices, consider the $3!$ permutations of the closures, and associate for any of them a right vertex. For example, consider the closure $ x\vee y \vee z$, then associate a right vertex with the closures $x \vee y \vee z$,  $y \vee z \vee x$, $z \vee x \vee y$, $y \vee x \vee z$ and etc.
 

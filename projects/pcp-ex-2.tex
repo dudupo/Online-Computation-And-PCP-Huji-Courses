@@ -74,9 +74,9 @@ Our verfier will take as proof:
 \begin{algorithm}[H]
   Sample uniformly random $x \sim  [d]^{m}$ and check that $\varphi^{\prime}\left( x \right) = \varphi\left( x \right)$   \\
   Check that $\varphi$ is a polynomial at degree at most $d\cdot m$. \\
-  Check that the degree of $\xi$ is at most $2md$ \\ 
-  Check that the polynomial $f\cdot \varphi^{\prime} - \xi$ is the zero polynomial. \\
-  Using the first verifier, accept if the summation of $\xi$ overt the cube $[d]^{m}$ is zero.  
+  Check that the degree of $\xi$ is at most $2md$ by quering the $\xi_{P}$.\\ 
+  Check that the polynomial $f\cdot \varphi^{\prime} - \xi$ is the zero polynomial by quering the boxes $f_{P},\varphi_{P},\zeta_{P}$. \\
+  Using the sumcheck verifier, accept if the summation of $\xi$ over the cube $[d]^{m}$ is zero.  
 \end{algorithm}
 
 \begin{proof}

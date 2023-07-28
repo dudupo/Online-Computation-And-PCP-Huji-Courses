@@ -117,7 +117,7 @@ Our verifier will take as a proof:
 
   \begin{enumerate}
     \item Completeness. The key point here is the fact that the extension $\xi_{P} = \varphi_{P} \cdot f_{P}$ is unique and agrees with $\varphi\cdot f$ on all points in the cube $[d]^{m}$. If the proof is honest then all validity of the input check at lines $1-4$ are pass with probability $1$. Then we get by the completeness of the sumcheck verification that if indeed $\sum_{x \in [d]^{m}}{ \xi(x) }$ $ = \sum_{x \in [d]^{m}}{ \varphi(x)f_{P}(x) } = 0$ then line number $5$ also passes with probability $1$. 
-    \item Soundness. Returns exactly on the soundness proof in the above section, when here we apply also the idea that if the inputs passes the validity tests in lines $1-4$ with probability grater than $1-\Theta(\frac{m\cdot d}{1})$ then there is a valid input which is close enough to the given input and by conditioning on querying only points that both of them agree on.  
+    \item Soundness. Returns exactly on the soundness proof in the above section, when here we apply also the idea that if the inputs pass the validity tests in lines $1-4$ with probability grater than $1-\Theta(\frac{m\cdot d}{1})$ then there is a valid input which is close enough to the given input and by conditioning on querying only points that both of them agree on.  
   \end{enumerate}
 \end{proof}
 

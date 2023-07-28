@@ -14,14 +14,14 @@
 
 \section{Ex 1. Sumchecking with coefficients.}
 
-We would like to verify that a given polynomial box $P$ satisfies that $ \sum_{x\in [d]^{m}}{ \varphi\left( x \right) f_{P}\left( x \right) } = 0 $  by accessing to at most $O\left(md\right)$ variables. For any function $\varphi : [d]^{m} \rightarrow \FF$. Denote by $\varphi^{\prime} : \FF^{m} \rightarrow \FF$ the extension of $\varphi$ into a polynomial over $\FF^{m}$. We saw in that lectures (and also in the previews assignment) that there is such a unique extension. 
-
+%We would like to verify that a given polynomial box $P$ satisfies that $ \sum_{x\in [d]^{m}}{ \varphi\left( x \right) f_{P}\left( x \right) } = 0 $  by accessing to at most $O\left(md\right)$ variables. For any function $\varphi : [d]^{m} \rightarrow \FF$. Denote by $\varphi^{\prime} : \FF^{m} \rightarrow \FF$ the extension of $\varphi$ into a polynomial over $\FF^{m}$. We saw in that lectures (and also in the previews assignment) that there is such a unique extension. 
+%
 We would like to verify that a given polynomial box $P$ satisfies $\sum_{x\in [d]^{m}}{ \varphi\left( x \right) f_{P}\left( x \right) } = 0$ by accessing at most $O\left(md\right)$ variables. For any function $\varphi : [d]^{m} \rightarrow \FF$, denote by $\varphi^{\prime} : \FF^{m} \rightarrow \FF$ the unique extension of $\varphi$ into a polynomial over $\FF^{m}$, which we saw in the lectures and the previous assignment.
 
 
 
-We are going to split the section into two, first we are going to show how to verify that $\sum_{x \in [d]^{m}}{ f_{P}\left( x \right) } = 0 $. When the polynomial is a function into $\FF$. ( I think, but not sure, that in the lecture we saw only the case when $q = 2$ ). Then in the second part we will show how can one redact the coefficients case into the non-coefficients case. Finally, in the last part, we combine all together to show that the construction achieve the requirements. 
-
+%We are going to split the section into two, first we are going to show how to verify that $\sum_{x \in [d]^{m}}{ f_{P}\left( x \right) } = 0 $. When the polynomial is a function into $\FF$. ( I think, but not sure, that in the lecture we saw only the case when $q = 2$ ). Then in the second part we will show how can one redact the coefficients case into the non-coefficients case. Finally, in the last part, we combine all together to show that the construction achieve the requirements. 
+%
 We will divide this section into two parts. First, we will demonstrate how to verify that $\sum_{x \in [d]^{m}}{ f_{P}\left( x \right) } = 0$ when the polynomial is a function into $\FF$. (I believe the lecture only covered the case when $q = 2$). In the second part, we will explain how to convert the coefficients case to the non-coefficients case. Finally, we will combine all of this to show that the construction meets the requirements.
 
 %\paragraph{Comment.} The following soultion acsses to $\Theta\left( m^{2} \cdot d \right)$ variabels, that in contrast to the requirement that verfication will acsses to at most $\Theta\left( m\cdot d \right)$ variabels. 
@@ -34,12 +34,12 @@ We will divide this section into two parts. First, we will demonstrate how to ve
   f_{i+1} \left( x_{1}, .. , x_{m-i} \right) & = \sum_{y \in [d] } f_{i}\left(x_{1}, .. , x_{m-i}, x_{m-i+1} = y \right)
   \end{split}
 \end{equation*}
-Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_{m}$. Now, notice that if $f$ is an honest assignment then $f_{m}$ is just the summation of $f$ over the cube $[d]^{m}$. So it sufficient to show the existences of verifier that reject with heigh probability any string far from been encoded by the previews structure.
-
-Our verifier will ask for a proof, which is a list of $f_{0}, f_{1}, f_{2}, \dots, f_{m}$. Now, if $f$ is an honest assignment, then $f_{m}$ is simply the sum of $f$ over the cube $[d]^{m}$. Thus, it is sufficient to show the existence of a verifier that rejects with high probability any string that is far from being encoded by the previous structure.
+%Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_{m}$. Now, notice that if $f$ is an honest assignment then $f_{m}$ is just the summation of $f$ over the cube $[d]^{m}$. So it sufficient to show the existences of verifier that reject with heigh probability any string far from been encoded by the previews structure.
+%
+Our verifier will ask for a proof, which is a list of $f_{0}, f_{1}, f_{2}, \dots, f_{m}$. Now, if $f$ is an honest assignment, then $f_{m}$ is simply the sum of $f$ over the cube $[d]^{m}$. Thus, it is sufficient to show the existence of a verifier that rejects with high probability any string that is far from being encoded by the previous structure. Nevertheless, any string which is close to has that structure would imply the existence of valid proof (those strings are called sometimes 'noisy proof').    
 
 \begin{algorithm}[H]
-  Sample a line and a point and use them to test any of the polynomials $f_{i}$ by the line versus point test consuming $\Theta\left( m\cdot d \right)$ of randomness.  (Not necessary if we can assume the validity of each of the polynomials boxes) \\  
+  %Sample a line and a point and use them to test any of the polynomials $f_{i}$ by the line versus point test consuming $\Theta\left( m\cdot d \right)$ of randomness.  (Not necessary if we can assume the validity of each of the polynomials boxes) \\  
  %Check for any $i \sim [m]$ that $f_{i}$ is a codeword of the polynomial code in $m$ variables at degree at most $m\cdot d$. Use the standart interpolation test.        
   \ \\
 Sample a line and a point, and use them to test any of the polynomials $f_i$ with the line versus point test, consuming $\Theta\left( m\cdot d \right)$ of randomness. If we can assume the validity of each of the polynomial boxes, this step is not necessary. \\
@@ -54,24 +54,14 @@ Sample a line and a point, and use them to test any of the polynomials $f_i$ wit
     Accept if $f_{m} = 0 $  
 \end{algorithm}
 
-\begin{proof} For convenient let's denote by $g_{i}\left( x_{m-i} \right)$ the difference that been queried in line number $4$. 
-
-
-Let us denote $g_{i}\left( x_{m-i} \right)$ as the difference that is queried in line 4 for convenience.
+\begin{proof} Let us denote $g_{i}\left( x_{m-i} \right)$ as the difference that is queried in line 4 for convenience.
   \begin{enumerate}
-    \item Completeness. Easy. If the assignment is honest then by definition $g_{i} = 0$ for any $i \in [m]$ and therefore for any $x_{m-i}$ we will have that $g_{i} \left( x_{m-i} \right) = 0$. So, in that case iteration will pass. And whole proof will be aspected  with probability $1$.  
-      
+    \item Completeness. Easy. % If the assignment is honest then by definition $g_{i} = 0$ for any $i \in [m]$ and therefore for any $x_{m-i}$ we will have that $g_{i} \left( x_{m-i} \right) = 0$. So, in that case iteration will pass. And whole proof will be aspected  with probability $1$.  
+If the assignment is honest, then by definition $g_i = 0$ for any $i \in [m]$. Consequently, for any $x_{m-i}$, we have that $g_i(x_{m-i}) = 0$. Therefore, in that case, all the iterations will pass, and the whole proof will be accepted with probability $1$.
 
-Completeness is easy to understand. If the assignment is honest, then by definition $g_i = 0$ for any $i \in [m]$, and thus for any $x_{m-i}$, we will have that $g_i(x_{m-i}) = 0$. Therefore, in that case, the iteration will pass, and the whole proof will be expected with probability $1$.
+    \item Soundness. Assume an adversary input in which $f_{m} = 0$ but $\sum_{\mathbf{x} \in [d]^{m}}{f_{0}(x)}\neq 0$. This can only occur if at least one of the $f_{i}$ is not set according to the definition. If there exists at least one $i$ such that $f_{i}$ fails the $m\cdot d$-degree polynomial test with a probability greater than $1 - \frac{m\cdot d}{q}$ then we done. That because the probability of rejection is greater than the probability to reject $f_{i}$ on the polynomial test.
 
-
-    \item Soundness. Assume an adversary input in which $f_{m} = 0$ but $\sum_{\mathbf{x} \in [d]^{m}}{f_{0}(x)}\neq 0$. (The case which $f_{m} \neq 0$ is not interesting). Now, observers that this can happens only if either at least one the $f_{i}$ isn't setted according the definition above or at least of the $f_{i}$ is not pass the $m\cdot d$-degree polynomial test with probability grater than $1 - \frac{m\cdot d}{q}$. 
-
-Assume an adversary input in which $f_{m} = 0$ but $\sum_{\mathbf{x} \in [d]^{m}}{f_{0}(x)}\neq 0$. This can only occur if at least one of the $f_{i}$ is not set according to the definition or at least one of the $f_{i}$ fails the $m\cdot d$-degree polynomial test with a probability greater than $1 - \frac{m\cdot d}{q}$. (The case where $f_{m} \neq 0$ is not interesting).
-
-
-
-      In the first case, there exists at least one $i$ such that $g_{i}\neq 0$:
+      Therefore we can consider the case that any of the $f_{i}$ fail the polynomials test with probability less than $1 - \frac{m\cdot d}{q}$ and yet there there exists at least one $i$ such that $g_{i}\neq 0$.
 %      \begin{equation}
 %        \label{equ:sat}
 %        \begin{split}
@@ -94,7 +84,7 @@ Assume an adversary input in which $f_{m} = 0$ but $\sum_{\mathbf{x} \in [d]^{m}
     the test accept.
 
 
-      We use similar arguments to treat the case in which one of the functions $f_{i}$ is not close to a polynomial. As it given in the question that the validity of $f_{P}$ can be assumed, we guess that intent was not to dig down into a multi variable polynomials verification. Thus we just mention without a proof that the probability for rejecting is grater than the probability that $f_{i}$ fail in a low degree polynomial test and that also happens with probability at least $1 - \frac{m\cdot d}{q}$. 
+     % We use similar arguments to treat the case in which one of the functions $f_{i}$ is not close to a polynomial. As it given in the question that the validity of $f_{P}$ can be assumed, we guess that intent was not to dig down into a multi variable polynomials verification. Thus we just mention without a proof that the probability for rejecting is grater than the probability that $f_{i}$ fail in a low degree polynomial test and that also happens with probability at least $1 - \frac{m\cdot d}{q}$. 
   \end{enumerate}
 \end{proof}
 

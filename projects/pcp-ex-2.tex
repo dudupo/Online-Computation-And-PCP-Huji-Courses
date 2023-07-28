@@ -277,7 +277,7 @@ Now we are about to show that for at least $\delta$ of tests the product $ \expp
 
 \paragraph{The reduction.} Define the Bipartite graph $G = (L,R,E)$. Associate the left vertices with the variables and the right with the closures. Define $\{u,v\}$ to be an edge if the literal which associate with the vertex $u$ is in the closure associate with vertex $v$. For the alphabet take $\Sigma = \mathbb{Z}_{2}^3$. For any right vertex $v\in R$ define $\Sigma_{v}$ be all the assignments for which the $v$-closures is satisfied and for any left vertex $u$ define $\Sigma_{u} = \{ \left( 1 , 0 , 0 \right), \left( 0 , 0, 0 \right) \}$. Finally define $c_{e}$ for $ e = \left\{ v \in R, u \in L \right\}$ to be the projection of $\sigma \in \Sigma$, setted on $v$, to the coordinate corresponding with $u$.
 
-For example, assume that $v$ associate with $x\vee y \vee z $ and let $u$ be the vertex associate with $x$, And assume that $A(v) = (1,0,1)$ , then $c_{e}A(v) = (1,0,0)$.           
+For example, assume that $v$ associate with $x\vee y \vee z $ and let $u$ be the vertex associate with $x$, And assume that $A(v) = (1,0,1)$ , then $c_{e}A(v) = (1,0,0)$. Thus if $A(u) = (1,0,0)$ we have that $A(u) = c_{e}A(v)$. 
 
 %For the right vertices, consider the $3!$ permutations of the closures, and associate for any of them a right vertex. For example, consider the closure $ x\vee y \vee z$, then associate a right vertex with the closures $x \vee y \vee z$,  $y \vee z \vee x$, $z \vee x \vee y$, $y \vee x \vee z$ and etc.
 

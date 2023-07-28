@@ -14,9 +14,9 @@
 
 \section{Ex 1. Sumchecking with coefficients.}
 
-We would like to verify that a given polynomial box $P$ satisfies that $ \sum_{x\in [d]^{m}}{ \varphi\left( x \right) f_{P}\left( x \right) } = 0 $  by accessing to at most $O\left(md\right)$ variables. For any function $\varphi : [d]^{m} \rightarrow \FF$. Denote by $\varphi^{\prime} : \FF^{m} \rightarrow \FF$ the extension of $\varphi$ into a polynomial over $\FF^{m}$. We saw in that lectures (and also in the previews assignment) that there is such a uinq extension. 
+We would like to verify that a given polynomial box $P$ satisfies that $ \sum_{x\in [d]^{m}}{ \varphi\left( x \right) f_{P}\left( x \right) } = 0 $  by accessing to at most $O\left(md\right)$ variables. For any function $\varphi : [d]^{m} \rightarrow \FF$. Denote by $\varphi^{\prime} : \FF^{m} \rightarrow \FF$ the extension of $\varphi$ into a polynomial over $\FF^{m}$. We saw in that lectures (and also in the previews assignment) that there is such a unique extension. 
 
-We are going to split the section into three, first we are going to show how to verify that $\sum_{x \in [d]^{m}}{ f_{P}\left( x \right) } = 0 $. When the polynomial is a function into $\FF$. ( I think, but not sure, that in the lecture we saw only the case when $q = 2$ ). Then in the second part we will show how can one redact the coefficients case into the non-coefficients case. Finally, in the last part, we combine all together to show that the construction achieve the requirements. 
+We are going to split the section into two, first we are going to show how to verify that $\sum_{x \in [d]^{m}}{ f_{P}\left( x \right) } = 0 $. When the polynomial is a function into $\FF$. ( I think, but not sure, that in the lecture we saw only the case when $q = 2$ ). Then in the second part we will show how can one redact the coefficients case into the non-coefficients case. Finally, in the last part, we combine all together to show that the construction achieve the requirements. 
 
 %\paragraph{Comment.} The following soultion acsses to $\Theta\left( m^{2} \cdot d \right)$ variabels, that in contrast to the requirement that verfication will acsses to at most $\Theta\left( m\cdot d \right)$ variabels. 
 
@@ -31,7 +31,7 @@ We are going to split the section into three, first we are going to show how to 
 Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_{m}$. Now, notice that if $f$ is an honest assignment then $f_{m}$ is just the summation of $f$ over the cube $[d]^{m}$. So it sufficient to show the existences of verifier that reject with heigh probability any string far from been encoded by the previews structure.
 
 \begin{algorithm}[H]
-  Sample a line and a point and use them to test any of the polynomails $f_{i}$ by the line vrsus point test consuming $\Theta\left( m\cdot d \right)$ of randomness.  (Not neccsery if we can assume the validity of each of the polynomials boxes) \\  
+  Sample a line and a point and use them to test any of the polynomials $f_{i}$ by the line versus point test consuming $\Theta\left( m\cdot d \right)$ of randomness.  (Not necessary if we can assume the validity of each of the polynomials boxes) \\  
  %Check for any $i \sim [m]$ that $f_{i}$ is a codeword of the polynomial code in $m$ variables at degree at most $m\cdot d$. Use the standart interpolation test.        
     $r_{1}, r_{2} .., r_{m} \leftarrow$ sample uniformly  $m$ points of $[d]$ \\
     \For{$ i \in [1,m]$} {
@@ -44,10 +44,10 @@ Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_
 
 \begin{proof} For convenient let's denote by $g_{i}\left( x_{m-i} \right)$ the difference that been queried in line number $4$. 
   \begin{enumerate}
-    \item Compeletnce. Easy. If the assignment is honest then by definition $g_{i} = 0$ for any $i \in [m]$ and therefore for any $x_{m-i}$ we will have that $g_{i} \left( x_{m-i} \right) = 0$. So, in that case iteration will pass. And whole proof will be aspected  with probability $1$.  
-    \item Soundness. Assume an adversiray input in which $f_{m} = 0$ but $\sum_{\mathbf{x} \in [d]^{m}}{f_{0}(x)}\neq 0$. (The case which $f_{m} \neq 0$ is not intersting). Now, observers that this can happens only if either at least one the $f_{i}$ dosn't setted according the definetion above or at least of the $f_{i}$ is not pass the $m\cdot d$-degree polynomail test with probability grater than $1 - \frac{m\cdot d}{q}$. 
+    \item Completeness. Easy. If the assignment is honest then by definition $g_{i} = 0$ for any $i \in [m]$ and therefore for any $x_{m-i}$ we will have that $g_{i} \left( x_{m-i} \right) = 0$. So, in that case iteration will pass. And whole proof will be aspected  with probability $1$.  
+    \item Soundness. Assume an adversary input in which $f_{m} = 0$ but $\sum_{\mathbf{x} \in [d]^{m}}{f_{0}(x)}\neq 0$. (The case which $f_{m} \neq 0$ is not interesting). Now, observers that this can happens only if either at least one the $f_{i}$ isn't setted according the definition above or at least of the $f_{i}$ is not pass the $m\cdot d$-degree polynomial test with probability grater than $1 - \frac{m\cdot d}{q}$. 
 
-      In the first case, there exsists at least one $i$ such that $g_{i}\neq 0$:
+      In the first case, there exists at least one $i$ such that $g_{i}\neq 0$:
 %      \begin{equation}
 %        \label{equ:sat}
 %        \begin{split}
@@ -55,13 +55,13 @@ Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_
 %          \Rightarrow & f_{i+1} \left( x_{1}, .. , x_{m-i} \right) -  \sum_{y \in [d] } f_{i}\left(x_{1}, .. , x_{m-i}, x_{m-i+1} = y \right) \neq 0  
 %        \end{split}
 %      \end{equation}
-      Now the probability to reject the proof is greater than the probability to catch a nonzero point when probing $g_{i}$. As we are assuming that all the $f_{i}$ pass with probality grater than $1 - \frac{m\cdot d}{q}$ the polynomails test (the second case, in which they aren't, is treated next) it followes that there exists a polynomial $\tilde{f}_{i}$ at degree at most $md$ that close to $f_{i}$ in the sense that we can assume that with probability $1 - \Theta(\frac{md}{q})$ we query only points from $\tilde{f}_{i}$. 
+      Now the probability to reject the proof is greater than the probability to catch a nonzero point when probing $g_{i}$. As we are assuming that all the $f_{i}$ pass with probability grater than $1 - \frac{m\cdot d}{q}$ the polynomials test (the second case, in which they aren't, is treated next) it follows that there exists a polynomial $\tilde{f}_{i}$ at degree at most $md$ that close to $f_{i}$ in the sense that we can assume that with probability $1 - \Theta(\frac{md}{q})$ we query only points from $\tilde{f}_{i}$. 
 
-      The same holds for $f_{i+1}$ and therefore we can say that with probability at least $1 - \Theta(\frac{md}{q})$  differnece $g_{i}$ also agrees with a polynomail at degree at most $m\cdot d$, denote it by $\tilde{g}_{i}$. Thus the probability to fall on non zero point is greater than the probability to fall on point which both $g_{i},\tilde{g}_{i}$ agree on and it's zero. Combining it all togther we get that with probabiliy at most 
+      The same holds for $f_{i+1}$ and therefore we can say that with probability at least $1 - \Theta(\frac{md}{q})$ difference $g_{i}$ also agrees with a polynomial at degree at most $m\cdot d$, denote it by $\tilde{g}_{i}$. Thus the probability to fall on non zero point is greater than the probability to fall on point which both $g_{i},\tilde{g}_{i}$ agree on and it's zero. Combining it all together we get that with probability at most 
       \begin{equation*}
         \begin{split}
           & \prb{\text{catch non zero point of } g_{i}} \\
-          & \ \ =  1 - \prb{ \left\{ \text{ quering points from } \tilde{f}_{i}, \tilde{f}_{i+1}  \right\} \cap \left\{  \tilde{g}_i(x) \neq 0 \right\} } \\
+          & \ \ =  1 - \prb{ \left\{ \text{ querying points from } \tilde{f}_{i}, \tilde{f}_{i+1}  \right\} \cap \left\{  \tilde{g}_i(x) \neq 0 \right\} } \\
           & \ \ =  1 - \left( 1 - \Theta\left(\frac{m\cdot d}{q} \right) \right)^{O(1)} \\ 
           & \ \ = \Theta\left(\frac{m\cdot d}{q} \right)
         \end{split}
@@ -69,28 +69,28 @@ Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_
     the test accept.
 
 
-      We use similar arguments to treat the case in which one of the functions $f_{i}$ is not close to a polynomail. As it given in the question that the validily of $f_{P}$ can be assumed, we guess that intent was not to dig down into a multivariable polynomails verfication. Thus we just mention without a proof that probability for rejecting is grater than the probabiliy that $f_{i}$ fail in a low degree polynomail test and that also happens with probability at least $1 - \frac{m\cdot d}{q}$. 
+      We use similar arguments to treat the case in which one of the functions $f_{i}$ is not close to a polynomial. As it given in the question that the validity of $f_{P}$ can be assumed, we guess that intent was not to dig down into a multi variable polynomials verification. Thus we just mention without a proof that probability for rejecting is grater than the probability that $f_{i}$ fail in a low degree polynomial test and that also happens with probability at least $1 - \frac{m\cdot d}{q}$. 
   \end{enumerate}
 \end{proof}
 
 \subsection{ Coefficients $\mapsto$ non-coefficients. }
-By the fact that for any pair of polynomials $f,g$ the degree of their product is at most the sum of their degrees  $\deg f \cdot g \le \deg f + \deg g$  we can redact the problem of verifying whether the weight summation is zero by considering the summation of the polynomial $\varphi^{\prime} \cdot f$ over the cube $[d]^{m}$. When $\varphi^{\prime}$ is the extansion of $\varphi$  to $\FF^{m} \rightarrow \FF$. 
+By the fact that for any pair of polynomials $f,g$ the degree of their product is at most the sum of their degrees  $\deg f \cdot g \le \deg f + \deg g$  we can redact the problem of verifying whether the weight summation is zero by considering the summation of the polynomial $\varphi^{\prime} \cdot f$ over the cube $[d]^{m}$. When $\varphi^{\prime}$ is the extension of $\varphi$  to $\FF^{m} \rightarrow \FF$. 
 
-Let's denote by $\xi = f\cdot\varphi$ and the corssponding polynomial box by $\xi_{P} = f_{P} \cdot \varphi_{P}$. Note that by the uniqnis of the extansion of both $\varphi$ and $f$ into $\FF^{m}\rightarrow \FF$ we get also that the extansion of $\xi$ is uniq and $\xi_{P}$ is well defined.  
+Let's denote by $\xi = f\cdot\varphi$ and the corresponding polynomial box by $\xi_{P} = f_{P} \cdot \varphi_{P}$. Note that by the uniqueness of the extension of both $\varphi$ and $f$ into $\FF^{m}\rightarrow \FF$ we get also that the extension of $\xi$ is unique and $\xi_{P}$ is well defined.  
 
-Our verfier will take as proof: 
+Our verifier will take as proof: 
 
 \begin{enumerate}
   \item The polynomials $f,\varphi, \xi$ 
-  \item Their corresponding polynomail boxes $f_{P},\varphi_{P}, \xi_{P}$ 
-  \item The polynimails boxes coresspond to $\xi_{0}, \xi_{1} .. \xi_{m}$ as defined in the previws section.  
+  \item Their corresponding polynomial boxes $f_{P},\varphi_{P}, \xi_{P}$ 
+  \item The polynomials boxes correspond to $\xi_{0}, \xi_{1} .. \xi_{m}$ as defined in the previews section.  
 \end{enumerate}
 
 \begin{algorithm}[H]
   Sample uniformly random $x \sim  [d]^{m}$ and check that $\varphi^{\prime}\left( x \right) = \varphi\left( x \right)$   \\
   Check that $\varphi$ is a polynomial at degree at most $d\cdot m$. \\
-  Check that the degree of $\xi$ is at most $2md$ by quering the $\xi_{P}$.\\ 
-  Check that the polynomial $f\cdot \varphi^{\prime} - \xi$ is the zero polynomial by quering the boxes $f_{P},\varphi_{P},\xi_{P}$. \\
+  Check that the degree of $\xi$ is at most $2md$ by querying the $\xi_{P}$.\\ 
+  Check that the polynomial $f\cdot \varphi^{\prime} - \xi$ is the zero polynomial by querying the boxes $f_{P},\varphi_{P},\xi_{P}$. \\
   Using the sumcheck verifier on $\xi, \xi_{1},\xi_{2} .. \xi_{m}$, accept if the summation of $\xi$ over the cube $[d]^{m}$ is zero.  
 \end{algorithm}
 
@@ -98,8 +98,8 @@ Our verfier will take as proof:
 
 
   \begin{enumerate}
-    \item Compeletnce. The key point here is the fact that the extansion $\xi_{P} = \varphi_{P} \cdot f_{P}$ is uniqe and agrees with $\varphi\cdot f$ on all pointes in the cube $[d]^{m}$. If the proof is honest then all validity of the input check at lines $1-4$ are pass with probability $1$. Then we get by the compeletnce of the sumcheck verification that if indeed $\sum_{x \in [d]^{m}}{ \xi(x) }$ $ = \sum_{x \in [d]^{m}}{ \varphi(x)f_{P}(x) } = 0$ then line numer $5$ also passes with probability $1$. 
-    \item Soundness. Returns exactly on the soundeness proof in the above section, when here we applay also the idea that if the inputs passes the validitly tests in lines $1-4$ with probability grater than $1-\Theta(\frac{m\cdot d}{1})$ then there is a valid input which is close enought to the given input and by conditining on quring only points that both of them agree on.  
+    \item Completeness. The key point here is the fact that the extension $\xi_{P} = \varphi_{P} \cdot f_{P}$ is unique and agrees with $\varphi\cdot f$ on all points in the cube $[d]^{m}$. If the proof is honest then all validity of the input check at lines $1-4$ are pass with probability $1$. Then we get by the completeness of the sumcheck verification that if indeed $\sum_{x \in [d]^{m}}{ \xi(x) }$ $ = \sum_{x \in [d]^{m}}{ \varphi(x)f_{P}(x) } = 0$ then line number $5$ also passes with probability $1$. 
+    \item Soundness. Returns exactly on the soundness proof in the above section, when here we apply also the idea that if the inputs passes the validity tests in lines $1-4$ with probability grater than $1-\Theta(\frac{m\cdot d}{1})$ then there is a valid input which is close enough to the given input and by conditioning on querying only points that both of them agree on.  
   \end{enumerate}
 \end{proof}
 
@@ -163,7 +163,7 @@ And therefore the above can be simplified into:
 \end{equation*}
 
 \subsection{2.c} 
-First let's bound from below the excpection by the given that $f$ and $g$ pass the test with probability at least $\frac{1}{2} + \delta$:
+First let's bound from below the expectation by the given that $f$ and $g$ pass the test with probability at least $\frac{1}{2} + \delta$:
 
 \begin{equation*}
   \begin{split}
@@ -185,7 +185,7 @@ Using Cauchy-Schwartz to bound from above, we obtain:
     \le  &  \sum_{|I| \text{is odd} }{\alpha_{I}^{2}\beta_{C^{-1}(I)}^{2}  \left( 1 -2 \varepsilon \right)^{2|I|}} 
    \end{split}
  \end{equation*}
- Now let's denote by $\eta \in \left( 0,1 \right)$ a threshold parameter and separate the above summation into two part, when the first part sums up the elements in whcih $|I| \le \eta n$ and the seconed sums elements in which $|I| \ge \eta n$: 
+ Now let's denote by $\eta \in \left( 0,1 \right)$ a threshold parameter and separate the above summation into two part, when the first part sums up the elements in which $|I| \le \eta n$ and the second sums elements in which $|I| \ge \eta n$: 
  \begin{equation*}
    \begin{split}
      4\delta^{2} \le &  \sum_{|I| \text{is odd} , |I| \le \eta n  }{\alpha_{I}^{2}\beta_{C^{-1}(I)}^{2}  \left( 1 -2 \varepsilon \right)^{2|I|}} + \sum_{|I| \text{is odd} , |I| \ge \eta n  }{\alpha_{I}^{2}\beta_{C^{-1}(I)}^{2}  \left( 1 -2 \varepsilon \right)^{2|I|}} \\ 
@@ -200,7 +200,7 @@ Using Cauchy-Schwartz to bound from above, we obtain:
      3\delta^{2} \le  \sum_{|I| \text{is odd} , |I| \le \eta n  }{\alpha_{I}^{2}\beta_{C^{-1}(I)}^{2}}
    \end{split}
  \end{equation}
- As the sumamtion is over $I$ at odd size, the empty set is not conunted in the summation, namly there must be a non empty $I$ such that $|I| \le \frac{1}{2} \log_{1-2\varepsilon}\left( \delta^{3} \right)$ and $\alpha_{I}\beta_{C^{-1}\left( I \right)}$ have non zero weight. Thus we can define: 
+ As the summation is over $I$ at odd size, the empty set is not counted in the summation, namely there must be a non empty $I$ such that $|I| \le \frac{1}{2} \log_{1-2\varepsilon}\left( \delta^{3} \right)$ and $\alpha_{I}\beta_{C^{-1}\left( I \right)}$ have non zero weight. Thus we can define: 
  \begin{equation*}
    \begin{split}
  L_{f} & = \left\{ I : |I| \le \frac{1}{2} \log_{1-2\varepsilon}\left( \delta^{3} \right) \text{ and } |I| \text{ is odd } \right\} \\
@@ -222,7 +222,7 @@ For every $\{v, u\} \in E$. A probabilistic verifier takes a candidate $f\times 
 %And notice that on binary field the test is equivalence for picking a random equation from the liner system in which each equation contains exactly tree variables.  
 %vertex $v \in V$ define a variable $\xi_{v} \in \mathbb{F}_{2}^{|\Sigma|}$ and for any when we think on the functions $f,g : \pm^{|\Sigma|} \rightarrow \pm $ as the 'witness'/'input' given by the 'prover'/'user'
 %For any $x,y,\mu, z$ 
-\paragraph{Compeletnce. } Suppose that $\braket{G=(V,E), \{ c_{e} \} } \in (\mu,1)$-Label Cover then either there exists a labeling $A$ such that $c_{vu}(A(v)) = A_{u}$ for any $\{v,u\}\in E$ or that any labeling satisfies at most $\mu$ constraints. For compeletnce, let's assume the first case, and denote by $A$ the satisfying labeling. Consider the function $f \times V : \pm \times V \rightarrow \pm$ defined as follow: $f_{v} = \Chi{A(v)}$, So by the first section of part 2 we have that any of the test accepts with probability $1-\varepsilon$. That it, as we pick a test uniformly random, the existences of satisfying labeling for the label cover problem give a function that pass the test with probability $1-\varepsilon$. 
+\paragraph{Completeness. } Suppose that $\braket{G=(V,E), \{ c_{e} \} } \in (\mu,1)$-Label Cover then either there exists a labeling $A$ such that $c_{vu}(A(v)) = A_{u}$ for any $\{v,u\}\in E$ or that any labeling satisfies at most $\mu$ constraints. For completeness let's assume the first case, and denote by $A$ the satisfying labeling. Consider the function $f \times V : \pm \times V \rightarrow \pm$ defined as follow: $f_{v} = \Chi{A(v)}$, So by the first section of part 2 we have that any of the test accepts with probability $1-\varepsilon$. That it, as we pick a test uniformly random, the existences of satisfying labeling for the label cover problem give a function that pass the test with probability $1-\varepsilon$. 
 %\begin{equation*}
 %  \begin{split}
 %    & A(v) = \Chi{i} \\ 
@@ -230,9 +230,9 @@ For every $\{v, u\} \in E$. A probabilistic verifier takes a candidate $f\times 
 %    & j = P_{uv} i  
 %  \end{split}
 %\end{equation*}
-\paragraph{Soundness.} Now, assume the second case, namely that any labeling satisfies at most $\mu$ constraints. Also assume through contridiction that there exists an assigment that satisfies more than $\frac{1}{2}+\delta$ equations, so by the same arguments we use in section 2.b we have that the expection of the product $ \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y))} \ge 2 \delta$ when here, in addition for taking the expection over the $x,y,z,\mu$ we also suming on the edges $\{v,u\}\in E$. 
+\paragraph{Soundness.} Now, assume the second case, namely that any labeling satisfies at most $\mu$ constraints. Also assume through contradiction that there exists an assignment that satisfies more than $\frac{1}{2}+\delta$ equations, so by the same arguments we use in section 2.b we have that the expectation of the product $ \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y))} \ge 2 \delta$ when here, in addition for taking the expectation over the $x,y,z,\mu$ we also summing on the edges $\{v,u\}\in E$. 
 
-Now we are about to show that for at least $\delta$ of tests the product $ \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y)) | u,v }$ conditioned on the test is greater than $\delta$. For convinent let's use the notation $\expp{ \cdot } \ge \delta$ for refering to tests that the avereing in on their product is grater than $\delta$, and by the same manner let's use the notatin $\expp{\cdot } \le \delta$. So:   
+Now we are about to show that for at least $\delta$ of tests the product $ \expp{\mu f_{v}(\mu x )f_{u}(y)f_{v}(zx c^{-1}(y)) | u,v }$ conditioned on the test is greater than $\delta$. For convenient let's use the notation $\expp{ \cdot } \ge \delta$ for referring to tests that the averaging in on their product is grater than $\delta$, and by the same manner let's use the notation $\expp{\cdot } \le \delta$. So:   
 
   \begin{equation*}
     \begin{split}
@@ -243,7 +243,7 @@ Now we are about to show that for at least $\delta$ of tests the product $ \expp
             & \le \prb{ u,v \text{ s.t } \expp{\cdot }\ge \delta}  + \delta 
     \end{split}
   \end{equation*}
-  Thus for at least $\delta$ fraction of the tests equation \ref{equ:we} holds. Now consider the follow probablisitc assignment, for any vertex $v$ we choose a set $I \subset [n]$ at probability that eqauls to the projection of $f_{v}$ on $\Chi{I}$ square, namely $|\braket{f_{v},\Chi{I} }|^{2}$ then picking uniformly form the support of $I$ a label for $v$. Therfore for any tests assoicate with $u,v$ satisfies $\expp{\cdot} \ge \delta$ we have that the probability that $c_{v,u}A(v)=A(u)$ is at least:     
+  Thus for at least $\delta$ fraction of the tests equation \ref{equ:we} holds. Now consider the follow probabilistic assignment, for any vertex $v$ we choose a set $I \subset [n]$ at probability that equals to the projection of $f_{v}$ on $\Chi{I}$ square, namely $|\braket{f_{v},\Chi{I} }|^{2}$ then picking uniformly form the support of $I$ a label for $v$. Therefore for any tests associate with $u,v$ satisfies $\expp{\cdot} \ge \delta$ we have that the probability that $c_{v,u}A(v)=A(u)$ is at least:     
   \begin{equation*}
     \begin{split}
       & \sum_{|I| \text{is odd} , |I| \le \eta n  }{|\braket{f_{v},\Chi{I} }|^{2}|\braket{f_{ru},\Chi{c^{-1}(I)} }|^{2}  \cdot \prb{\text{ pick } i \in I, j\in C^{-1}(I) , c(i)=j }  } \\ 
@@ -270,9 +270,9 @@ Now we are about to show that for at least $\delta$ of tests the product $ \expp
 %The permeations on the edges defined as follow: Let $x$ be variable, and $\psi$ a closure in which $x$ is the first terminal. Sets the permeation of the edges as following, if $x$ appears in his positive form, namely $\psi = x \vee .. $ then set on the edge $\left\{ x, \psi \right\}$ the identity permutation otherwise set the flipping permutation. 
 %
 
-\paragraph{Compeletnce. } Suppose that $\varphi \in \text{E3-CNF-SAT}$ and let $x \in \mathbb{F}_{2}^{*}$ be the assignment that satisfies $\varphi$. That it, $\varphi\left( x \right) = \mathbf{True}$. Let $A$ be the labeling that sets for any vertex on the left the bit matched to that literal by $x$ follows by zeros padding. And for any right vertex the triple of the bits corresponding to literals involving in the associated closure. By the fact that $x$ satisfies $\varphi$ any closure in $\varphi$ is satisfied by $x$ and therefore each of the right vertices (closures) see on his local view a character of $\Sigma_{v}$. In addition by the definition of the construction any pair of connected vertices satisfies the edge restriction. 
+\paragraph{Completeness. } Suppose that $\varphi \in \text{E3-CNF-SAT}$ and let $x \in \mathbb{F}_{2}^{*}$ be the assignment that satisfies $\varphi$. That it, $\varphi\left( x \right) = \mathbf{True}$. Let $A$ be the labeling that sets for any vertex on the left the bit matched to that literal by $x$ follows by zeros padding. And for any right vertex the triple of the bits corresponding to literals involving in the associated closure. By the fact that $x$ satisfies $\varphi$ any closure in $\varphi$ is satisfied by $x$ and therefore each of the right vertices (closures) see on his local view a character of $\Sigma_{v}$. In addition by the definition of the construction any pair of connected vertices satisfies the edge restriction. 
 
-\paragraph{Soundness.} Suppose that $\varphi \in \text{E3-CNF-SAT}$ but not satisfiable and $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ is an instance obtained by the reduction above. Assume throawds contradiction that there exists labeling $A$ such that more than $\mu^{\prime}= 6\mu$ of the restriction $\{c_{e}\}$ are satisfied. 
+\paragraph{Soundness.} Suppose that $\varphi \in \text{E3-CNF-SAT}$ but not satisfiable and $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ is an instance obtained by the reduction above. Assume towards contradiction that there exists labeling $A$ such that more than $\mu^{\prime}= 6\mu$ of the restriction $\{c_{e}\}$ are satisfied. 
 
 Define by $\alpha_{i}$ to be the number of right vertices which satisfy exactly $i$ edges, that it, 
 \begin{equation*}

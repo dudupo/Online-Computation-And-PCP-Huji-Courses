@@ -60,7 +60,7 @@ Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_
       The same holds for $f_{i+1}$ and therefore we can say that with probability at least $1 - \Theta(\frac{md}{q})$ difference $g_{i}$ also agrees with a polynomial at degree at most $m\cdot d$, denote it by $\tilde{g}_{i}$. Thus the probability to fall on non zero point is greater than the probability to fall on point which both $g_{i},\tilde{g}_{i}$ agree on and it's zero. Combining it all together we get that with probability at most 
       \begin{equation*}
         \begin{split}
-          \prb{\text{reject}} \ge \  & \prb{\text{catch non zero point of } g_{i}} \\
+          \prb{\text{accept}} \le \  & 1 - \prb{\text{catch non zero point of } g_{i}} \\
           & \ \ =  1 - \prb{ \left\{ \text{ querying points from } \tilde{f}_{i}, \tilde{f}_{i+1}  \right\} \cap \left\{  \tilde{g}_i(x) \neq 0 \right\} } \\
           & \ \ =  1 - \left( 1 - \Theta\left(\frac{m\cdot d}{q} \right) \right)^{O(1)} \\ 
           & \ \ = \Theta\left(\frac{m\cdot d}{q} \right)

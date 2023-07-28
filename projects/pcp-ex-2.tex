@@ -41,6 +41,10 @@ Our verifier will ask for a proof, which is a list of $f_{0}, f_{1}, f_{2}, \dot
 \begin{algorithm}[H]
   Sample a line and a point and use them to test any of the polynomials $f_{i}$ by the line versus point test consuming $\Theta\left( m\cdot d \right)$ of randomness.  (Not necessary if we can assume the validity of each of the polynomials boxes) \\  
  %Check for any $i \sim [m]$ that $f_{i}$ is a codeword of the polynomial code in $m$ variables at degree at most $m\cdot d$. Use the standart interpolation test.        
+  \ \\
+Sample a line and a point, and use them to test any of the polynomials $f_i$ with the line versus point test, consuming $\Theta\left( m\cdot d \right)$ of randomness. If we can assume the validity of each of the polynomial boxes, this step is not necessary. \\
+\ \\
+%For any $i \sim [m]$, check that $f_i$ is a codeword of the polynomial code in $m$ variables at degree at most $m\cdot d$ using the standard interpolation test.
     $r_{1}, r_{2} .., r_{m} \leftarrow$ sample uniformly  $m$ points of $[d]$ \\
     \For{$ i \in [1,m]$} {
       Check if $f_{i+1}\left( r_{1} , .., r_{m-i-1}, x_{m-i} \right) - \sum_{y \in [d]}{f_{i} \left( r_{1}, r_{2}, .., r_{m-i-1},x_{m-i}, y \right)} $ is the zero polynomial by a random test that uses at most single query. (Here $x_{m-i} \in [d]$ is the only variable)  \\
@@ -51,9 +55,21 @@ Our verifier will ask for a proof, which is a list of $f_{0}, f_{1}, f_{2}, \dot
 \end{algorithm}
 
 \begin{proof} For convenient let's denote by $g_{i}\left( x_{m-i} \right)$ the difference that been queried in line number $4$. 
+
+
+Let us denote $g_{i}\left( x_{m-i} \right)$ as the difference that is queried in line 4 for convenience.
   \begin{enumerate}
     \item Completeness. Easy. If the assignment is honest then by definition $g_{i} = 0$ for any $i \in [m]$ and therefore for any $x_{m-i}$ we will have that $g_{i} \left( x_{m-i} \right) = 0$. So, in that case iteration will pass. And whole proof will be aspected  with probability $1$.  
+      
+
+Completeness is easy to understand. If the assignment is honest, then by definition $g_i = 0$ for any $i \in [m]$, and thus for any $x_{m-i}$, we will have that $g_i(x_{m-i}) = 0$. Therefore, in that case, the iteration will pass, and the whole proof will be expected with probability $1$.
+
+
     \item Soundness. Assume an adversary input in which $f_{m} = 0$ but $\sum_{\mathbf{x} \in [d]^{m}}{f_{0}(x)}\neq 0$. (The case which $f_{m} \neq 0$ is not interesting). Now, observers that this can happens only if either at least one the $f_{i}$ isn't setted according the definition above or at least of the $f_{i}$ is not pass the $m\cdot d$-degree polynomial test with probability grater than $1 - \frac{m\cdot d}{q}$. 
+
+Assume an adversary input in which $f_{m} = 0$ but $\sum_{\mathbf{x} \in [d]^{m}}{f_{0}(x)}\neq 0$. This can only occur if at least one of the $f_{i}$ is not set according to the definition or at least one of the $f_{i}$ fails the $m\cdot d$-degree polynomial test with a probability greater than $1 - \frac{m\cdot d}{q}$. (The case where $f_{m} \neq 0$ is not interesting).
+
+
 
       In the first case, there exists at least one $i$ such that $g_{i}\neq 0$:
 %      \begin{equation}

@@ -16,7 +16,13 @@
 
 We would like to verify that a given polynomial box $P$ satisfies that $ \sum_{x\in [d]^{m}}{ \varphi\left( x \right) f_{P}\left( x \right) } = 0 $  by accessing to at most $O\left(md\right)$ variables. For any function $\varphi : [d]^{m} \rightarrow \FF$. Denote by $\varphi^{\prime} : \FF^{m} \rightarrow \FF$ the extension of $\varphi$ into a polynomial over $\FF^{m}$. We saw in that lectures (and also in the previews assignment) that there is such a unique extension. 
 
+We would like to verify that a given polynomial box $P$ satisfies $\sum_{x\in [d]^{m}}{ \varphi\left( x \right) f_{P}\left( x \right) } = 0$ by accessing at most $O\left(md\right)$ variables. For any function $\varphi : [d]^{m} \rightarrow \FF$, denote by $\varphi^{\prime} : \FF^{m} \rightarrow \FF$ the unique extension of $\varphi$ into a polynomial over $\FF^{m}$, which we saw in the lectures and the previous assignment.
+
+
+
 We are going to split the section into two, first we are going to show how to verify that $\sum_{x \in [d]^{m}}{ f_{P}\left( x \right) } = 0 $. When the polynomial is a function into $\FF$. ( I think, but not sure, that in the lecture we saw only the case when $q = 2$ ). Then in the second part we will show how can one redact the coefficients case into the non-coefficients case. Finally, in the last part, we combine all together to show that the construction achieve the requirements. 
+
+We will divide this section into two parts. First, we will demonstrate how to verify that $\sum_{x \in [d]^{m}}{ f_{P}\left( x \right) } = 0$ when the polynomial is a function into $\FF$. (I believe the lecture only covered the case when $q = 2$). In the second part, we will explain how to convert the coefficients case to the non-coefficients case. Finally, we will combine all of this to show that the construction meets the requirements.
 
 %\paragraph{Comment.} The following soultion acsses to $\Theta\left( m^{2} \cdot d \right)$ variabels, that in contrast to the requirement that verfication will acsses to at most $\Theta\left( m\cdot d \right)$ variabels. 
 
@@ -29,6 +35,8 @@ We are going to split the section into two, first we are going to show how to ve
   \end{split}
 \end{equation*}
 Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_{m}$. Now, notice that if $f$ is an honest assignment then $f_{m}$ is just the summation of $f$ over the cube $[d]^{m}$. So it sufficient to show the existences of verifier that reject with heigh probability any string far from been encoded by the previews structure.
+
+Our verifier will ask for a proof, which is a list of $f_{0}, f_{1}, f_{2}, \dots, f_{m}$. Now, if $f$ is an honest assignment, then $f_{m}$ is simply the sum of $f$ over the cube $[d]^{m}$. Thus, it is sufficient to show the existence of a verifier that rejects with high probability any string that is far from being encoded by the previous structure.
 
 \begin{algorithm}[H]
   Sample a line and a point and use them to test any of the polynomials $f_{i}$ by the line versus point test consuming $\Theta\left( m\cdot d \right)$ of randomness.  (Not necessary if we can assume the validity of each of the polynomials boxes) \\  

@@ -31,7 +31,7 @@ We are going to split the section into three, first we are going to show how to 
 Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_{m}$. Now, notice that if $f$ is an honest assignment then $f_{m}$ is just the summation of $f$ over the cube $[d]^{m}$. So it sufficient to show the existences of verifier that reject with heigh probability any string far from been encoded by the previews structure.
 
 \begin{algorithm}[H]
-  Sample a line and a point and use them to test any of the polynomails $f_{i}$ by the line vrsus point test consuming $\Theta\left( m\cdot d \right)$ of randomness. \\  
+  Sample a line and a point and use them to test any of the polynomails $f_{i}$ by the line vrsus point test consuming $\Theta\left( m\cdot d \right)$ of randomness.  (Not neccsery if we can assume the validity of each of the polynomials boxes) \\  
  %Check for any $i \sim [m]$ that $f_{i}$ is a codeword of the polynomial code in $m$ variables at degree at most $m\cdot d$. Use the standart interpolation test.        
     $r_{1}, r_{2} .., r_{m} \leftarrow$ sample uniformly  $m$ points of $[d]$ \\
     \For{$ i \in [1,m]$} {

@@ -61,7 +61,7 @@ Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_
       \begin{equation*}
         \begin{split}
           \prb{\text{accept}} \le \  & \prb{\text{checks fall only on zeros of } g_{i}} \\
-          & \ \ = 1 - \prb{ \tilde{g}_{i}(x) \neq 0 } \\ 
+          & \ \ = 1 - \prb{ g_{i}(x) \neq 0 } \\ 
           & \ \ \le  1 - \prb{ \left\{ \text{ querying points from } \tilde{f}_{i}, \tilde{f}_{i+1}  \right\} \cap \left\{  \tilde{g}_i(x) \neq 0 \right\} } \\
           & \ \ =  1 - \left( 1 - \Theta\left(\frac{m\cdot d}{q} \right) \right)^{O(1)} \\ 
           & \ \ = \Theta\left(\frac{m\cdot d}{q} \right)

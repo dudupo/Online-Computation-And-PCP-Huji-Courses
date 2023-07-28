@@ -57,10 +57,10 @@ Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_
 %      \end{equation}
       Now the probability to reject the proof is greater than the probability to catch a nonzero point when probing $g_{i}$. As we are assuming that all the $f_{i}$ pass with probality grater than $1 - \frac{m\cdot d}{q}$ the polynomails test (the second case, in which they aren't, is treated next) it followes that there exists a polynomial $\tilde{f}_{i}$ at degree at most $md$ that close to $f_{i}$ in the sense that we can assume that with probability $1 - \Theta(\frac{md}{q})$ we query only points from $\tilde{f}_{i}$. 
 
-      The same holds for $f_{i+1}$ and therefore we can say that with probability at least $1 - \Theta(\frac{md}{q})$  differnece $g_{i}$ is also with a polynomail at degree at most $m\cdot d$ and therefore the probability to fall on non zero point is at least $1 - \frac{m\cdot d}{q} \Rightarrow $ with probabiliy at most 
+      The same holds for $f_{i+1}$ and therefore we can say that with probability at least $1 - \Theta(\frac{md}{q})$  differnece $g_{i}$ also agrees with a polynomail at degree at most $m\cdot d$, denote it by $\tilde{g}_{i}$. Thus the probability to fall on non zero point is greater than the probability to fall on point which both $g_{i},\tilde{g}_{i}$ agree on and it's zero. Combining it all togther we get that with probabiliy at most 
       \begin{equation*}
         \begin{split}
-          & \prb{\text{catch non zero point of } g} \\
+          & \prb{\text{catch non zero point of } g_{i}} \\
           & \ \ =  1 - \prb{ \left\{ \text{ quering points from } \tilde{f}_{i}, \tilde{f}_{i+1}  \right\} \cap \left\{  g_i(x) \neq 0 \right\} } \\
           & \ \ =  1 - \left( 1 - \Theta\left(\frac{m\cdot d}{q} \right) \right)^{2} \\ 
           & \ \ = \Theta\left(\frac{m\cdot d}{q} \right)

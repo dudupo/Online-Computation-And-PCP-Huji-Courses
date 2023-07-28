@@ -79,7 +79,7 @@ Our verfier will take as proof:
   Check that $\varphi$ is a polynomial at degree at most $d\cdot m$. \\
   Check that the degree of $\xi$ is at most $2md$ by quering the $\xi_{P}$.\\ 
   Check that the polynomial $f\cdot \varphi^{\prime} - \xi$ is the zero polynomial by quering the boxes $f_{P},\varphi_{P},\xi_{P}$. \\
-  Using the sumcheck verifier, accept if the summation of $\xi$ over the cube $[d]^{m}$ is zero.  
+  Using the sumcheck verifier on $\xi, \xi_{1},\xi_{2} .. \xi_{m}$, accept if the summation of $\xi$ over the cube $[d]^{m}$ is zero.  
 \end{algorithm}
 
 \begin{proof} For convenient let's denote by $g_{i}\left( x_{m-i} \right)$ the difference that been queried in line number $3$. 

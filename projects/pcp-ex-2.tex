@@ -228,7 +228,7 @@ Using Cauchy-Schwartz to bound from above, we obtain:
 %\end{proof}
 %
 \subsection{Ex 3. The label cover problem.} 
-\paragraph{The reduction.} Let $\braket{G=(V,E), \{ c_{e} \} }$ be a given instance of the Label cover problem. For each edge $e = \{v,u\} \in E$ define the test $T_{\varepsilon}\left( c_{e} \right)$ as defined above , Thus in total we define a $|E|$ tests, denote them by $T$. Consider the language $L$ such that a test collection $T$ is in $L$ if there exists function $f \times V$ such that the probability:  
+\paragraph{The reduction.} Let $\braket{G=(V,E), \{ c_{e} \} }$ be a given instance of the Label cover problem. For each edge $e = \{v,u\} \in E$ define the test $T_{\varepsilon}\left( c_{e} \right)$ as defined in the previews section, Thus in total we define a $|E|$ tests, denote them by $T$. Consider the language $L$ such that a test collection $T$ is in $L$ if there exists function $f \times V$ such that the probability:  
 \begin{equation*}
   \begin{split}
     \prb{T_{\varepsilon}(c_{ \{ v,u\} }) \text{ accepts on } f_{v},f_{u} } \ge \frac{1}{2} + \delta
@@ -295,7 +295,7 @@ Now we are about to show that for at least $\delta$ of tests the product $ \expp
 Define by $\alpha_{i}$ to be the number of right vertices which satisfy exactly $i$ edges, that it, 
 \begin{equation*}
   \begin{split}
-    \alpha_{i} = \left| \left\{ | \left\{ c_{e}A\left( v \right) = A\left( u \right) : u \in L \right\} | = i : v \in R   \right\} \right| 
+    \alpha_{i} = \left| \left\{  v \in R : | \left\{ u \in L : c_{e}A\left( v \right) = A\left( u \right)   \right\} | = i    \right\} \right| 
   \end{split}
 \end{equation*}
 

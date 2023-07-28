@@ -294,7 +294,7 @@ For example, assume that $v$ associate with $x\vee y \vee z $ and let $u$ be the
 
 \paragraph{Completeness. } Suppose that $\varphi \in \text{E3-CNF-SAT}$ and let $x \in \mathbb{F}_{2}^{*}$ be the assignment that satisfies $\varphi$. That it, $\varphi\left( x \right) = \mathbf{True}$. Let $A$ be the labeling that sets for any vertex on the left the bit matched to that literal by $x$ follows by zeros padding. And for any right vertex the triple of the bits corresponding to literals involving in the associated closure. By the fact that $x$ satisfies $\varphi$ any closure in $\varphi$ is satisfied by $x$ and therefore each of the right vertices (closures) see on his local view a character of $\Sigma_{v}$. In addition by the definition of the construction any pair of connected vertices satisfies the edge restriction. 
 
-\paragraph{Soundness.} Suppose that $\varphi \in \text{E3-CNF-SAT}$ but not satisfiable and $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ is an instance obtained by the reduction above. Assume towards contradiction that there exists labeling $A$ such that more than $\mu^{\prime}= 6\mu$ of the restriction $\{c_{e}\}$ are satisfied. 
+\paragraph{Soundness.} Suppose that $\varphi \in \text{E3-CNF-SAT}$ but not satisfiable and $\braket{G, \{ \Sigma_{v} : v \in V \}, \{c_{e} : e \in E \}} $ is an instance obtained by the reduction above. Assume towards contradiction that there exists labeling $A$ such that more than $\mu^{\prime}= \frac{\mu +2}{3}$ of the restriction $\{c_{e}\}$ are satisfied. 
 
 Define by $\alpha_{i}$ to be the number of right vertices which satisfy exactly $i$ edges, that it, 
 \begin{equation*}

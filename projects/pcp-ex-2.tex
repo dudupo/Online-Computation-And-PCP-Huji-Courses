@@ -44,7 +44,7 @@ Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_
 
 \begin{proof} For convenient let's denote by $g_{i}\left( x_{m-i} \right)$ the difference that been queried in line number $4$. 
   \begin{enumerate}
-    \item Correctness. Easy. If the assignment is honest then by definition $g_{i} = 0$ for any $i \in [m]$ and therefore for any $x_{m-i}$ we will have that $g_{i} \left( x_{m-i} \right) = 0$. So, in that case iteration will pass. And whole proof will be aspected  with probability $1$.  
+    \item Compeletnce. Easy. If the assignment is honest then by definition $g_{i} = 0$ for any $i \in [m]$ and therefore for any $x_{m-i}$ we will have that $g_{i} \left( x_{m-i} \right) = 0$. So, in that case iteration will pass. And whole proof will be aspected  with probability $1$.  
     \item Soundness. Assume an adversiray input in which $f_{m} = 0$ but $\sum_{\mathbf{x} \in [d]^{m}}{f_{0}(x)}\neq 0$. (The case which $f_{m} \neq 0$ is not intersting). Now, observers that this can happens only if either at least one the $f_{i}$ dosn't setted according the definetion above or at least of the $f_{i}$ is not a polynomail at degree at most $m\cdot d $. 
 
       In the first case, there exsists at least one $i$ such that $g_{i}\neq 0$:
@@ -84,7 +84,7 @@ Our verfier will take as proof:
 
 \begin{proof} For convenient let's denote by $g_{i}\left( x_{m-i} \right)$ the difference that been queried in line number $3$. 
   \begin{enumerate}
-    \item Correctness.
+    \item Compeletnce. 
     \item Soundness.  
   \end{enumerate}
 \end{proof}

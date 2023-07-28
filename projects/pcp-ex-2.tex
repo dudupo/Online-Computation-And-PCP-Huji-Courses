@@ -53,7 +53,7 @@ Sample a line and a point, and use them to test any of the polynomials $f_i$ wit
     Accept if $f_{m} = 0 $  
 \end{algorithm}
 
-\begin{proof} Let us denote $g_{i}\left( x_{m-i} \right)$ as the difference that is queried in line 4 for convenience.
+\begin{proof} Let us denote $g_{i}\left( x_{m-i} \right)$ as the difference that is queried in line 5 for convenience.
   \begin{enumerate}
     \item Completeness. Easy. % If the assignment is honest then by definition $g_{i} = 0$ for any $i \in [m]$ and therefore for any $x_{m-i}$ we will have that $g_{i} \left( x_{m-i} \right) = 0$. So, in that case iteration will pass. And whole proof will be aspected  with probability $1$.  
 If the assignment is honest, then by definition $g_i = 0$ for any $i \in [m]$. Consequently, for any $x_{m-i}$, we have that $g_i(x_{m-i}) = 0$. Therefore, in that case, all the iterations will pass, and the whole proof will be accepted with probability $1$.

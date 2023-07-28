@@ -57,7 +57,7 @@ Our verifier will ask for a proof which is a list of $f_{0}, f_{1}, f_{2} .., f_
 %      \end{equation}
       Now the probability to reject the proof is greater than the probability to catch a nonzero point when probing $g_{i}$. As we are assuming that all the $f_{i}$ are polynomails (the second case, in which they aren't, is treated next) the differnece is also a polynomail at degree at most $m\cdot d$ and therefore the probability to fall on non zero point is at least $1 - \frac{m\cdot d}{q} \Rightarrow $  with probabiliy at most $\frac{m\cdot d}{q}$ the test accept. 
 
-      We use similar arguments to treat the case in which one of the functions $f_{i}$ is not a polynomail. The probability for rejecting is grater than the probabiliy that $f_{i}$ pass a low degree polynomail test. 
+      We use similar arguments to treat the case in which one of the functions $f_{i}$ is not a polynomail (Or close enough to polynomial, such that it can use as a noisy proof). As it given in the question that the validily of $f_{P}$ can be assumed, we guess that intent was not to dig down into a multivariable polynomails verfication. Thus we just mention without a proof that probability for rejecting is grater than the probabiliy that $f_{i}$ fail in a low degree polynomail test and that also happens with probability at least $1 - \frac{m\cdot d}{q}$. 
   \end{enumerate}
 \end{proof}
 
@@ -87,7 +87,7 @@ Our verfier will take as proof:
 
   \begin{enumerate}
     \item Compeletnce. The key point here is the fact that the extansion $\xi_{P} = \varphi_{P} \cdot f_{P}$ is uniqe and agrees with $\varphi\cdot f$ on all pointes in the cube $[d]^{m}$. If the proof is honest then all validity of the input check at lines $1-4$ are pass with probability $1$. Then we get by the compeletnce of the sumcheck verification that if indeed $\sum_{x \in [d]^{m}}{ \xi(x) }$ $ = \sum_{x \in [d]^{m}}{ \varphi(x)f_{P}(x) } = 0$ then line numer $5$ also passes with probability $1$. 
-    \item Soundness.  
+    \item Soundness. If there is a fault in 
   \end{enumerate}
 \end{proof}
 
